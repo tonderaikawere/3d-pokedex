@@ -457,22 +457,21 @@ export const PokedexInterface: React.FC<PokedexInterfaceProps> = ({
         {/* RIGHT WING - CRT Screen, Keypad, Action Buttons, Mic */}
         <div className="pokedex-right-wing">
           {/* Header controls for searching and filtering */}
-          <div className="flex justify-between items-center gap-2 mb-2 bg-[#2c0408] p-2 rounded-lg border border-[#3d0005]">
-            <div className="flex items-center bg-black/50 border border-slate-700/60 rounded px-2 py-1 flex-1">
-              <Search className="text-cyan-400 mr-1.5 shrink-0" size={12} />
+          <div className="right-wing-header">
+            <div className="search-bar-container">
+              <Search className="glow-text-cyan" size={12} style={{ color: 'var(--neon-cyan)', marginRight: '6px' }} />
               <input 
                 type="text" 
                 placeholder="Search name/ID..." 
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="bg-transparent border-none text-white text-[9px] outline-none w-full font-mono uppercase"
               />
             </div>
             
             <select 
               value={selectedType}
               onChange={(e) => setSelectedType(e.target.value)}
-              className="bg-black text-white text-[9px] border border-slate-700/60 rounded px-1.5 py-1 font-mono uppercase cursor-pointer"
+              className="type-select-dropdown"
             >
               {types.map(t => (
                 <option key={t} value={t}>{t}</option>
@@ -481,7 +480,8 @@ export const PokedexInterface: React.FC<PokedexInterfaceProps> = ({
 
             <button 
               onClick={() => setIsGridOpen(!isGridOpen)}
-              className="bg-black hover:bg-slate-900 border border-cyan-500/30 text-cyan-400 text-[9px] px-2 py-1 font-mono rounded"
+              className="query-submit-btn"
+              style={{ fontSize: '9px', padding: '6px 12px' }}
             >
               Index
             </button>
@@ -489,12 +489,17 @@ export const PokedexInterface: React.FC<PokedexInterfaceProps> = ({
 
           {/* Grid Popup Overlay */}
           {isGridOpen && (
-            <div className="absolute top-[50px] left-4 right-4 bottom-4 bg-slate-950/95 border-2 border-cyan-500 rounded-xl p-3 shadow-[0_0_20px_rgba(6,182,212,0.4)] z-50 flex flex-col">
-              <div className="flex justify-between items-center border-b border-cyan-500/20 pb-2 mb-2">
-                <span className="font-mono text-[10px] text-cyan-400 font-bold uppercase tracking-wider">Pokémon Database</span>
-                <button onClick={() => setIsGridOpen(false)} className="text-red-500 font-bold hover:text-red-400 text-xs px-1">X</button>
+            <div className="pokedex-database-modal">
+              <div className="database-modal-header">
+                <span style={{ color: 'var(--neon-cyan)', fontFamily: 'var(--font-pixel)', fontSize: '8px' }}>Pokémon Database</span>
+                <button 
+                  onClick={() => setIsGridOpen(false)} 
+                  style={{ color: '#ff2222', background: 'none', border: 'none', cursor: 'pointer', fontWeight: 'bold', fontFamily: 'var(--font-pixel)', fontSize: '9px' }}
+                >
+                  X
+                </button>
               </div>
-              <div className="grid grid-cols-4 gap-1.5 overflow-y-auto flex-1 pr-1">
+              <div className="database-modal-grid">
                 {pokemonList.map(p => (
                   <button 
                     key={p.id}
@@ -502,14 +507,10 @@ export const PokedexInterface: React.FC<PokedexInterfaceProps> = ({
                       onSelectPokemon(p.id);
                       setIsGridOpen(false);
                     }}
-                    className={`flex flex-col items-center justify-center p-1 border rounded transition-all ${
-                      selectedPokemon?.id === p.id 
-                        ? 'bg-red-500/20 border-red-500 text-red-400' 
-                        : 'bg-slate-900/60 border-cyan-500/10 hover:border-cyan-500 text-slate-300'
-                    }`}
+                    className={`database-grid-item ${selectedPokemon?.id === p.id ? 'active' : ''}`}
                   >
-                    <img src={p.imageUrl} alt={p.name} className="w-6 h-6 object-contain" />
-                    <span className="font-mono text-[7px] truncate max-w-full uppercase">{p.name}</span>
+                    <img src={p.imageUrl} alt={p.name} />
+                    <span>{p.name}</span>
                   </button>
                 ))}
               </div>
@@ -518,18 +519,18 @@ export const PokedexInterface: React.FC<PokedexInterfaceProps> = ({
 
           {/* Green CRT Info Display */}
           <div className="right-wing-screen-bezel">
-            <div className="right-wing-screen-inner scrollbar-thin">
+            <div className="right-wing-screen-inner">
               {gameMode === 'scan' && selectedPokemon && (
                 <>
-                  <p className="font-bold">NO. {String(selectedPokemon.id).padStart(3, '0')} {selectedPokemon.name}</p>
-                  <p className="text-[7px]">CLASS: {selectedPokemon.category}</p>
-                  <p className="text-[7px]">HT: {selectedPokemon.height}M  WT: {selectedPokemon.weight}KG</p>
-                  <p className="text-[7px] border-b border-green-500/30 pb-1 mb-1">
+                  <p style={{ fontWeight: 'bold' }}>NO. {String(selectedPokemon.id).padStart(3, '0')} {selectedPokemon.name}</p>
+                  <p style={{ fontSize: '7px', margin: '4px 0' }}>CLASS: {selectedPokemon.category}</p>
+                  <p style={{ fontSize: '7px', margin: '4px 0' }}>HT: {selectedPokemon.height}M  WT: {selectedPokemon.weight}KG</p>
+                  <p style={{ fontSize: '7px', borderBottom: '1px solid rgba(77, 250, 77, 0.3)', paddingBottom: '4px', marginBottom: '4px' }}>
                     TYPE: {selectedPokemon.types.join('/').toUpperCase()}
                   </p>
                   
                   {/* Embedded small stats table */}
-                  <div className="text-[6.5px] grid grid-cols-3 gap-x-1 gap-y-0.5 border-b border-green-500/30 pb-1 mb-1 font-mono">
+                  <div className="pokemon-stats-grid">
                     <span>HP:{selectedPokemon.stats.hp}</span>
                     <span>ATK:{selectedPokemon.stats.attack}</span>
                     <span>DEF:{selectedPokemon.stats.defense}</span>
@@ -539,19 +540,19 @@ export const PokedexInterface: React.FC<PokedexInterfaceProps> = ({
                   </div>
 
                   {/* Dexter Speech Log */}
-                  <div className="flex flex-col gap-1.5 mt-2">
-                    <div className="border-t border-dashed border-green-500/20 pt-1.5 flex justify-between items-center text-[7px]">
+                  <div className="voice-chat-log-container">
+                    <div className="voice-chat-header-row" style={{ fontSize: '7px' }}>
                       <span>DEXTER VOICE CHAT LOG</span>
-                      <div className="flex gap-0.5 items-end h-3">
+                      <div style={{ display: 'flex', gap: '2px', alignItems: 'flex-end', height: '12px' }}>
                         {visualizerHeights.map((h, i) => (
                           <div key={i} className="audio-visualizer-bar" style={{ height: `${Math.max(2, h / 3)}px` }} />
                         ))}
                       </div>
                     </div>
                     
-                    <div className="flex flex-col gap-1 text-[7px] max-h-16 overflow-y-auto pr-1 select-text">
+                    <div className="voice-chat-history" style={{ fontSize: '7px' }}>
                       {chatHistory.slice(-5).map((msg, idx) => (
-                        <div key={idx} className={msg.sender === 'user' ? 'text-green-300' : 'text-green-400 font-semibold'}>
+                        <div key={idx} className={msg.sender === 'user' ? 'text-green-300' : 'text-green-400 font-semibold'} style={{ margin: '2px 0' }}>
                           &gt; {msg.sender === 'user' ? 'TRAINER' : 'DEXTER'}: {msg.text}
                         </div>
                       ))}
@@ -562,15 +563,15 @@ export const PokedexInterface: React.FC<PokedexInterfaceProps> = ({
               )}
 
               {gameMode === 'guess' && (
-                <div className="flex flex-col gap-1 font-mono text-[7px]">
-                  <p className="font-bold border-b border-green-500/30 pb-1">WHO'S THAT POKEMON?</p>
-                  <p>GUESS SCORE: {guessScore}</p>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                  <p style={{ fontWeight: 'bold', borderBottom: '1px solid rgba(77, 250, 77, 0.3)', paddingBottom: '4px' }}>WHO'S THAT POKEMON?</p>
+                  <p style={{ fontSize: '7px' }}>GUESS SCORE: {guessScore}</p>
                   {guessFeedback ? (
-                    <p className="text-green-300 font-bold mt-1">&gt; {guessFeedback}</p>
+                    <p style={{ color: '#4dfa4d', fontWeight: 'bold', fontSize: '7px' }}>&gt; {guessFeedback}</p>
                   ) : (
-                    <p className="animate-pulse mt-1">&gt; ANALYZING SILHOUETTE DISPLAY...</p>
+                    <p className="animate-pulse" style={{ fontSize: '7px' }}>&gt; ANALYZING SILHOUETTE DISPLAY...</p>
                   )}
-                  <div className="border-t border-green-500/30 pt-1.5 mt-2 max-h-16 overflow-y-auto pr-1">
+                  <div className="voice-chat-history" style={{ borderTop: '1px solid rgba(77, 250, 77, 0.3)', paddingTop: '6px', marginTop: '6px', fontSize: '7px' }}>
                     {chatHistory.slice(-3).map((msg, idx) => (
                       <div key={idx}>&gt; {msg.sender === 'user' ? 'TRAINER' : 'DEXTER'}: {msg.text}</div>
                     ))}
@@ -580,22 +581,22 @@ export const PokedexInterface: React.FC<PokedexInterfaceProps> = ({
               )}
 
               {gameMode === 'catch' && wildPokemon && (
-                <div className="flex flex-col gap-0.5 font-mono text-[7px]">
-                  <p className="font-bold border-b border-green-500/30 pb-1">WILD RADAR SIGNAL</p>
-                  <p>TARGET: {wildPokemon.name.toUpperCase()}</p>
-                  <p className="text-[6.5px]">STATUS: {catchStatus.toUpperCase()}</p>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+                  <p style={{ fontWeight: 'bold', borderBottom: '1px solid rgba(77, 250, 77, 0.3)', paddingBottom: '4px' }}>WILD RADAR SIGNAL</p>
+                  <p style={{ fontSize: '7px' }}>TARGET: {wildPokemon.name.toUpperCase()}</p>
+                  <p style={{ fontSize: '7px' }}>STATUS: {catchStatus.toUpperCase()}</p>
                   
-                  {catchStatus === 'shaking' && <p className="text-yellow-300 animate-bounce">&gt; POKEBALL SHAKING... ({shakeCount})</p>}
-                  {catchStatus === 'caught' && <p className="text-green-300 font-bold">&gt; CAPTURED SUCCESS! SQUAD SIZE: {capturedSquad.length}</p>}
-                  {catchStatus === 'escaped' && <p className="text-red-400 font-bold">&gt; OH NO! Target broke free!</p>}
+                  {catchStatus === 'shaking' && <p style={{ color: '#ffd000', fontSize: '7px' }}>&gt; POKEBALL SHAKING... ({shakeCount})</p>}
+                  {catchStatus === 'caught' && <p style={{ color: '#4dfa4d', fontWeight: 'bold', fontSize: '7px' }}>&gt; CAPTURED SUCCESS! SQUAD SIZE: {capturedSquad.length}</p>}
+                  {catchStatus === 'escaped' && <p style={{ color: '#ff2222', fontWeight: 'bold', fontSize: '7px' }}>&gt; OH NO! Target broke free!</p>}
                   
-                  <div className="border-t border-green-500/30 pt-1 mt-1 flex flex-col gap-0.5 max-h-12 overflow-y-auto">
+                  <div className="voice-chat-history" style={{ borderTop: '1px solid rgba(77, 250, 77, 0.3)', paddingTop: '4px', marginTop: '4px', fontSize: '6.5px' }}>
                     {capturedSquad.length > 0 ? (
                       capturedSquad.map((c, i) => (
-                        <div key={i} className="text-[6.5px] text-green-300">&gt; SQUAD #{i+1}: {c.name.toUpperCase()}</div>
+                        <div key={i} style={{ color: '#4dfa4d' }}>&gt; SQUAD #{i+1}: {c.name.toUpperCase()}</div>
                       ))
                     ) : (
-                      <div className="text-[6.5px] text-green-500/40">NO CAPTURED SQUAD LOGS</div>
+                      <div style={{ opacity: 0.4 }}>NO CAPTURED SQUAD LOGS</div>
                     )}
                   </div>
                 </div>
@@ -653,24 +654,24 @@ export const PokedexInterface: React.FC<PokedexInterfaceProps> = ({
               </button>
 
               {/* Text Query / Manual Input Console */}
-              <form onSubmit={handleTextSubmit} className="flex gap-1.5 w-full">
+              <form onSubmit={handleTextSubmit} className="voice-input-form">
                 <input 
                   type="text" 
                   placeholder={gameMode === 'guess' ? "Type guess..." : "Ask Dexter: 'Who is this?'"}
                   value={textInput}
                   onChange={(e) => setTextInput(e.target.value)}
-                  className="flex-1 bg-black text-green-400 font-mono text-[9px] border-2 border-[#3d0005] rounded px-2 py-1.5 focus:outline-none focus:border-red-500 uppercase placeholder:text-green-700/60"
+                  className="query-input-field"
                 />
                 <button 
                   type="submit" 
-                  className="bg-[#2c0408] border border-[#3d0005] hover:bg-[#3d0005] text-white font-mono text-[8px] px-3.5 rounded active:scale-95"
+                  className="query-submit-btn"
                 >
                   Send
                 </button>
               </form>
 
               {/* Mode Selectors */}
-              <div className="flex gap-1.5 w-full">
+              <div className="mode-buttons-row">
                 <button 
                   onClick={() => setGameMode('scan')}
                   className={`pokedex-btn-mode ${gameMode === 'scan' ? 'active' : ''}`}
@@ -686,7 +687,8 @@ export const PokedexInterface: React.FC<PokedexInterfaceProps> = ({
                 {gameMode === 'guess' && hasAnsweredGuess && (
                   <button 
                     onClick={startNewGuessRound} 
-                    className="pokedex-btn-mode bg-yellow-600/40"
+                    className="pokedex-btn-mode"
+                    style={{ background: 'linear-gradient(to bottom, #ffd000, #b39200)', color: '#000' }}
                   >
                     NEXT
                   </button>
@@ -700,7 +702,8 @@ export const PokedexInterface: React.FC<PokedexInterfaceProps> = ({
                 {gameMode === 'catch' && catchStatus === 'idle' && (
                   <button 
                     onClick={throwBall} 
-                    className="pokedex-btn-mode bg-red-600/40"
+                    className="pokedex-btn-mode"
+                    style={{ background: 'linear-gradient(to bottom, #ff3355, #99001a)' }}
                   >
                     THROW
                   </button>
@@ -708,7 +711,8 @@ export const PokedexInterface: React.FC<PokedexInterfaceProps> = ({
                 {gameMode === 'catch' && (catchStatus === 'caught' || catchStatus === 'escaped') && (
                   <button 
                     onClick={spawnWildPokemon} 
-                    className="pokedex-btn-mode bg-blue-600/40"
+                    className="pokedex-btn-mode"
+                    style={{ background: 'linear-gradient(to bottom, #4da6ff, #0047b3)' }}
                   >
                     NEXT
                   </button>

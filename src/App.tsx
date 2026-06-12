@@ -101,7 +101,7 @@ export const App: React.FC = () => {
 
   if (loading) {
     return (
-      <div className="w-screen h-screen bg-[#08080f] flex flex-col items-center justify-center font-sans relative overflow-hidden select-none">
+      <div className="pokedex-loading-screen">
         <div className="crt-overlay" />
         <div className="cyber-grid-bg" />
 
@@ -111,20 +111,20 @@ export const App: React.FC = () => {
             <div className="pokeball-half pokeball-top" />
             <div className="pokeball-band" />
             <div className="pokeball-button">
-              <div className="pokeball-button-inner animate-pulse" />
+              <div className="pokeball-button-inner" />
             </div>
             <div className="pokeball-half pokeball-bottom" />
           </div>
           {openingAnimation && <div className="pokeball-burst-glow" />}
         </div>
 
-        <div className={`transition-all duration-500 flex flex-col items-center mt-8 ${openingAnimation ? 'opacity-0 scale-95' : 'opacity-100'}`}>
-          <h2 className="font-cyber font-black tracking-widest text-red-500 glow-text-red text-lg uppercase">
+        <div className={`loading-branding ${openingAnimation ? 'hidden-fade' : ''}`}>
+          <h2 className="loading-title">
             DEXTER POKEDEX SYSTEM
           </h2>
           <button
             onClick={handleInitialize}
-            className="cyber-btn cyber-btn-cyan text-xs font-cyber mt-5 py-2.5 px-8 shadow-[0_0_15px_rgba(0,243,255,0.35)] animate-pulse"
+            className="pokedex-btn-initialize"
           >
             INITIALIZE DEXTER
           </button>
@@ -134,7 +134,7 @@ export const App: React.FC = () => {
   }
 
   return (
-    <div className="w-screen h-screen bg-[#0d0f14] overflow-hidden relative select-none flex items-center justify-center">
+    <div className="pokedex-app-container">
       <PokedexInterface 
         pokemonList={pokemonData}
         selectedPokemon={selectedPokemon}
