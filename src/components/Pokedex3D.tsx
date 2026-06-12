@@ -205,6 +205,25 @@ interface CardProps {
   onClick: () => void;
 }
 
+// Scanning horizontal laser sweep line
+const ScanningBeam: React.FC<{ width: number; height: number }> = ({ width, height }) => {
+  const beamRef = useRef<THREE.Mesh>(null);
+  
+  useFrame(({ clock }) => {
+    if (beamRef.current) {
+      const y = Math.sin(clock.getElapsedTime() * 2.2) * (height / 2);
+      beamRef.current.position.y = y;
+    }
+  });
+
+  return (
+    <mesh ref={beamRef} position={[0, 0, 0.03]}>
+      <planeGeometry args={[width * 1.15, 0.06]} />
+      <meshBasicMaterial color="#00f3ff" transparent={true} opacity={0.8} side={THREE.DoubleSide} />
+    </mesh>
+  );
+};
+
 const PokemonCard: React.FC<CardProps> = ({
   pokemon,
   isSelected,
@@ -242,7 +261,7 @@ const PokemonCard: React.FC<CardProps> = ({
     );
   }, [pokemon.imageUrl, textureLoader]);
 
-  // Card dimensions
+  // Card and Cutout dimensions
   const width = 2.4;
   const height = 3.3;
 
@@ -254,22 +273,21 @@ const PokemonCard: React.FC<CardProps> = ({
     const elapsed = clock.getElapsedTime();
 
     if (isSelected) {
-      // Selected pokemon hovers above the rotating Pokeball
-      targetPos.set(0, 0.5 + Math.sin(elapsed * 1.5) * 0.15, 0);
-      targetRot.set(0.1, elapsed * 0.4, 0);
+      // Selected pokemon hovers above the rotating Pokeball on pedestal
+      targetPos.set(0, 0.6 + Math.sin(elapsed * 1.5) * 0.12, 0);
+      // Slow rotation on Y axis for volumetric inspection
+      targetRot.set(0, elapsed * 0.45, 0);
     } else {
       // Spaced out in a curved holographic deck behind/below the scanner platform
       const radius = 9;
-      // Spacing angle: offsetIndex goes from -5 to +5
-      const angle = offsetIndex * (Math.PI / 10); // Spans ~100 degrees
+      const angle = offsetIndex * (Math.PI / 10);
       
       targetPos.set(
         Math.sin(angle) * radius,
-        -1.3 + Math.sin(elapsed * 0.8 + offsetIndex) * 0.05, // Bobbing
-        -Math.cos(angle) * radius + 5 // Form a curved stage facing camera
+        -1.3 + Math.sin(elapsed * 0.8 + offsetIndex) * 0.05,
+        -Math.cos(angle) * radius + 5
       );
       
-      // Face the camera
       targetRot.set(0, angle, 0);
     }
 
@@ -282,11 +300,76 @@ const PokemonCard: React.FC<CardProps> = ({
     curQ.slerp(targetQ, 0.1);
     meshRef.current.quaternion.copy(curQ);
 
-    // Scale card up if selected
-    const targetScale = isSelected ? 1.3 : 0.85;
+    // Scale card/cutout up if selected
+    const targetScale = isSelected ? 1.4 : 0.85;
     meshRef.current.scale.lerp(new THREE.Vector3(targetScale, targetScale, targetScale), 0.12);
   });
 
+  // Render volumetric hologram cutout for selected active Pokemon
+  if (isSelected) {
+    return (
+      <group ref={meshRef} onClick={(e) => {
+        e.stopPropagation();
+        onClick();
+      }}>
+        {/* Cylindrical scanning beam projection grid */}
+        <mesh position={[0, -0.6, 0]}>
+          <cylinderGeometry args={[1.3, 1.5, 3.2, 16, 3, true]} />
+          <meshBasicMaterial 
+            color="#00f3ff" 
+            wireframe={true} 
+            transparent={true} 
+            opacity={0.06} 
+            side={THREE.DoubleSide} 
+          />
+        </mesh>
+
+        {/* Small floating ring at the base of the cutout */}
+        <mesh position={[0, -height * 0.52, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+          <ringGeometry args={[0.9, 1.0, 32]} />
+          <meshBasicMaterial color="#00f3ff" side={THREE.DoubleSide} transparent={true} opacity={0.5} />
+        </mesh>
+
+        {/* Volumetric Cross-mesh Plane 1 (Front/Back) */}
+        <mesh position={[0, 0, 0.01]}>
+          <planeGeometry args={[width * 1.3, height * 1.3]} />
+          {texture ? (
+            <meshBasicMaterial 
+              map={texture} 
+              transparent={true} 
+              side={THREE.DoubleSide} 
+              color={isSilhouette ? "#000000" : "#ffffff"}
+              depthWrite={true}
+            />
+          ) : (
+            <meshBasicMaterial color="#00f3ff" transparent={true} opacity={0.3} />
+          )}
+        </mesh>
+
+        {/* Volumetric Cross-mesh Plane 2 (Left/Right) */}
+        <mesh position={[0, 0, 0.01]} rotation={[0, Math.PI / 2, 0]}>
+          <planeGeometry args={[width * 1.3, height * 1.3]} />
+          {texture ? (
+            <meshBasicMaterial 
+              map={texture} 
+              transparent={true} 
+              side={THREE.DoubleSide} 
+              color={isSilhouette ? "#000000" : "#ffffff"}
+              depthWrite={true}
+              opacity={0.5}
+            />
+          ) : (
+            <meshBasicMaterial color="#00f3ff" transparent={true} opacity={0.25} />
+          )}
+        </mesh>
+
+        {/* Scanning laser beam sweep */}
+        <ScanningBeam width={width * 1.3} height={height * 1.3} />
+      </group>
+    );
+  }
+
+  // Render classic database deck card for unselected candidates
   return (
     <group ref={meshRef} onClick={(e) => {
       e.stopPropagation();
@@ -300,8 +383,8 @@ const PokemonCard: React.FC<CardProps> = ({
             map={texture} 
             transparent={true} 
             side={THREE.DoubleSide} 
-            shininess={isSilhouette && isSelected ? 0 : 100}
-            color={isSilhouette && isSelected ? "#000000" : "#ffffff"}
+            shininess={100}
+            color="#ffffff"
             depthWrite={true}
           />
         ) : (
@@ -319,12 +402,12 @@ const PokemonCard: React.FC<CardProps> = ({
         )}
       </mesh>
 
-      {/* Glowing frame overlay based on state */}
+      {/* Card Border frame */}
       <group position={[0, 0, 0]}>
         <CardFrame 
           width={width} 
           height={height} 
-          color={isSelected ? "#00f3ff" : "#005577"} 
+          color="#005577" 
         />
       </group>
     </group>
@@ -427,15 +510,15 @@ export const Pokedex3D: React.FC<Pokedex3DProps> = ({
           ))}
         </group>
 
-        {/* Orbit controls */}
+        {/* Orbit controls with full inspection freedom */}
         <OrbitControls 
           enableDamping={true}
           dampingFactor={0.05}
-          maxPolarAngle={Math.PI / 1.8}
-          minPolarAngle={Math.PI / 3}
-          minDistance={5}
-          maxDistance={20}
-          enablePan={false}
+          maxPolarAngle={Math.PI}
+          minPolarAngle={0}
+          minDistance={2.5}
+          maxDistance={18}
+          enablePan={true}
         />
       </Canvas>
 
