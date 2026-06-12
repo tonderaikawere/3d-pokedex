@@ -134,26 +134,7 @@ export const App: React.FC = () => {
   }
 
   return (
-    <div className="w-screen h-screen bg-[#08080f] overflow-hidden relative select-none">
-      {/* Sci-Fi Overlay Elements */}
-      <div className="crt-overlay" />
-      <div className="cyber-grid-bg" />
-      
-      {/* 3D Holographic Scene Viewport */}
-      {filteredPokemon.length > 0 ? (
-        <Pokedex3D 
-          pokemonList={filteredPokemon} 
-          selectedId={selectedId} 
-          onSelectPokemon={handleSelectPokemon}
-          isSilhouette={isSilhouette}
-        />
-      ) : (
-        <div className="absolute inset-0 flex items-center justify-center font-cyber text-slate-500 tracking-widest uppercase text-xs">
-          No matches found in hologram database
-        </div>
-      )}
-
-      {/* Futuristic 2D HUD Overlays */}
+    <div className="w-screen h-screen bg-[#0d0f14] overflow-hidden relative select-none flex items-center justify-center">
       <PokedexInterface 
         pokemonList={pokemonData}
         selectedPokemon={selectedPokemon}
@@ -166,7 +147,20 @@ export const App: React.FC = () => {
         setGameMode={setGameMode}
         isSilhouette={isSilhouette}
         setIsSilhouette={setIsSilhouette}
-      />
+      >
+        {filteredPokemon.length > 0 ? (
+          <Pokedex3D 
+            pokemonList={filteredPokemon} 
+            selectedId={selectedId} 
+            onSelectPokemon={handleSelectPokemon}
+            isSilhouette={isSilhouette}
+          />
+        ) : (
+          <div className="w-full h-full flex items-center justify-center font-cyber text-slate-500 tracking-widest uppercase text-[9px]">
+            No matches found in database
+          </div>
+        )}
+      </PokedexInterface>
     </div>
   );
 };

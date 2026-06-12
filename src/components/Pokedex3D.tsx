@@ -371,15 +371,15 @@ export const Pokedex3D: React.FC<Pokedex3DProps> = ({
     return cards;
   }, [activeIndex, pokemonList]);
 
-  // Keyboard navigation for rotation
+  // Keyboard navigation for rotation (D-pad support)
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (pokemonList.length === 0) return;
       
-      if (e.key === 'ArrowRight') {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
         const nextIndex = (activeIndex + 1) % pokemonList.length;
         if (pokemonList[nextIndex]) onSelectPokemon(pokemonList[nextIndex].id);
-      } else if (e.key === 'ArrowLeft') {
+      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
         const prevIndex = (activeIndex - 1 + pokemonList.length) % pokemonList.length;
         if (pokemonList[prevIndex]) onSelectPokemon(pokemonList[prevIndex].id);
       }
@@ -390,13 +390,13 @@ export const Pokedex3D: React.FC<Pokedex3DProps> = ({
   }, [activeIndex, pokemonList, onSelectPokemon]);
 
   return (
-    <div style={{ width: '100%', height: '100%', position: 'absolute', top: 0, left: 0 }}>
+    <div style={{ width: '100%', height: '100%', position: 'relative', overflow: 'hidden' }}>
       <Canvas
         camera={{ position: [0, 1.5, 12], fov: 45 }}
         gl={{ antialias: true, alpha: true }}
       >
-        <color attach="background" args={['#08080f']} />
-        <fog attach="fog" args={['#08080f', 12, 28]} />
+        <color attach="background" args={['#0f1c24']} />
+        <fog attach="fog" args={['#0f1c24', 12, 28]} />
 
         {/* Lights */}
         <ambientLight intensity={0.65} />

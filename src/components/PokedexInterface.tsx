@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { 
   Volume2, Mic, MicOff, Search, ChevronLeft, ChevronRight, 
-  Heart, Sword, Shield, Zap, ShieldAlert, Activity, 
-  Gamepad2, Sparkles, Trophy, Disc, HelpCircle, LayoutGrid, MessageSquare, ShieldCheck
+  LayoutGrid, Gamepad2, Disc, Play
 } from 'lucide-react';
 import { DexterSpeech } from '../utils/speech';
 import { DexterRecognition } from '../utils/recognition';
@@ -41,6 +40,7 @@ interface PokedexInterfaceProps {
   setGameMode: (mode: 'scan' | 'guess' | 'catch') => void;
   isSilhouette: boolean;
   setIsSilhouette: (val: boolean) => void;
+  children?: React.ReactNode;
 }
 
 interface ChatMessage {
@@ -60,14 +60,15 @@ export const PokedexInterface: React.FC<PokedexInterfaceProps> = ({
   gameMode,
   setGameMode,
   isSilhouette,
-  setIsSilhouette
+  setIsSilhouette,
+  children
 }) => {
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [isListening, setIsListening] = useState(false);
   const [chatHistory, setChatHistory] = useState<ChatMessage[]>([
     {
       sender: 'dexter',
-      text: "System initialized. Use scanner, play Guessing Game, or go Catching!",
+      text: "System active. Bulbasaur scanned.",
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
     }
   ]);
@@ -75,12 +76,9 @@ export const PokedexInterface: React.FC<PokedexInterfaceProps> = ({
   const [isGridOpen, setIsGridOpen] = useState(false);
   const chatEndRef = useRef<HTMLDivElement>(null);
   
-  // Audio Visualizer Simulation
-  const [visualizerHeights, setVisualizerHeights] = useState<number[]>(new Array(15).fill(4));
+  // Audio Visualizer Simulation (10 bars)
+  const [visualizerHeights, setVisualizerHeights] = useState<number[]>(new Array(10).fill(4));
   const visualizerInterval = useRef<any | null>(null);
-
-  // --- Mobile Active Tab State ---
-  const [activeMobileTab, setActiveMobileTab] = useState<'hologram' | 'specs' | 'games'>('hologram');
 
   // --- GAME 1: "Who's That Pokémon?" State ---
   const [guessOptions, setGuessOptions] = useState<Pokemon[]>([]);
@@ -114,14 +112,14 @@ export const PokedexInterface: React.FC<PokedexInterfaceProps> = ({
     if (isSpeaking) {
       visualizerInterval.current = setInterval(() => {
         setVisualizerHeights(
-          Array.from({ length: 15 }, () => Math.floor(Math.random() * 32) + 4)
+          Array.from({ length: 10 }, () => Math.floor(Math.random() * 24) + 4)
         );
       }, 100);
     } else {
       if (visualizerInterval.current) {
         clearInterval(visualizerInterval.current);
       }
-      setVisualizerHeights(new Array(15).fill(4));
+      setVisualizerHeights(new Array(10).fill(4));
     }
     return () => {
       if (visualizerInterval.current) clearInterval(visualizerInterval.current);
@@ -158,7 +156,7 @@ export const PokedexInterface: React.FC<PokedexInterfaceProps> = ({
   const handlePlayCry = () => {
     if (selectedPokemon?.cryUrl) {
       const audio = new Audio(selectedPokemon.cryUrl);
-      audio.volume = 0.5;
+      audio.volume = 0.45;
       audio.play().catch(e => console.error("Could not play Pokemon cry:", e));
     }
   };
@@ -200,7 +198,7 @@ export const PokedexInterface: React.FC<PokedexInterfaceProps> = ({
       },
       (error) => {
         console.error("STT error:", error);
-        addChatMessage('dexter', `Voice recognition error: ${error}.`);
+        addChatMessage('dexter', `Speech error: ${error}.`);
         setIsListening(false);
       },
       () => {
@@ -210,7 +208,8 @@ export const PokedexInterface: React.FC<PokedexInterfaceProps> = ({
   };
 
   const processQuery = (queryText: string) => {
-    const result = DexterRecognition.parseCommand(queryText, pokemonList);
+    // Pass selectedPokemon context into parseCommand to support relative queries!
+    const result = DexterRecognition.parseCommand(queryText, pokemonList, selectedPokemon);
     if (result.matchedPokemonId) {
       onSelectPokemon(result.matchedPokemonId);
     }
@@ -242,7 +241,7 @@ export const PokedexInterface: React.FC<PokedexInterfaceProps> = ({
     setGuessOptions(options);
 
     setTimeout(() => {
-      DexterSpeech.speak("Who is that Pokaymon? Look at the hologram screen and guess!");
+      DexterSpeech.speak("Who is that Pokaymon? Look at the screen and guess!");
     }, 300);
   };
 
@@ -312,14 +311,15 @@ export const PokedexInterface: React.FC<PokedexInterfaceProps> = ({
     try {
       const AudioCtx = window.AudioContext || (window as any).webkitAudioContext;
       if (!AudioCtx) return;
-      const osc = new AudioCtx().createOscillator();
-      const gain = new AudioCtx().createGain();
+      const audioCtx = new AudioCtx();
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
       osc.connect(gain);
-      gain.connect(new AudioCtx().destination);
-      osc.frequency.setValueAtTime(220, new AudioCtx().currentTime);
-      gain.gain.setValueAtTime(0.1, new AudioCtx().currentTime);
+      gain.connect(audioCtx.destination);
+      osc.frequency.setValueAtTime(261.63, audioCtx.currentTime); // C4
+      gain.gain.setValueAtTime(0.06, audioCtx.currentTime);
       osc.start();
-      osc.stop(new AudioCtx().currentTime + 0.15);
+      osc.stop(audioCtx.currentTime + 0.12);
     } catch (e) {}
   };
 
@@ -328,7 +328,7 @@ export const PokedexInterface: React.FC<PokedexInterfaceProps> = ({
     
     let catchRate = 0.45;
     if (selectedBall === 'greatball') catchRate = 0.65;
-    if (selectedBall === 'ultraball') catchRate = 0.80;
+    if (selectedBall === 'ultraball') catchRate = 0.82;
     if (selectedBall === 'masterball') catchRate = 1.0;
 
     const roll = Math.random();
@@ -339,26 +339,34 @@ export const PokedexInterface: React.FC<PokedexInterfaceProps> = ({
         if (prev.find(p => p.id === wildPokemon.id)) return prev;
         return [...prev, wildPokemon];
       });
-      DexterSpeech.speak(`Alright! ${wildPokemon.name} was caught! Added to your squad!`);
+      DexterSpeech.speak(`Alright! ${wildPokemon.name} was caught! Added to squad!`);
       handlePlayCry();
     } else {
       setCatchStatus('escaped');
-      DexterSpeech.speak(`Oh no! ${wildPokemon.name} broke free and ran away!`);
+      DexterSpeech.speak(`Oh no! ${wildPokemon.name} broke free and fled!`);
     }
   };
 
   const handlePrev = () => {
-    if (!selectedPokemon) return;
+    if (!selectedPokemon || pokemonList.length === 0) return;
     const curIndex = pokemonList.findIndex(p => p.id === selectedPokemon.id);
     const prevIndex = (curIndex - 1 + pokemonList.length) % pokemonList.length;
     onSelectPokemon(pokemonList[prevIndex].id);
   };
 
   const handleNext = () => {
-    if (!selectedPokemon) return;
+    if (!selectedPokemon || pokemonList.length === 0) return;
     const curIndex = pokemonList.findIndex(p => p.id === selectedPokemon.id);
     const nextIndex = (curIndex + 1) % pokemonList.length;
     onSelectPokemon(pokemonList[nextIndex].id);
+  };
+
+  // Jump to specific index from keypad
+  const handleKeypadPress = () => {
+    if (pokemonList.length === 0) return;
+    // Select a random Pokemon
+    const randomId = Math.floor(Math.random() * pokemonList.length);
+    onSelectPokemon(pokemonList[randomId].id);
   };
 
   useEffect(() => {
@@ -379,504 +387,337 @@ export const PokedexInterface: React.FC<PokedexInterfaceProps> = ({
   ];
 
   return (
-    <div className="pokedex-hud-wrapper font-sans">
-      
-      {/* Top Header Banner */}
-      <header className="pokedex-header">
-        <div className="header-branding">
-          <div className="lens-camera">
-            <div className="lens-flare animate-pulse" />
-          </div>
-          <div className="header-status-dots">
-            <span className="dot dot-red animate-pulse" />
-            <span className="dot dot-yellow" />
-            <span className="dot dot-green" />
-          </div>
-          <h1 className="header-title font-cyber">
-            DEXTER <span className="title-highlight">3D HOLOGRAPH</span>
-          </h1>
-        </div>
-
-        {/* Header Search & Select Controls */}
-        <div className="header-controls">
-          <div className="search-box">
-            <Search className="search-icon text-cyan-400" size={14} />
-            <input 
-              type="text" 
-              placeholder="Search..." 
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="search-input font-cyber"
-            />
-          </div>
-
-          <select 
-            value={selectedType}
-            onChange={(e) => setSelectedType(e.target.value)}
-            className="type-dropdown font-cyber"
-          >
-            {types.map(t => (
-              <option key={t} value={t}>{t.toUpperCase()}</option>
-            ))}
-          </select>
-
-          <button 
-            onClick={() => setIsGridOpen(!isGridOpen)}
-            className="cyber-btn cyber-btn-cyan grid-trigger-btn font-cyber"
-          >
-            Grid
-          </button>
-        </div>
-      </header>
-
-      {/* Grid Index Popup Overlay */}
-      {isGridOpen && (
-        <div className="grid-index-popup bg-slate-950 border border-cyan-500 rounded-xl p-4 shadow-[0_0_25px_rgba(6,182,212,0.3)] z-50 overflow-y-auto">
-          <div className="popup-header">
-            <span className="font-cyber popup-title text-cyan-400">Pokemon Index</span>
-            <button onClick={() => setIsGridOpen(false)} className="text-red-500 font-bold hover:text-red-400">X</button>
-          </div>
-          <div className="grid-grid-container pt-2">
-            {pokemonList.map(p => (
-              <button 
-                key={p.id}
-                onClick={() => {
-                  onSelectPokemon(p.id);
-                  setIsGridOpen(false);
-                  setActiveMobileTab('hologram');
-                }}
-                className={`grid-card-select border transition-all ${
-                  selectedPokemon?.id === p.id 
-                    ? 'bg-red-500/20 border-red-500 text-red-400 shadow-[0_0_8px_rgba(239,68,68,0.3)]' 
-                    : 'bg-slate-900/60 border-cyan-500/10 hover:border-cyan-500 text-slate-300'
-                }`}
-              >
-                <img src={p.imageUrl} alt={p.name} className="w-8 h-8 object-contain" />
-                <span className="font-cyber card-select-name truncate w-full">{p.name}</span>
-              </button>
-            ))}
-          </div>
-        </div>
-      )}
-
-      {/* MAIN CONTAINER LAYOUT */}
-      <main className="pokedex-hud-body">
+    <div className="pokedex-container-wrapper">
+      {/* Physical Pokedex Shell */}
+      <div className="pokedex-device">
+        <div className="crt-overlay" />
         
-        {/* LEFT PANEL: Pokedex specs details (hologram stats) */}
-        <section className={`pokedex-left-panel cyber-panel p-5 ${activeMobileTab === 'specs' ? 'mobile-visible' : 'mobile-hidden'}`}>
-          <div className="corner-decor corner-tl" />
-          <div className="corner-decor corner-tr" />
-          <div className="corner-decor corner-bl" />
-          <div className="corner-decor corner-br" />
-          <div className="cyber-grid-bg" />
-
-          {selectedPokemon ? (
-            <>
-              <div className="flex flex-col gap-3 relative z-10 w-full">
-                <div className="flex justify-between items-baseline border-b border-cyan-500/30 pb-2">
-                  <span className="font-cyber text-sm text-cyan-400 font-bold">
-                    #{String(selectedPokemon.id).padStart(3, '0')}
-                  </span>
-                  <h2 className="font-cyber font-black text-xl tracking-wider text-white uppercase grow-text-cyan">
-                    {selectedPokemon.name}
-                  </h2>
-                </div>
-                
-                <div className="text-right">
-                  <span className="font-cyber text-[9px] text-slate-400 border border-slate-700/60 rounded px-2 py-0.5 uppercase bg-slate-950/40">
-                    {selectedPokemon.category}
-                  </span>
-                </div>
-
-                {/* Mobile view image container */}
-                <div className="relative w-full aspect-video flex items-center justify-center bg-slate-950/60 border border-cyan-500/20 rounded-xl overflow-hidden shadow-[inset_0_0_15px_rgba(0,0,0,0.8)]">
-                  <img src={selectedPokemon.imageUrl} alt={selectedPokemon.name} className="w-1/2 h-full object-contain filter drop-shadow-[0_4px_10px_rgba(0,243,255,0.2)]" />
-                </div>
-
-                <div className="flex gap-2 justify-center">
-                  {selectedPokemon.types.map(t => (
-                    <span key={t} className={`type-badge ${t}`}>{t}</span>
-                  ))}
-                </div>
-
-                <div className="grid grid-cols-2 gap-3 text-center">
-                  <div className="bg-slate-950/40 border border-cyan-500/10 rounded-lg p-2.5">
-                    <span className="font-cyber text-[8px] text-cyan-400/70 tracking-widest uppercase block">HEIGHT</span>
-                    <span className="font-cyber text-sm text-white font-bold block mt-0.5">{selectedPokemon.height} m</span>
-                  </div>
-                  <div className="bg-slate-950/40 border border-cyan-500/10 rounded-lg p-2.5">
-                    <span className="font-cyber text-[8px] text-cyan-400/70 tracking-widest uppercase block">WEIGHT</span>
-                    <span className="font-cyber text-sm text-white font-bold block mt-0.5">{selectedPokemon.weight} kg</span>
-                  </div>
-                </div>
-
-                <div className="flex flex-col gap-1 mt-1">
-                  <span className="font-cyber text-[8px] text-cyan-400/70 tracking-widest uppercase">Abilities</span>
-                  <div className="flex flex-wrap gap-1.5">
-                    {selectedPokemon.abilities.map(ab => (
-                      <span key={ab} className="font-cyber text-[9px] text-slate-300 bg-slate-900 border border-slate-700/60 rounded px-2.5 py-0.5 capitalize">
-                        {ab}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-                
-                <div className="border border-cyan-500/20 rounded-lg p-3 bg-slate-950/40 mt-1">
-                  <span className="font-cyber text-[8px] text-cyan-400/70 tracking-widest uppercase block mb-1">Pokedex description</span>
-                  <p className="text-xs text-slate-300 leading-relaxed max-h-24 overflow-y-auto pr-1">
-                    {selectedPokemon.description}
-                  </p>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-2 gap-2 mt-4 relative z-10 w-full">
-                <button onClick={handlePlayCry} className="cyber-btn cyber-btn-cyan text-xs py-2 w-full">
-                  Play Cry
-                </button>
-                <button 
-                  onClick={() => {
-                    DexterSpeech.speakPokemonEntry(selectedPokemon.name, selectedPokemon.category, selectedPokemon.description);
-                  }} 
-                  className="cyber-btn text-xs py-2 w-full"
-                >
-                  Re-Scan
-                </button>
-              </div>
-            </>
-          ) : (
-            <div className="h-full flex items-center justify-center text-slate-400 relative z-10">
-              Scanning...
+        {/* LEFT WING - Display Screen, Lens, D-Pad */}
+        <div className="pokedex-left-wing">
+          {/* Top Bar with Camera and flashing LEDs */}
+          <div className="left-wing-top-bar">
+            <div className="blue-lens-camera" onClick={handlePlayCry} title="Play Cry">
+              <div className="lens-reflection" />
             </div>
-          )}
-        </section>
+            <div className="mini-leds">
+              <span className={`mini-led led-red ${isSpeaking || isListening ? 'pulsing' : ''}`} />
+              <span className="mini-led led-yellow" />
+              <span className="mini-led led-green" />
+            </div>
+          </div>
 
-        {/* MIDDLE SECTION (empty desktop spacer to reveal Canvas, mobile container tab toggle) */}
-        <section className={`pokedex-middle-panel ${activeMobileTab === 'hologram' ? 'mobile-visible' : 'mobile-hidden'}`} />
+          {/* Hologram Screen housing the 3D Canvas */}
+          <div className="left-wing-screen-bezel">
+            <div className="bezel-top-leds">
+              <span className={`dot-led red-led ${isListening ? 'blinking' : ''}`} />
+              <span className="dot-led green-led" />
+            </div>
+            <div className="left-wing-screen-inner">
+              <div className="cyber-grid-bg" />
+              {children}
+            </div>
+            <div className="bezel-bottom-controls">
+              <span className="bezel-red-dot" />
+              <span className="bezel-vent-lines" />
+            </div>
+          </div>
 
-        {/* RIGHT PANEL: Voice assistant and minigames */}
-        <section className={`pokedex-right-panel cyber-panel p-5 ${activeMobileTab === 'games' ? 'mobile-visible' : 'mobile-hidden'}`}>
-          <div className="corner-decor corner-tl" />
-          <div className="corner-decor corner-tr" />
-          <div className="corner-decor corner-bl" />
-          <div className="corner-decor corner-br" />
-          <div className="cyber-grid-bg" />
+          {/* Bottom Left Controls */}
+          <div className="left-wing-controls">
+            <button 
+              className="pokedex-btn-circle-black" 
+              onClick={handlePlayCry} 
+              title="Play Pokemon Cry"
+            />
+            
+            {/* D-Pad cross */}
+            <div className="dpad-container">
+              <button className="dpad-btn dpad-up" onClick={handlePrev} title="Previous" />
+              <button className="dpad-btn dpad-right" onClick={handleNext} title="Next" />
+              <button className="dpad-btn dpad-down" onClick={handleNext} title="Next" />
+              <button className="dpad-btn dpad-left" onClick={handlePrev} title="Previous" />
+              <div className="dpad-center" />
+            </div>
 
-          {/* Top segment: speech dialog terminal */}
-          <div className="speech-history-container border-b border-cyan-500/20 pb-3 relative z-10">
-            <div className="flex justify-between items-center border-b border-cyan-500/30 pb-2 mb-2">
-              <span className="font-cyber text-xs text-red-500 font-bold flex items-center gap-1.5 glow-text-red">
-                <span className={`w-2 h-2 rounded-full bg-red-500 ${isSpeaking ? 'animate-ping' : ''}`} />
-                SPEECH UTTERANCE CONSOLE
-              </span>
-              <div className="flex items-end gap-0.5 h-6">
-                {visualizerHeights.map((h, i) => (
-                  <div key={i} className="audio-visualizer-bar" style={{ height: `${h}px` }} />
+            <div className="status-bars-left">
+              <div className="status-bar-rect bar-red" />
+              <div className="status-bar-rect bar-blue" />
+            </div>
+          </div>
+        </div>
+
+        {/* MECHANICAL HINGE COLUMN */}
+        <div className="pokedex-hinge">
+          <div className="hinge-segment" />
+          <div className="hinge-segment" />
+          <div className="hinge-segment" />
+          <div className="hinge-segment" />
+        </div>
+
+        {/* RIGHT WING - CRT Screen, Keypad, Action Buttons, Mic */}
+        <div className="pokedex-right-wing">
+          {/* Header controls for searching and filtering */}
+          <div className="flex justify-between items-center gap-2 mb-2 bg-[#2c0408] p-2 rounded-lg border border-[#3d0005]">
+            <div className="flex items-center bg-black/50 border border-slate-700/60 rounded px-2 py-1 flex-1">
+              <Search className="text-cyan-400 mr-1.5 shrink-0" size={12} />
+              <input 
+                type="text" 
+                placeholder="Search name/ID..." 
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="bg-transparent border-none text-white text-[9px] outline-none w-full font-mono uppercase"
+              />
+            </div>
+            
+            <select 
+              value={selectedType}
+              onChange={(e) => setSelectedType(e.target.value)}
+              className="bg-black text-white text-[9px] border border-slate-700/60 rounded px-1.5 py-1 font-mono uppercase cursor-pointer"
+            >
+              {types.map(t => (
+                <option key={t} value={t}>{t}</option>
+              ))}
+            </select>
+
+            <button 
+              onClick={() => setIsGridOpen(!isGridOpen)}
+              className="bg-black hover:bg-slate-900 border border-cyan-500/30 text-cyan-400 text-[9px] px-2 py-1 font-mono rounded"
+            >
+              Index
+            </button>
+          </div>
+
+          {/* Grid Popup Overlay */}
+          {isGridOpen && (
+            <div className="absolute top-[50px] left-4 right-4 bottom-4 bg-slate-950/95 border-2 border-cyan-500 rounded-xl p-3 shadow-[0_0_20px_rgba(6,182,212,0.4)] z-50 flex flex-col">
+              <div className="flex justify-between items-center border-b border-cyan-500/20 pb-2 mb-2">
+                <span className="font-mono text-[10px] text-cyan-400 font-bold uppercase tracking-wider">Pokémon Database</span>
+                <button onClick={() => setIsGridOpen(false)} className="text-red-500 font-bold hover:text-red-400 text-xs px-1">X</button>
+              </div>
+              <div className="grid grid-cols-4 gap-1.5 overflow-y-auto flex-1 pr-1">
+                {pokemonList.map(p => (
+                  <button 
+                    key={p.id}
+                    onClick={() => {
+                      onSelectPokemon(p.id);
+                      setIsGridOpen(false);
+                    }}
+                    className={`flex flex-col items-center justify-center p-1 border rounded transition-all ${
+                      selectedPokemon?.id === p.id 
+                        ? 'bg-red-500/20 border-red-500 text-red-400' 
+                        : 'bg-slate-900/60 border-cyan-500/10 hover:border-cyan-500 text-slate-300'
+                    }`}
+                  >
+                    <img src={p.imageUrl} alt={p.name} className="w-6 h-6 object-contain" />
+                    <span className="font-mono text-[7px] truncate max-w-full uppercase">{p.name}</span>
+                  </button>
                 ))}
               </div>
             </div>
+          )}
 
-            <div className="chat-history-logs overflow-y-auto bg-slate-950/70 border border-cyan-900/60 rounded-xl p-3 flex flex-col gap-2.5 text-xs shadow-[inset_0_2px_10px_rgba(0,0,0,0.9)]">
-              {chatHistory.map((msg, i) => (
-                <div 
-                  key={i} 
-                  className={`flex flex-col gap-0.5 max-w-[85%] ${
-                    msg.sender === 'user' ? 'self-end items-end' : 'self-start items-start'
-                  }`}
-                >
-                  <span className={`font-cyber text-[8px] tracking-widest ${
-                    msg.sender === 'user' ? 'text-cyan-400' : 'text-red-500'
-                  }`}>
-                    {msg.sender === 'user' ? 'TRAINER' : 'DEXTER'} • {msg.timestamp}
-                  </span>
-                  <div className={`p-2.5 rounded-lg leading-relaxed ${
-                    msg.sender === 'user' 
-                      ? 'bg-cyan-950/40 border border-cyan-500/30 text-cyan-200' 
-                      : 'bg-red-950/30 border border-red-500/30 text-red-200'
-                  }`}>
-                    {msg.text}
+          {/* Green CRT Info Display */}
+          <div className="right-wing-screen-bezel">
+            <div className="right-wing-screen-inner scrollbar-thin">
+              {gameMode === 'scan' && selectedPokemon && (
+                <>
+                  <p className="font-bold">NO. {String(selectedPokemon.id).padStart(3, '0')} {selectedPokemon.name}</p>
+                  <p className="text-[7px]">CLASS: {selectedPokemon.category}</p>
+                  <p className="text-[7px]">HT: {selectedPokemon.height}M  WT: {selectedPokemon.weight}KG</p>
+                  <p className="text-[7px] border-b border-green-500/30 pb-1 mb-1">
+                    TYPE: {selectedPokemon.types.join('/').toUpperCase()}
+                  </p>
+                  
+                  {/* Embedded small stats table */}
+                  <div className="text-[6.5px] grid grid-cols-3 gap-x-1 gap-y-0.5 border-b border-green-500/30 pb-1 mb-1 font-mono">
+                    <span>HP:{selectedPokemon.stats.hp}</span>
+                    <span>ATK:{selectedPokemon.stats.attack}</span>
+                    <span>DEF:{selectedPokemon.stats.defense}</span>
+                    <span>SPD:{selectedPokemon.stats.speed}</span>
+                    <span>SATK:{selectedPokemon.stats.spAttack}</span>
+                    <span>SDEF:{selectedPokemon.stats.spDefense}</span>
+                  </div>
+
+                  {/* Dexter Speech Log */}
+                  <div className="flex flex-col gap-1.5 mt-2">
+                    <div className="border-t border-dashed border-green-500/20 pt-1.5 flex justify-between items-center text-[7px]">
+                      <span>DEXTER VOICE CHAT LOG</span>
+                      <div className="flex gap-0.5 items-end h-3">
+                        {visualizerHeights.map((h, i) => (
+                          <div key={i} className="audio-visualizer-bar" style={{ height: `${Math.max(2, h / 3)}px` }} />
+                        ))}
+                      </div>
+                    </div>
+                    
+                    <div className="flex flex-col gap-1 text-[7px] max-h-16 overflow-y-auto pr-1 select-text">
+                      {chatHistory.slice(-5).map((msg, idx) => (
+                        <div key={idx} className={msg.sender === 'user' ? 'text-green-300' : 'text-green-400 font-semibold'}>
+                          &gt; {msg.sender === 'user' ? 'TRAINER' : 'DEXTER'}: {msg.text}
+                        </div>
+                      ))}
+                      <div ref={chatEndRef} />
+                    </div>
+                  </div>
+                </>
+              )}
+
+              {gameMode === 'guess' && (
+                <div className="flex flex-col gap-1 font-mono text-[7px]">
+                  <p className="font-bold border-b border-green-500/30 pb-1">WHO'S THAT POKEMON?</p>
+                  <p>GUESS SCORE: {guessScore}</p>
+                  {guessFeedback ? (
+                    <p className="text-green-300 font-bold mt-1">&gt; {guessFeedback}</p>
+                  ) : (
+                    <p className="animate-pulse mt-1">&gt; ANALYZING SILHOUETTE DISPLAY...</p>
+                  )}
+                  <div className="border-t border-green-500/30 pt-1.5 mt-2 max-h-16 overflow-y-auto pr-1">
+                    {chatHistory.slice(-3).map((msg, idx) => (
+                      <div key={idx}>&gt; {msg.sender === 'user' ? 'TRAINER' : 'DEXTER'}: {msg.text}</div>
+                    ))}
+                    <div ref={chatEndRef} />
                   </div>
                 </div>
-              ))}
-              <div ref={chatEndRef} />
+              )}
+
+              {gameMode === 'catch' && wildPokemon && (
+                <div className="flex flex-col gap-0.5 font-mono text-[7px]">
+                  <p className="font-bold border-b border-green-500/30 pb-1">WILD RADAR SIGNAL</p>
+                  <p>TARGET: {wildPokemon.name.toUpperCase()}</p>
+                  <p className="text-[6.5px]">STATUS: {catchStatus.toUpperCase()}</p>
+                  
+                  {catchStatus === 'shaking' && <p className="text-yellow-300 animate-bounce">&gt; POKEBALL SHAKING... ({shakeCount})</p>}
+                  {catchStatus === 'caught' && <p className="text-green-300 font-bold">&gt; CAPTURED SUCCESS! SQUAD SIZE: {capturedSquad.length}</p>}
+                  {catchStatus === 'escaped' && <p className="text-red-400 font-bold">&gt; OH NO! Target broke free!</p>}
+                  
+                  <div className="border-t border-green-500/30 pt-1 mt-1 flex flex-col gap-0.5 max-h-12 overflow-y-auto">
+                    {capturedSquad.length > 0 ? (
+                      capturedSquad.map((c, i) => (
+                        <div key={i} className="text-[6.5px] text-green-300">&gt; SQUAD #{i+1}: {c.name.toUpperCase()}</div>
+                      ))
+                    ) : (
+                      <div className="text-[6.5px] text-green-500/40">NO CAPTURED SQUAD LOGS</div>
+                    )}
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Blue numeric keypad keys */}
+          <div className="keypad-container">
+            {Array.from({ length: 10 }).map((_, idx) => (
+              <button 
+                key={idx} 
+                className="keypad-blue-key" 
+                onClick={handleKeypadPress} 
+                title="Random Scan"
+              />
+            ))}
+          </div>
+
+          {/* Action Console & Voice Assistant Inputs */}
+          <div className="right-wing-controls-bottom">
+            {/* Pulsing audio speaker grill */}
+            <div className="speaker-grill-container">
+              <div className={`speaker-grill ${isSpeaking ? 'speaking-active' : ''}`} title="Speaker">
+                <span className="speaker-hole" />
+                <span className="speaker-hole" />
+                <span className="speaker-hole" />
+                <span className="speaker-hole" />
+                <span className="speaker-hole" />
+                <span className="speaker-hole" />
+                <span className="speaker-hole" />
+                <span className="speaker-hole" />
+                <span className="speaker-hole" />
+              </div>
             </div>
 
-            <form onSubmit={handleTextSubmit} className="flex gap-2 mt-2">
-              <input 
-                type="text" 
-                placeholder={gameMode === 'guess' ? "Type your guess..." : "Ask Dexter..."}
-                value={textInput}
-                onChange={(e) => setTextInput(e.target.value)}
-                className="flex-1 bg-slate-950/80 text-white font-cyber text-[10px] border border-cyan-500/45 rounded-lg px-3 focus:outline-none focus:border-cyan-400"
-              />
+            <div className="actions-button-group">
+              {/* Voice Command Button */}
               <button 
                 type="button" 
                 onClick={startVoiceInput} 
-                className={`p-2 rounded-lg border transition-all ${
-                  isListening 
-                    ? 'bg-red-600 border-red-400 text-white shadow-[0_0_12px_#ff1c46] animate-pulse' 
-                    : 'bg-slate-950 border-cyan-500/40 text-cyan-400 hover:border-cyan-400'
-                }`}
+                className={`pokedex-btn-voice ${isListening ? 'active-listening' : ''}`}
               >
-                {isListening ? <Mic size={14} /> : <MicOff size={14} />}
-              </button>
-              <button type="submit" className="cyber-btn cyber-btn-cyan text-[9px] px-3 font-cyber">
-                Send
-              </button>
-            </form>
-          </div>
-
-          {/* Bottom segment: Game console overlays */}
-          <div className="game-overlay-container pt-3 relative z-10 flex flex-col justify-between">
-            {gameMode === 'scan' && (
-              <>
-                <div className="flex justify-between items-center border-b border-cyan-500/30 pb-2 mb-2">
-                  <span className="font-cyber text-xs text-cyan-400 font-bold tracking-widest">
-                    COMBAT CAPABILITY SPECS
-                  </span>
-                </div>
-
-                {selectedPokemon ? (
-                  <div className="stats-bars-wrapper flex flex-col justify-around gap-2 bg-slate-950/40 border border-cyan-500/10 rounded-xl p-3">
-                    {Object.entries(selectedPokemon.stats).map(([key, value]) => {
-                      const percentage = Math.min(100, Math.round((value / 180) * 100));
-                      return (
-                        <div key={key} className="flex items-center gap-3">
-                          <div className="flex items-center gap-1.5 w-16">
-                            <span className="font-cyber text-[9px] text-slate-400 font-bold uppercase tracking-wider">
-                              {key === 'spAttack' ? 'SATK' : key === 'spDefense' ? 'SDEF' : key.toUpperCase()}
-                            </span>
-                          </div>
-
-                          <div className="flex-1 bg-slate-900 border border-slate-800 rounded-full h-2.5 overflow-hidden p-[1px]">
-                            <div 
-                              className="h-full bg-gradient-to-r from-red-500 to-cyan-400 rounded-full transition-all duration-700 ease-out shadow-[0_0_8px_rgba(6,182,212,0.3)]"
-                              style={{ width: `${percentage}%` }}
-                            />
-                          </div>
-
-                          <span className="font-cyber text-[10px] text-white font-bold w-6 text-right">
-                            {value}
-                          </span>
-                        </div>
-                      );
-                    })}
-                  </div>
+                {isListening ? (
+                  <>
+                    <Mic size={14} className="animate-pulse" />
+                    <span>LISTENING...</span>
+                  </>
                 ) : (
-                  <div className="flex-1 flex items-center justify-center text-slate-500 text-xs">
-                    No stats scanned
-                  </div>
+                  <>
+                    <MicOff size={14} />
+                    <span>TAP TO TALK</span>
+                  </>
                 )}
-              </>
-            )}
+              </button>
 
-            {gameMode === 'guess' && (
-              <div className="flex flex-col gap-2.5 h-full justify-between">
-                <div className="border-b border-cyan-500/30 pb-2 mb-1 flex justify-between items-center">
-                  <span className="font-cyber text-xs text-cyan-400 font-bold uppercase tracking-widest">GUESS THE SILHOUETTE</span>
-                  <span className="font-cyber text-[9px] text-yellow-400 font-bold bg-slate-950 px-2 py-0.5 rounded border border-yellow-500/30">SCORE: {guessScore}</span>
-                </div>
+              {/* Text Query / Manual Input Console */}
+              <form onSubmit={handleTextSubmit} className="flex gap-1.5 w-full">
+                <input 
+                  type="text" 
+                  placeholder={gameMode === 'guess' ? "Type guess..." : "Ask Dexter: 'Who is this?'"}
+                  value={textInput}
+                  onChange={(e) => setTextInput(e.target.value)}
+                  className="flex-1 bg-black text-green-400 font-mono text-[9px] border-2 border-[#3d0005] rounded px-2 py-1.5 focus:outline-none focus:border-red-500 uppercase placeholder:text-green-700/60"
+                />
+                <button 
+                  type="submit" 
+                  className="bg-[#2c0408] border border-[#3d0005] hover:bg-[#3d0005] text-white font-mono text-[8px] px-3.5 rounded active:scale-95"
+                >
+                  Send
+                </button>
+              </form>
 
-                <div className="bg-slate-950/60 border border-cyan-500/20 rounded-xl p-3 flex flex-col items-center justify-center gap-2">
-                  {guessFeedback ? (
-                    <div className={`font-cyber text-xs font-bold px-3 py-1.5 rounded border ${
-                      guessFeedback.startsWith('CORRECT') 
-                        ? 'border-green-500/30 bg-green-950/20 text-green-400' 
-                        : 'border-red-500/30 bg-red-950/20 text-red-400'
-                    }`}>
-                      {guessFeedback}
-                    </div>
-                  ) : (
-                    <div className="text-[10px] font-cyber text-slate-400 uppercase tracking-widest text-center animate-pulse">
-                      Guess name by voice/typing or select option:
-                    </div>
-                  )}
-                </div>
-
-                <div className="grid grid-cols-2 gap-1.5">
-                  {guessOptions.map((opt) => (
-                    <button
-                      key={opt.id}
-                      disabled={hasAnsweredGuess}
-                      onClick={() => handleGuessAttempt(opt.name)}
-                      className={`cyber-btn text-[10px] font-cyber py-2 capitalize truncate ${
-                        hasAnsweredGuess && correctGuessPokemon?.id === opt.id
-                          ? 'bg-green-600 border-green-400 text-white'
-                          : 'bg-slate-950 border-cyan-500/35'
-                      }`}
-                    >
-                      {opt.name}
-                    </button>
-                  ))}
-                </div>
-
-                {hasAnsweredGuess && (
-                  <button
-                    onClick={startNewGuessRound}
-                    className="cyber-btn cyber-btn-cyan text-[10px] font-cyber py-2 w-full mt-1"
+              {/* Mode Selectors */}
+              <div className="flex gap-1.5 w-full">
+                <button 
+                  onClick={() => setGameMode('scan')}
+                  className={`pokedex-btn-mode ${gameMode === 'scan' ? 'active' : ''}`}
+                >
+                  SCAN
+                </button>
+                <button 
+                  onClick={() => setGameMode('guess')}
+                  className={`pokedex-btn-mode ${gameMode === 'guess' ? 'active' : ''}`}
+                >
+                  GUESS
+                </button>
+                {gameMode === 'guess' && hasAnsweredGuess && (
+                  <button 
+                    onClick={startNewGuessRound} 
+                    className="pokedex-btn-mode bg-yellow-600/40"
                   >
-                    Next Silhouette
+                    NEXT
+                  </button>
+                )}
+                <button 
+                  onClick={() => setGameMode('catch')}
+                  className={`pokedex-btn-mode ${gameMode === 'catch' ? 'active' : ''}`}
+                >
+                  CATCH
+                </button>
+                {gameMode === 'catch' && catchStatus === 'idle' && (
+                  <button 
+                    onClick={throwBall} 
+                    className="pokedex-btn-mode bg-red-600/40"
+                  >
+                    THROW
+                  </button>
+                )}
+                {gameMode === 'catch' && (catchStatus === 'caught' || catchStatus === 'escaped') && (
+                  <button 
+                    onClick={spawnWildPokemon} 
+                    className="pokedex-btn-mode bg-blue-600/40"
+                  >
+                    NEXT
                   </button>
                 )}
               </div>
-            )}
-
-            {gameMode === 'catch' && (
-              <div className="flex flex-col gap-2 h-full justify-between">
-                <div className="border-b border-cyan-500/30 pb-2 mb-1">
-                  <span className="font-cyber text-xs text-cyan-400 font-bold uppercase tracking-widest">WILD POKÉMON SCAN</span>
-                </div>
-
-                {wildPokemon && (
-                  <div className="bg-slate-950/60 border border-cyan-500/20 rounded-xl p-3 flex flex-col items-center justify-center gap-1.5">
-                    {catchStatus === 'idle' && (
-                      <>
-                        <span className="font-cyber text-[8px] text-red-400 uppercase tracking-widest animate-pulse">WILD ENCOUNTERED</span>
-                        <h3 className="font-cyber font-bold text-base text-white uppercase mt-0.5">{wildPokemon.name}</h3>
-                      </>
-                    )}
-
-                    {catchStatus === 'throwing' && (
-                      <div className="flex items-center gap-2 animate-bounce">
-                        <Disc size={24} className="text-red-500 animate-spin" />
-                        <span className="font-cyber text-[10px] text-white uppercase tracking-widest">THROWING BALL...</span>
-                      </div>
-                    )}
-
-                    {catchStatus === 'shaking' && (
-                      <div className="flex items-center gap-2 animate-pulse">
-                        <Disc size={24} className="text-yellow-500 animate-bounce" />
-                        <span className="font-cyber text-[10px] text-yellow-400 uppercase tracking-widest">SHAKING ({shakeCount})...</span>
-                      </div>
-                    )}
-
-                    {catchStatus === 'caught' && (
-                      <div className="flex flex-col items-center gap-0.5 text-center">
-                        <span className="font-cyber text-xs font-bold text-green-400 uppercase tracking-widest">CAUGHT SUCCESSFULLY!</span>
-                        <p className="text-[9px] text-slate-400 uppercase">{wildPokemon.name} is in squad</p>
-                      </div>
-                    )}
-
-                    {catchStatus === 'escaped' && (
-                      <div className="flex flex-col items-center gap-0.5 text-center">
-                        <span className="font-cyber text-xs font-bold text-red-500 uppercase tracking-widest">POKEMON ESCAPED</span>
-                        <p className="text-[9px] text-slate-400 uppercase">Wild unit fled</p>
-                      </div>
-                    )}
-                  </div>
-                )}
-
-                {/* Ball selector grid */}
-                <div className="grid grid-cols-2 gap-1.5">
-                  {(['pokeball', 'greatball', 'ultraball', 'masterball'] as const).map((ball) => (
-                    <button
-                      key={ball}
-                      disabled={catchStatus !== 'idle'}
-                      onClick={() => setSelectedBall(ball)}
-                      className={`flex items-center justify-between p-1.5 rounded-lg border text-left transition-all ${
-                        selectedBall === ball 
-                          ? 'bg-red-500/20 border-red-500 text-red-400 shadow-[0_0_8px_rgba(239,68,68,0.3)]' 
-                          : 'bg-slate-950 border-cyan-500/10 hover:border-cyan-500/30 text-slate-300'
-                      }`}
-                    >
-                      <span className="font-cyber text-[9px] capitalize font-bold">{ball.replace('ball', '')}</span>
-                      <span className="font-cyber text-[9px] text-cyan-400/80">x{ballCounts[ball]}</span>
-                    </button>
-                  ))}
-                </div>
-
-                <div className="flex gap-2">
-                  {catchStatus === 'idle' ? (
-                    <button
-                      onClick={throwBall}
-                      className="cyber-btn cyber-btn-cyan text-[10px] font-cyber py-2 w-full"
-                    >
-                      Catch Pokemon
-                    </button>
-                  ) : (
-                    (catchStatus === 'caught' || catchStatus === 'escaped') && (
-                      <button
-                        onClick={spawnWildPokemon}
-                        className="cyber-btn text-[10px] font-cyber py-2 w-full"
-                      >
-                        Search Next
-                      </button>
-                    )
-                  )}
-                </div>
-              </div>
-            )}
-          </div>
-
-          {/* Captured Squad logs */}
-          {gameMode === 'catch' && (
-            <div className="captured-squad-wrapper mt-3 relative z-10 flex flex-col justify-between flex-1 border-t border-cyan-500/20 pt-2.5">
-              <div className="flex justify-between items-center pb-2">
-                <span className="font-cyber text-[9px] text-cyan-400 font-bold uppercase tracking-widest">CAPTURED SQUAD DIRECTORY</span>
-                <span className="font-cyber text-[9px] text-slate-400 font-bold bg-slate-950 px-2 py-0.5 rounded border border-slate-700/60">SQUAD: {capturedSquad.length}</span>
-              </div>
-              <div className="squad-list-scroll overflow-y-auto bg-slate-950/50 border border-cyan-500/10 rounded-xl p-2.5 flex flex-col gap-1.5 max-h-36">
-                {capturedSquad.length > 0 ? (
-                  capturedSquad.map((captured) => (
-                    <div 
-                      key={captured.id} 
-                      onClick={() => {
-                        onSelectPokemon(captured.id);
-                        setActiveMobileTab('hologram');
-                      }}
-                      className="flex items-center justify-between p-1.5 bg-slate-900 border border-cyan-500/10 hover:border-cyan-500/40 rounded-lg cursor-pointer transition-all"
-                    >
-                      <div className="flex items-center gap-2">
-                        <img src={captured.spriteUrl || captured.imageUrl} alt={captured.name} className="w-6 h-6 object-contain" />
-                        <span className="font-cyber text-[10px] text-white font-bold">{captured.name}</span>
-                      </div>
-                      <span className="font-cyber text-[8px] text-cyan-400/80">#{String(captured.id).padStart(3, '0')}</span>
-                    </div>
-                  ))
-                ) : (
-                  <div className="text-[9px] text-slate-500 uppercase tracking-widest text-center py-4">Squad is empty. Catch Pokemon!</div>
-                )}
-              </div>
             </div>
-          )}
-        </section>
-      </main>
-
-      {/* Desktop HUD Navigation Footer (Arrow buttons) */}
-      <footer className="pokedex-footer">
-        <button onClick={handlePrev} className="pokedex-footer-nav-btn cyber-btn cyber-btn-cyan text-xs font-cyber">
-          <ChevronLeft size={16} /> Previous
-        </button>
-        <div className="footer-decor-line" />
-        <button onClick={handleNext} className="pokedex-footer-nav-btn cyber-btn cyber-btn-cyan text-xs font-cyber">
-          Next <ChevronRight size={16} />
-        </button>
-      </footer>
-
-      {/* MOBILE BOTTOM NAVIGATION TAB BAR */}
-      <div className="pokedex-mobile-tabs">
-        <button 
-          onClick={() => setActiveMobileTab('specs')} 
-          className={`mobile-tab-btn ${activeMobileTab === 'specs' ? 'active' : ''}`}
-        >
-          <LayoutGrid size={18} />
-          <span>Specs</span>
-        </button>
-        <button 
-          onClick={() => setActiveMobileTab('hologram')} 
-          className={`mobile-tab-btn ${activeMobileTab === 'hologram' ? 'active' : ''}`}
-        >
-          <Volume2 size={18} />
-          <span>Hologram</span>
-        </button>
-        <button 
-          onClick={() => setActiveMobileTab('games')} 
-          className={`mobile-tab-btn ${activeMobileTab === 'games' ? 'active' : ''}`}
-        >
-          <Gamepad2 size={18} />
-          <span>Games</span>
-        </button>
+          </div>
+        </div>
       </div>
-
     </div>
   );
 };

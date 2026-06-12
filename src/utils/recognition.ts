@@ -125,7 +125,7 @@ class DexterSpeechRecognition {
   /**
    * Helper to parse user's spoken command and match with Pokemon names and queries.
    */
-  public parseCommand(transcript: string, pokemonList: any[]): {
+  public parseCommand(transcript: string, pokemonList: any[], activePokemon: any = null): {
     matchedPokemonId?: number;
     answerText: string;
     speakText: string;
@@ -143,15 +143,20 @@ class DexterSpeechRecognition {
       }
     }
 
+    // Fallback: if they ask "who is that/this", "what is this", etc., use active selected Pokemon!
+    if (!matchedPokemon && activePokemon) {
+      const isRelativeQuery = text.includes("this") || 
+                              text.includes("that") || 
+                              text.includes("it") || 
+                              text.includes("who is") ||
+                              text.includes("describe") ||
+                              text.includes("what is");
+      if (isRelativeQuery) {
+        matchedPokemon = activePokemon;
+      }
+    }
+
     // 2. Identify the type of question
-    // Examples:
-    // "Who is Pikachu?" -> Description & Genus
-    // "What type is Charizard?" -> Types
-    // "Show me Bulbasaur" -> Scan Pokemon
-    // "What stats does Mewtwo have?" -> Stats
-    // "How heavy is Snorlax?" -> Weight
-    // "How tall is Dragonite?" -> Height
-    
     if (matchedPokemon) {
       const name = matchedPokemon.name;
       
