@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Pokedex3D } from './components/Pokedex3D';
 import { PokedexInterface } from './components/PokedexInterface';
+import { DexterSpeech } from './utils/speech';
 import pokemonDataRaw from './data/pokemon.json';
 
 interface Pokemon {
@@ -32,29 +33,55 @@ export const App: React.FC = () => {
   const [selectedType, setSelectedType] = useState<string>('all');
   const [loading, setLoading] = useState<boolean>(true);
   const [openingAnimation, setOpeningAnimation] = useState<boolean>(false);
+  const [isActivated, setIsActivated] = useState<boolean>(false);
   
   // Game states: scan mode, guess who's that pokemon, catch minigame
   const [gameMode, setGameMode] = useState<'scan' | 'guess' | 'catch'>('scan');
   const [isSilhouette, setIsSilhouette] = useState<boolean>(false);
 
-  // Initialize data instantly and run the PokeBall loading animation
+  // Initialize data instantly
   useEffect(() => {
     setPokemonData(pokemonDataRaw as Pokemon[]);
-    
-    // 2.0 seconds of loading, then trigger the 0.5s opening/splitting animation
-    const loadTimeout = setTimeout(() => {
-      setOpeningAnimation(true);
-    }, 2000);
-
-    const finishTimeout = setTimeout(() => {
-      setLoading(false);
-    }, 2500);
-
-    return () => {
-      clearTimeout(loadTimeout);
-      clearTimeout(finishTimeout);
-    };
   }, []);
+
+  // 8-bit retro startup beep to unlock AudioContext
+  const playBootSound = () => {
+    try {
+      const AudioCtx = window.AudioContext || (window as any).webkitAudioContext;
+      if (!AudioCtx) return;
+      const audioCtx = new AudioCtx();
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      
+      osc.type = 'square';
+      osc.frequency.setValueAtTime(587.33, audioCtx.currentTime); // D5
+      gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+      osc.start();
+      
+      osc.frequency.setValueAtTime(880, audioCtx.currentTime + 0.12); // A5
+      osc.stop(audioCtx.currentTime + 0.35);
+    } catch (e) {
+      console.warn("Web Audio API not supported or blocked", e);
+    }
+  };
+
+  const handleInitialize = () => {
+    if (isActivated) return;
+    setIsActivated(true);
+    playBootSound();
+    setOpeningAnimation(true);
+    
+    // Speak welcome dialogue instantly (unlocks browser TTS)
+    setTimeout(() => {
+      DexterSpeech.speak("Dexter system online. Bulbasaur scanned.");
+    }, 150);
+
+    setTimeout(() => {
+      setLoading(false);
+    }, 650);
+  };
 
   // Filter Pokemon based on search query and selected type
   const filteredPokemon = pokemonData.filter((pokemon) => {
@@ -81,28 +108,26 @@ export const App: React.FC = () => {
         {/* CSS-based Opening PokeBall Loading Animation */}
         <div className={`pokeball-wrapper ${openingAnimation ? 'open-pokedex' : ''}`}>
           <div className="pokeball-container">
-            {/* Top red half */}
             <div className="pokeball-half pokeball-top" />
-            {/* Middle band */}
             <div className="pokeball-band" />
-            {/* Center button */}
             <div className="pokeball-button">
               <div className="pokeball-button-inner animate-pulse" />
             </div>
-            {/* Bottom white half */}
             <div className="pokeball-half pokeball-bottom" />
           </div>
-          {/* Inner intense holographic glow that shines when opening */}
           {openingAnimation && <div className="pokeball-burst-glow" />}
         </div>
 
         <div className={`transition-all duration-500 flex flex-col items-center mt-8 ${openingAnimation ? 'opacity-0 scale-95' : 'opacity-100'}`}>
           <h2 className="font-cyber font-black tracking-widest text-red-500 glow-text-red text-lg uppercase">
-            INITIALIZING DEXTER OS
+            DEXTER POKEDEX SYSTEM
           </h2>
-          <p className="font-cyber text-[9px] text-cyan-400 mt-2 tracking-widest uppercase animate-pulse">
-            Booting 3D Holographic Chamber...
-          </p>
+          <button
+            onClick={handleInitialize}
+            className="cyber-btn cyber-btn-cyan text-xs font-cyber mt-5 py-2.5 px-8 shadow-[0_0_15px_rgba(0,243,255,0.35)] animate-pulse"
+          >
+            INITIALIZE DEXTER
+          </button>
         </div>
       </div>
     );

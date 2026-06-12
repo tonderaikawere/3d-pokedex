@@ -324,7 +324,7 @@ const PokemonCard: React.FC<CardProps> = ({
         <CardFrame 
           width={width} 
           height={height} 
-          color={isSelected ? "#00f3ff" : "rgba(0, 243, 255, 0.12)"} 
+          color={isSelected ? "#00f3ff" : "#005577"} 
         />
       </group>
     </group>

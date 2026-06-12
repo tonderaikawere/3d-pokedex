@@ -77,7 +77,9 @@ class DexterSpeechSystem {
     };
 
     utterance.onerror = (e) => {
-      console.error("Speech Synthesis Error:", e);
+      if (e.error !== 'interrupted') {
+        console.error("Speech Synthesis Error:", e.error || e);
+      }
       this.isSpeakingState = false;
       if (this.onStateChange) this.onStateChange(false);
       if (onEnd) onEnd();
