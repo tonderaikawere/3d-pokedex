@@ -28,6 +28,7 @@ interface Pokedex3DProps {
   pokemonList: Pokemon[];
   selectedId: number;
   onSelectPokemon: (id: number) => void;
+  isSilhouette: boolean;
 }
 
 // Custom material for glowing holographic grid lines on the selected card
@@ -200,6 +201,7 @@ interface CardProps {
   pokemon: Pokemon;
   isSelected: boolean;
   offsetIndex: number; // Index relative to active (-5 to +5)
+  isSilhouette: boolean;
   onClick: () => void;
 }
 
@@ -207,6 +209,7 @@ const PokemonCard: React.FC<CardProps> = ({
   pokemon,
   isSelected,
   offsetIndex,
+  isSilhouette,
   onClick
 }) => {
   const meshRef = useRef<THREE.Group>(null);
@@ -235,9 +238,7 @@ const PokemonCard: React.FC<CardProps> = ({
         setBackTexture(tex);
       },
       undefined,
-      () => {
-        // Fallback or ignore if file doesn't exist
-      }
+      () => {}
     );
   }, [pokemon.imageUrl, textureLoader]);
 
@@ -299,7 +300,8 @@ const PokemonCard: React.FC<CardProps> = ({
             map={texture} 
             transparent={true} 
             side={THREE.DoubleSide} 
-            shininess={100}
+            shininess={isSilhouette && isSelected ? 0 : 100}
+            color={isSilhouette && isSelected ? "#000000" : "#ffffff"}
             depthWrite={true}
           />
         ) : (
@@ -332,7 +334,8 @@ const PokemonCard: React.FC<CardProps> = ({
 export const Pokedex3D: React.FC<Pokedex3DProps> = ({
   pokemonList,
   selectedId,
-  onSelectPokemon
+  onSelectPokemon,
+  isSilhouette
 }) => {
   const { camera } = useThree();
 
@@ -418,6 +421,7 @@ export const Pokedex3D: React.FC<Pokedex3DProps> = ({
               pokemon={pokemon}
               isSelected={pokemon.id === selectedId}
               offsetIndex={offsetIndex}
+              isSilhouette={isSilhouette}
               onClick={() => onSelectPokemon(pokemon.id)}
             />
           ))}

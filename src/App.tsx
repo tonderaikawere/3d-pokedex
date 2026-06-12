@@ -32,12 +32,16 @@ export const App: React.FC = () => {
   const [selectedType, setSelectedType] = useState<string>('all');
   const [loading, setLoading] = useState<boolean>(true);
   const [openingAnimation, setOpeningAnimation] = useState<boolean>(false);
+  
+  // Game states: scan mode, guess who's that pokemon, catch minigame
+  const [gameMode, setGameMode] = useState<'scan' | 'guess' | 'catch'>('scan');
+  const [isSilhouette, setIsSilhouette] = useState<boolean>(false);
 
   // Initialize data instantly and run the PokeBall loading animation
   useEffect(() => {
     setPokemonData(pokemonDataRaw as Pokemon[]);
     
-    // 2.2 seconds of loading, then trigger the 0.5s opening/splitting animation
+    // 2.0 seconds of loading, then trigger the 0.5s opening/splitting animation
     const loadTimeout = setTimeout(() => {
       setOpeningAnimation(true);
     }, 2000);
@@ -115,7 +119,8 @@ export const App: React.FC = () => {
         <Pokedex3D 
           pokemonList={filteredPokemon} 
           selectedId={selectedId} 
-          onSelectPokemon={handleSelectPokemon} 
+          onSelectPokemon={handleSelectPokemon}
+          isSilhouette={isSilhouette}
         />
       ) : (
         <div className="absolute inset-0 flex items-center justify-center font-cyber text-slate-500 tracking-widest uppercase text-xs">
@@ -132,6 +137,10 @@ export const App: React.FC = () => {
         setSearchQuery={setSearchQuery}
         selectedType={selectedType}
         setSelectedType={setSelectedType}
+        gameMode={gameMode}
+        setGameMode={setGameMode}
+        isSilhouette={isSilhouette}
+        setIsSilhouette={setIsSilhouette}
       />
     </div>
   );
