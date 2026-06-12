@@ -1,0 +1,4088 @@
+[
+  {
+    "id": 1,
+    "name": "Bulbasaur",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/1.gif",
+    "height": 0.7,
+    "weight": 6.9,
+    "abilities": [
+      "overgrow",
+      "chlorophyll"
+    ],
+    "stats": {
+      "hp": 45,
+      "attack": 49,
+      "defense": 49,
+      "spAttack": 65,
+      "spDefense": 65,
+      "speed": 45
+    },
+    "category": "Seed Pokémon",
+    "description": "A strange seed was planted on its back at birth. The plant sprouts and grows with this POKéMON.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/1.ogg"
+  },
+  {
+    "id": 2,
+    "name": "Ivysaur",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/2.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/2.gif",
+    "height": 1,
+    "weight": 13,
+    "abilities": [
+      "overgrow",
+      "chlorophyll"
+    ],
+    "stats": {
+      "hp": 60,
+      "attack": 62,
+      "defense": 63,
+      "spAttack": 80,
+      "spDefense": 80,
+      "speed": 60
+    },
+    "category": "Seed Pokémon",
+    "description": "When the bulb on its back grows large, it appears to lose the ability to stand on its hind legs.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/2.ogg"
+  },
+  {
+    "id": 3,
+    "name": "Venusaur",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/3.gif",
+    "height": 2,
+    "weight": 100,
+    "abilities": [
+      "overgrow",
+      "chlorophyll"
+    ],
+    "stats": {
+      "hp": 80,
+      "attack": 82,
+      "defense": 83,
+      "spAttack": 100,
+      "spDefense": 100,
+      "speed": 80
+    },
+    "category": "Seed Pokémon",
+    "description": "The plant blooms when it is absorbing solar energy. It stays on the move to seek sunlight.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/3.ogg"
+  },
+  {
+    "id": 4,
+    "name": "Charmander",
+    "types": [
+      "fire"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/4.gif",
+    "height": 0.6,
+    "weight": 8.5,
+    "abilities": [
+      "blaze",
+      "solar power"
+    ],
+    "stats": {
+      "hp": 39,
+      "attack": 52,
+      "defense": 43,
+      "spAttack": 60,
+      "spDefense": 50,
+      "speed": 65
+    },
+    "category": "Lizard Pokémon",
+    "description": "Obviously prefers hot places. When it rains, steam is said to spout from the tip of its tail.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/4.ogg"
+  },
+  {
+    "id": 5,
+    "name": "Charmeleon",
+    "types": [
+      "fire"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/5.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/5.gif",
+    "height": 1.1,
+    "weight": 19,
+    "abilities": [
+      "blaze",
+      "solar power"
+    ],
+    "stats": {
+      "hp": 58,
+      "attack": 64,
+      "defense": 58,
+      "spAttack": 80,
+      "spDefense": 65,
+      "speed": 80
+    },
+    "category": "Flame Pokémon",
+    "description": "When it swings its burning tail, it elevates the temperature to unbearably high levels.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/5.ogg"
+  },
+  {
+    "id": 6,
+    "name": "Charizard",
+    "types": [
+      "fire",
+      "flying"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/6.gif",
+    "height": 1.7,
+    "weight": 90.5,
+    "abilities": [
+      "blaze",
+      "solar power"
+    ],
+    "stats": {
+      "hp": 78,
+      "attack": 84,
+      "defense": 78,
+      "spAttack": 109,
+      "spDefense": 85,
+      "speed": 100
+    },
+    "category": "Flame Pokémon",
+    "description": "Spits fire that is hot enough to melt boulders. Known to cause forest fires unintentionally.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/6.ogg"
+  },
+  {
+    "id": 7,
+    "name": "Squirtle",
+    "types": [
+      "water"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/7.gif",
+    "height": 0.5,
+    "weight": 9,
+    "abilities": [
+      "torrent",
+      "rain dish"
+    ],
+    "stats": {
+      "hp": 44,
+      "attack": 48,
+      "defense": 65,
+      "spAttack": 50,
+      "spDefense": 64,
+      "speed": 43
+    },
+    "category": "Tiny Turtle Pokémon",
+    "description": "After birth, its back swells and hardens into a shell. Powerfully sprays foam from its mouth.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/7.ogg"
+  },
+  {
+    "id": 8,
+    "name": "Wartortle",
+    "types": [
+      "water"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/8.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/8.gif",
+    "height": 1,
+    "weight": 22.5,
+    "abilities": [
+      "torrent",
+      "rain dish"
+    ],
+    "stats": {
+      "hp": 59,
+      "attack": 63,
+      "defense": 80,
+      "spAttack": 65,
+      "spDefense": 80,
+      "speed": 58
+    },
+    "category": "Turtle Pokémon",
+    "description": "Often hides in water to stalk unwary prey. For swimming fast, it moves its ears to maintain balance.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/8.ogg"
+  },
+  {
+    "id": 9,
+    "name": "Blastoise",
+    "types": [
+      "water"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/9.gif",
+    "height": 1.6,
+    "weight": 85.5,
+    "abilities": [
+      "torrent",
+      "rain dish"
+    ],
+    "stats": {
+      "hp": 79,
+      "attack": 83,
+      "defense": 100,
+      "spAttack": 85,
+      "spDefense": 105,
+      "speed": 78
+    },
+    "category": "Shellfish Pokémon",
+    "description": "A brutal POKéMON with pressurized water jets on its shell. They are used for high speed tackles.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/9.ogg"
+  },
+  {
+    "id": 10,
+    "name": "Caterpie",
+    "types": [
+      "bug"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/10.gif",
+    "height": 0.3,
+    "weight": 2.9,
+    "abilities": [
+      "shield dust",
+      "run away"
+    ],
+    "stats": {
+      "hp": 45,
+      "attack": 30,
+      "defense": 35,
+      "spAttack": 20,
+      "spDefense": 20,
+      "speed": 45
+    },
+    "category": "Worm Pokémon",
+    "description": "Its short feet are tipped with suction pads that enable it to tirelessly climb slopes and walls.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/10.ogg"
+  },
+  {
+    "id": 11,
+    "name": "Metapod",
+    "types": [
+      "bug"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/11.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/11.gif",
+    "height": 0.7,
+    "weight": 9.9,
+    "abilities": [
+      "shed skin"
+    ],
+    "stats": {
+      "hp": 50,
+      "attack": 20,
+      "defense": 55,
+      "spAttack": 25,
+      "spDefense": 25,
+      "speed": 30
+    },
+    "category": "Cocoon Pokémon",
+    "description": "This POKéMON is vulnerable to attack while its shell is soft, exposing its weak and tender body.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/11.ogg"
+  },
+  {
+    "id": 12,
+    "name": "Butterfree",
+    "types": [
+      "bug",
+      "flying"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/12.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/12.gif",
+    "height": 1.1,
+    "weight": 32,
+    "abilities": [
+      "compound eyes",
+      "tinted lens"
+    ],
+    "stats": {
+      "hp": 60,
+      "attack": 45,
+      "defense": 50,
+      "spAttack": 90,
+      "spDefense": 80,
+      "speed": 70
+    },
+    "category": "Butterfly Pokémon",
+    "description": "In battle, it flaps its wings at high speed to release highly toxic dust into the air.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/12.ogg"
+  },
+  {
+    "id": 13,
+    "name": "Weedle",
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/13.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/13.gif",
+    "height": 0.3,
+    "weight": 3.2,
+    "abilities": [
+      "shield dust",
+      "run away"
+    ],
+    "stats": {
+      "hp": 40,
+      "attack": 35,
+      "defense": 30,
+      "spAttack": 20,
+      "spDefense": 20,
+      "speed": 50
+    },
+    "category": "Hairy Bug Pokémon",
+    "description": "Often found in forests, eating leaves. It has a sharp venomous stinger on its head.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/13.ogg"
+  },
+  {
+    "id": 14,
+    "name": "Kakuna",
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/14.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/14.gif",
+    "height": 0.6,
+    "weight": 10,
+    "abilities": [
+      "shed skin"
+    ],
+    "stats": {
+      "hp": 45,
+      "attack": 25,
+      "defense": 50,
+      "spAttack": 25,
+      "spDefense": 25,
+      "speed": 35
+    },
+    "category": "Cocoon Pokémon",
+    "description": "Almost incapable of moving, this POKéMON can only harden its shell to protect itself from predators.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/14.ogg"
+  },
+  {
+    "id": 15,
+    "name": "Beedrill",
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/15.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/15.gif",
+    "height": 1,
+    "weight": 29.5,
+    "abilities": [
+      "swarm",
+      "sniper"
+    ],
+    "stats": {
+      "hp": 65,
+      "attack": 90,
+      "defense": 40,
+      "spAttack": 45,
+      "spDefense": 80,
+      "speed": 75
+    },
+    "category": "Poison Bee Pokémon",
+    "description": "It has three poisonous stingers on its forelegs and its tail. They are used to jab its enemy repeatedly.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/15.ogg"
+  },
+  {
+    "id": 16,
+    "name": "Pidgey",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/16.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/16.gif",
+    "height": 0.3,
+    "weight": 1.8,
+    "abilities": [
+      "keen eye",
+      "tangled feet",
+      "big pecks"
+    ],
+    "stats": {
+      "hp": 40,
+      "attack": 45,
+      "defense": 40,
+      "spAttack": 35,
+      "spDefense": 35,
+      "speed": 56
+    },
+    "category": "Tiny Bird Pokémon",
+    "description": "A common sight in forests and woods. It flaps its wings at ground level to kick up blinding sand.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/16.ogg"
+  },
+  {
+    "id": 17,
+    "name": "Pidgeotto",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/17.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/17.gif",
+    "height": 1.1,
+    "weight": 30,
+    "abilities": [
+      "keen eye",
+      "tangled feet",
+      "big pecks"
+    ],
+    "stats": {
+      "hp": 63,
+      "attack": 60,
+      "defense": 55,
+      "spAttack": 50,
+      "spDefense": 50,
+      "speed": 71
+    },
+    "category": "Bird Pokémon",
+    "description": "Very protective of its sprawling territorial area, this POKéMON will fiercely peck at any intruder.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/17.ogg"
+  },
+  {
+    "id": 18,
+    "name": "Pidgeot",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/18.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/18.gif",
+    "height": 1.5,
+    "weight": 39.5,
+    "abilities": [
+      "keen eye",
+      "tangled feet",
+      "big pecks"
+    ],
+    "stats": {
+      "hp": 83,
+      "attack": 80,
+      "defense": 75,
+      "spAttack": 70,
+      "spDefense": 70,
+      "speed": 101
+    },
+    "category": "Bird Pokémon",
+    "description": "When hunting, it skims the surface of water at high speed to pick off unwary prey such as MAGIKARP.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/18.ogg"
+  },
+  {
+    "id": 19,
+    "name": "Rattata",
+    "types": [
+      "normal"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/19.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/19.gif",
+    "height": 0.3,
+    "weight": 3.5,
+    "abilities": [
+      "run away",
+      "guts",
+      "hustle"
+    ],
+    "stats": {
+      "hp": 30,
+      "attack": 56,
+      "defense": 35,
+      "spAttack": 25,
+      "spDefense": 35,
+      "speed": 72
+    },
+    "category": "Mouse Pokémon",
+    "description": "Bites anything when it attacks. Small and very quick, it is a common sight in many places.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/19.ogg"
+  },
+  {
+    "id": 20,
+    "name": "Raticate",
+    "types": [
+      "normal"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/20.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/20.gif",
+    "height": 0.7,
+    "weight": 18.5,
+    "abilities": [
+      "run away",
+      "guts",
+      "hustle"
+    ],
+    "stats": {
+      "hp": 55,
+      "attack": 81,
+      "defense": 60,
+      "spAttack": 50,
+      "spDefense": 70,
+      "speed": 97
+    },
+    "category": "Mouse Pokémon",
+    "description": "It uses its whis­ kers to maintain its balance. It apparently slows down if they are cut off.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/20.ogg"
+  },
+  {
+    "id": 21,
+    "name": "Spearow",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/21.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/21.gif",
+    "height": 0.3,
+    "weight": 2,
+    "abilities": [
+      "keen eye",
+      "sniper"
+    ],
+    "stats": {
+      "hp": 40,
+      "attack": 60,
+      "defense": 30,
+      "spAttack": 31,
+      "spDefense": 31,
+      "speed": 70
+    },
+    "category": "Tiny Bird Pokémon",
+    "description": "It flaps its small wings busily to fly. Using its beak, it searches in grass for prey.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/21.ogg"
+  },
+  {
+    "id": 22,
+    "name": "Fearow",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/22.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/22.gif",
+    "height": 1.2,
+    "weight": 38,
+    "abilities": [
+      "keen eye",
+      "sniper"
+    ],
+    "stats": {
+      "hp": 65,
+      "attack": 90,
+      "defense": 65,
+      "spAttack": 61,
+      "spDefense": 61,
+      "speed": 100
+    },
+    "category": "Beak Pokémon",
+    "description": "With its huge and magnificent wings, it can keep aloft without ever having to land for rest.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/22.ogg"
+  },
+  {
+    "id": 23,
+    "name": "Ekans",
+    "types": [
+      "poison"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/23.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/23.gif",
+    "height": 2,
+    "weight": 6.9,
+    "abilities": [
+      "intimidate",
+      "shed skin",
+      "unnerve"
+    ],
+    "stats": {
+      "hp": 35,
+      "attack": 60,
+      "defense": 44,
+      "spAttack": 40,
+      "spDefense": 54,
+      "speed": 55
+    },
+    "category": "Snake Pokémon",
+    "description": "Moves silently and stealthily. Eats the eggs of birds, such as PIDGEY and SPEAROW, whole.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/23.ogg"
+  },
+  {
+    "id": 24,
+    "name": "Arbok",
+    "types": [
+      "poison"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/24.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/24.gif",
+    "height": 3.5,
+    "weight": 65,
+    "abilities": [
+      "intimidate",
+      "shed skin",
+      "unnerve"
+    ],
+    "stats": {
+      "hp": 60,
+      "attack": 95,
+      "defense": 69,
+      "spAttack": 65,
+      "spDefense": 79,
+      "speed": 80
+    },
+    "category": "Cobra Pokémon",
+    "description": "It is rumored that the ferocious warning markings on its belly differ from area to area.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/24.ogg"
+  },
+  {
+    "id": 25,
+    "name": "Pikachu",
+    "types": [
+      "electric"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/25.gif",
+    "height": 0.4,
+    "weight": 6,
+    "abilities": [
+      "static",
+      "lightning rod"
+    ],
+    "stats": {
+      "hp": 35,
+      "attack": 55,
+      "defense": 40,
+      "spAttack": 50,
+      "spDefense": 50,
+      "speed": 90
+    },
+    "category": "Mouse Pokémon",
+    "description": "When several of these POKéMON gather, their electricity could build and cause lightning storms.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/25.ogg"
+  },
+  {
+    "id": 26,
+    "name": "Raichu",
+    "types": [
+      "electric"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/26.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/26.gif",
+    "height": 0.8,
+    "weight": 30,
+    "abilities": [
+      "static",
+      "lightning rod"
+    ],
+    "stats": {
+      "hp": 60,
+      "attack": 90,
+      "defense": 55,
+      "spAttack": 90,
+      "spDefense": 80,
+      "speed": 110
+    },
+    "category": "Mouse Pokémon",
+    "description": "Its long tail serves as a ground to protect itself from its own high-voltage power.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/26.ogg"
+  },
+  {
+    "id": 27,
+    "name": "Sandshrew",
+    "types": [
+      "ground"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/27.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/27.gif",
+    "height": 0.6,
+    "weight": 12,
+    "abilities": [
+      "sand veil",
+      "sand rush"
+    ],
+    "stats": {
+      "hp": 50,
+      "attack": 75,
+      "defense": 85,
+      "spAttack": 20,
+      "spDefense": 30,
+      "speed": 40
+    },
+    "category": "Mouse Pokémon",
+    "description": "Burrows deep underground in arid locations far from water. It only emerges to hunt for food.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/27.ogg"
+  },
+  {
+    "id": 28,
+    "name": "Sandslash",
+    "types": [
+      "ground"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/28.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/28.gif",
+    "height": 1,
+    "weight": 29.5,
+    "abilities": [
+      "sand veil",
+      "sand rush"
+    ],
+    "stats": {
+      "hp": 75,
+      "attack": 100,
+      "defense": 110,
+      "spAttack": 45,
+      "spDefense": 55,
+      "speed": 65
+    },
+    "category": "Mouse Pokémon",
+    "description": "Curls up into a spiny ball when threatened. It can roll while curled up to attack or escape.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/28.ogg"
+  },
+  {
+    "id": 29,
+    "name": "Nidoran-f",
+    "types": [
+      "poison"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/29.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/29.gif",
+    "height": 0.4,
+    "weight": 7,
+    "abilities": [
+      "poison point",
+      "rivalry",
+      "hustle"
+    ],
+    "stats": {
+      "hp": 55,
+      "attack": 47,
+      "defense": 52,
+      "spAttack": 40,
+      "spDefense": 40,
+      "speed": 41
+    },
+    "category": "Poison Pin Pokémon",
+    "description": "Although small, its venomous barbs render this POKéMON dangerous. The female has smaller horns.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/29.ogg"
+  },
+  {
+    "id": 30,
+    "name": "Nidorina",
+    "types": [
+      "poison"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/30.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/30.gif",
+    "height": 0.8,
+    "weight": 20,
+    "abilities": [
+      "poison point",
+      "rivalry",
+      "hustle"
+    ],
+    "stats": {
+      "hp": 70,
+      "attack": 62,
+      "defense": 67,
+      "spAttack": 55,
+      "spDefense": 55,
+      "speed": 56
+    },
+    "category": "Poison Pin Pokémon",
+    "description": "The female's horn develops slowly. Prefers physical attacks such as clawing and biting.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/30.ogg"
+  },
+  {
+    "id": 31,
+    "name": "Nidoqueen",
+    "types": [
+      "poison",
+      "ground"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/31.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/31.gif",
+    "height": 1.3,
+    "weight": 60,
+    "abilities": [
+      "poison point",
+      "rivalry",
+      "sheer force"
+    ],
+    "stats": {
+      "hp": 90,
+      "attack": 92,
+      "defense": 87,
+      "spAttack": 75,
+      "spDefense": 85,
+      "speed": 76
+    },
+    "category": "Drill Pokémon",
+    "description": "Its hard scales provide strong protection. It uses its hefty bulk to execute powerful moves.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/31.ogg"
+  },
+  {
+    "id": 32,
+    "name": "Nidoran-m",
+    "types": [
+      "poison"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/32.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/32.gif",
+    "height": 0.5,
+    "weight": 9,
+    "abilities": [
+      "poison point",
+      "rivalry",
+      "hustle"
+    ],
+    "stats": {
+      "hp": 46,
+      "attack": 57,
+      "defense": 40,
+      "spAttack": 40,
+      "spDefense": 40,
+      "speed": 50
+    },
+    "category": "Poison Pin Pokémon",
+    "description": "Stiffens its ears to sense danger. The larger its horns, the more powerful its secreted venom.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/32.ogg"
+  },
+  {
+    "id": 33,
+    "name": "Nidorino",
+    "types": [
+      "poison"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/33.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/33.gif",
+    "height": 0.9,
+    "weight": 19.5,
+    "abilities": [
+      "poison point",
+      "rivalry",
+      "hustle"
+    ],
+    "stats": {
+      "hp": 61,
+      "attack": 72,
+      "defense": 57,
+      "spAttack": 55,
+      "spDefense": 55,
+      "speed": 65
+    },
+    "category": "Poison Pin Pokémon",
+    "description": "An aggressive POKéMON that is quick to attack. The horn on its head secretes a powerful venom.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/33.ogg"
+  },
+  {
+    "id": 34,
+    "name": "Nidoking",
+    "types": [
+      "poison",
+      "ground"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/34.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/34.gif",
+    "height": 1.4,
+    "weight": 62,
+    "abilities": [
+      "poison point",
+      "rivalry",
+      "sheer force"
+    ],
+    "stats": {
+      "hp": 81,
+      "attack": 102,
+      "defense": 77,
+      "spAttack": 85,
+      "spDefense": 75,
+      "speed": 85
+    },
+    "category": "Drill Pokémon",
+    "description": "It uses its powerful tail in battle to smash, constrict, then break the prey's bones.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/34.ogg"
+  },
+  {
+    "id": 35,
+    "name": "Clefairy",
+    "types": [
+      "fairy"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/35.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/35.gif",
+    "height": 0.6,
+    "weight": 7.5,
+    "abilities": [
+      "cute charm",
+      "magic guard",
+      "friend guard"
+    ],
+    "stats": {
+      "hp": 70,
+      "attack": 45,
+      "defense": 48,
+      "spAttack": 60,
+      "spDefense": 65,
+      "speed": 35
+    },
+    "category": "Fairy Pokémon",
+    "description": "Its magical and cute appeal has many admirers. It is rare and found only in certain areas.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/35.ogg"
+  },
+  {
+    "id": 36,
+    "name": "Clefable",
+    "types": [
+      "fairy"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/36.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/36.gif",
+    "height": 1.3,
+    "weight": 40,
+    "abilities": [
+      "cute charm",
+      "magic guard",
+      "unaware"
+    ],
+    "stats": {
+      "hp": 95,
+      "attack": 70,
+      "defense": 73,
+      "spAttack": 95,
+      "spDefense": 90,
+      "speed": 60
+    },
+    "category": "Fairy Pokémon",
+    "description": "A timid fairy POKéMON that is rarely seen. It will run and hide the moment it senses people.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/36.ogg"
+  },
+  {
+    "id": 37,
+    "name": "Vulpix",
+    "types": [
+      "fire"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/37.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/37.gif",
+    "height": 0.6,
+    "weight": 9.9,
+    "abilities": [
+      "flash fire",
+      "drought"
+    ],
+    "stats": {
+      "hp": 38,
+      "attack": 41,
+      "defense": 40,
+      "spAttack": 50,
+      "spDefense": 65,
+      "speed": 65
+    },
+    "category": "Fox Pokémon",
+    "description": "At the time of birth, it has just one tail. The tail splits from its tip as it grows older.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/37.ogg"
+  },
+  {
+    "id": 38,
+    "name": "Ninetales",
+    "types": [
+      "fire"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/38.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/38.gif",
+    "height": 1.1,
+    "weight": 19.9,
+    "abilities": [
+      "flash fire",
+      "drought"
+    ],
+    "stats": {
+      "hp": 73,
+      "attack": 76,
+      "defense": 75,
+      "spAttack": 81,
+      "spDefense": 100,
+      "speed": 100
+    },
+    "category": "Fox Pokémon",
+    "description": "Very smart and very vengeful. Grabbing one of its many tails could result in a 1000-year curse.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/38.ogg"
+  },
+  {
+    "id": 39,
+    "name": "Jigglypuff",
+    "types": [
+      "normal",
+      "fairy"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/39.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/39.gif",
+    "height": 0.5,
+    "weight": 5.5,
+    "abilities": [
+      "cute charm",
+      "competitive",
+      "friend guard"
+    ],
+    "stats": {
+      "hp": 115,
+      "attack": 45,
+      "defense": 20,
+      "spAttack": 45,
+      "spDefense": 25,
+      "speed": 20
+    },
+    "category": "Balloon Pokémon",
+    "description": "When its huge eyes light up, it sings a mysteriously soothing melody that lulls its enemies to sleep.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/39.ogg"
+  },
+  {
+    "id": 40,
+    "name": "Wigglytuff",
+    "types": [
+      "normal",
+      "fairy"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/40.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/40.gif",
+    "height": 1,
+    "weight": 12,
+    "abilities": [
+      "cute charm",
+      "competitive",
+      "frisk"
+    ],
+    "stats": {
+      "hp": 140,
+      "attack": 70,
+      "defense": 45,
+      "spAttack": 85,
+      "spDefense": 50,
+      "speed": 45
+    },
+    "category": "Balloon Pokémon",
+    "description": "The body is soft and rubbery. When angered, it will suck in air and inflate itself to an enormous size.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/40.ogg"
+  },
+  {
+    "id": 41,
+    "name": "Zubat",
+    "types": [
+      "poison",
+      "flying"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/41.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/41.gif",
+    "height": 0.8,
+    "weight": 7.5,
+    "abilities": [
+      "inner focus",
+      "infiltrator"
+    ],
+    "stats": {
+      "hp": 40,
+      "attack": 45,
+      "defense": 35,
+      "spAttack": 30,
+      "spDefense": 40,
+      "speed": 55
+    },
+    "category": "Bat Pokémon",
+    "description": "Forms colonies in perpetually dark places. Uses ultrasonic waves to identify and approach targets.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/41.ogg"
+  },
+  {
+    "id": 42,
+    "name": "Golbat",
+    "types": [
+      "poison",
+      "flying"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/42.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/42.gif",
+    "height": 1.6,
+    "weight": 55,
+    "abilities": [
+      "inner focus",
+      "infiltrator"
+    ],
+    "stats": {
+      "hp": 75,
+      "attack": 80,
+      "defense": 70,
+      "spAttack": 65,
+      "spDefense": 75,
+      "speed": 90
+    },
+    "category": "Bat Pokémon",
+    "description": "Once it strikes, it will not stop draining energy from the victim even if it gets too heavy to fly.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/42.ogg"
+  },
+  {
+    "id": 43,
+    "name": "Oddish",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/43.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/43.gif",
+    "height": 0.5,
+    "weight": 5.4,
+    "abilities": [
+      "chlorophyll",
+      "run away"
+    ],
+    "stats": {
+      "hp": 45,
+      "attack": 50,
+      "defense": 55,
+      "spAttack": 75,
+      "spDefense": 65,
+      "speed": 30
+    },
+    "category": "Weed Pokémon",
+    "description": "During the day, it keeps its face buried in the ground. At night, it wanders around sowing its seeds.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/43.ogg"
+  },
+  {
+    "id": 44,
+    "name": "Gloom",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/44.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/44.gif",
+    "height": 0.8,
+    "weight": 8.6,
+    "abilities": [
+      "chlorophyll",
+      "stench"
+    ],
+    "stats": {
+      "hp": 60,
+      "attack": 65,
+      "defense": 70,
+      "spAttack": 85,
+      "spDefense": 75,
+      "speed": 40
+    },
+    "category": "Weed Pokémon",
+    "description": "The fluid that oozes from its mouth isn't drool. It is a nectar that is used to attract prey.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/44.ogg"
+  },
+  {
+    "id": 45,
+    "name": "Vileplume",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/45.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/45.gif",
+    "height": 1.2,
+    "weight": 18.6,
+    "abilities": [
+      "chlorophyll",
+      "effect spore"
+    ],
+    "stats": {
+      "hp": 75,
+      "attack": 80,
+      "defense": 85,
+      "spAttack": 110,
+      "spDefense": 90,
+      "speed": 50
+    },
+    "category": "Flower Pokémon",
+    "description": "It has the world’s largest petals. With every step, the petals shake out heavy clouds of toxic pollen.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/45.ogg"
+  },
+  {
+    "id": 46,
+    "name": "Paras",
+    "types": [
+      "bug",
+      "grass"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/46.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/46.gif",
+    "height": 0.3,
+    "weight": 5.4,
+    "abilities": [
+      "effect spore",
+      "dry skin",
+      "damp"
+    ],
+    "stats": {
+      "hp": 35,
+      "attack": 70,
+      "defense": 55,
+      "spAttack": 45,
+      "spDefense": 55,
+      "speed": 25
+    },
+    "category": "Mushroom Pokémon",
+    "description": "Burrows to suck tree roots. The mushrooms on its back grow by draw­ ing nutrients from the bug host.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/46.ogg"
+  },
+  {
+    "id": 47,
+    "name": "Parasect",
+    "types": [
+      "bug",
+      "grass"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/47.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/47.gif",
+    "height": 1,
+    "weight": 29.5,
+    "abilities": [
+      "effect spore",
+      "dry skin",
+      "damp"
+    ],
+    "stats": {
+      "hp": 60,
+      "attack": 95,
+      "defense": 80,
+      "spAttack": 60,
+      "spDefense": 80,
+      "speed": 30
+    },
+    "category": "Mushroom Pokémon",
+    "description": "A host-parasite pair in which the parasite mushroom has taken over the host bug. Prefers damp places.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/47.ogg"
+  },
+  {
+    "id": 48,
+    "name": "Venonat",
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/48.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/48.gif",
+    "height": 1,
+    "weight": 30,
+    "abilities": [
+      "compound eyes",
+      "tinted lens",
+      "run away"
+    ],
+    "stats": {
+      "hp": 60,
+      "attack": 55,
+      "defense": 50,
+      "spAttack": 40,
+      "spDefense": 55,
+      "speed": 45
+    },
+    "category": "Insect Pokémon",
+    "description": "Lives in the shadows of tall trees where it eats insects. It is attracted by light at night.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/48.ogg"
+  },
+  {
+    "id": 49,
+    "name": "Venomoth",
+    "types": [
+      "bug",
+      "poison"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/49.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/49.gif",
+    "height": 1.5,
+    "weight": 12.5,
+    "abilities": [
+      "shield dust",
+      "tinted lens",
+      "wonder skin"
+    ],
+    "stats": {
+      "hp": 70,
+      "attack": 65,
+      "defense": 60,
+      "spAttack": 90,
+      "spDefense": 75,
+      "speed": 90
+    },
+    "category": "Poison Moth Pokémon",
+    "description": "The dustlike scales covering its wings are color-coded to indicate the kinds of poison it has.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/49.ogg"
+  },
+  {
+    "id": 50,
+    "name": "Diglett",
+    "types": [
+      "ground"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/50.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/50.gif",
+    "height": 0.2,
+    "weight": 0.8,
+    "abilities": [
+      "sand veil",
+      "arena trap",
+      "sand force"
+    ],
+    "stats": {
+      "hp": 10,
+      "attack": 55,
+      "defense": 25,
+      "spAttack": 35,
+      "spDefense": 45,
+      "speed": 95
+    },
+    "category": "Mole Pokémon",
+    "description": "Lives about one yard underground where it feeds on plant roots. It sometimes appears above ground.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/50.ogg"
+  },
+  {
+    "id": 51,
+    "name": "Dugtrio",
+    "types": [
+      "ground"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/51.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/51.gif",
+    "height": 0.7,
+    "weight": 33.3,
+    "abilities": [
+      "sand veil",
+      "arena trap",
+      "sand force"
+    ],
+    "stats": {
+      "hp": 35,
+      "attack": 100,
+      "defense": 50,
+      "spAttack": 50,
+      "spDefense": 70,
+      "speed": 120
+    },
+    "category": "Mole Pokémon",
+    "description": "A team of DIGLETT triplets. It triggers huge earthquakes by burrowing 60 miles underground.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/51.ogg"
+  },
+  {
+    "id": 52,
+    "name": "Meowth",
+    "types": [
+      "normal"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/52.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/52.gif",
+    "height": 0.4,
+    "weight": 4.2,
+    "abilities": [
+      "pickup",
+      "technician",
+      "unnerve"
+    ],
+    "stats": {
+      "hp": 40,
+      "attack": 45,
+      "defense": 35,
+      "spAttack": 40,
+      "spDefense": 40,
+      "speed": 90
+    },
+    "category": "Scratch Cat Pokémon",
+    "description": "It washes its face regularly to keep the coin on its forehead spotless. It doesn’t get along with Galarian Meowth.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/52.ogg"
+  },
+  {
+    "id": 53,
+    "name": "Persian",
+    "types": [
+      "normal"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/53.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/53.gif",
+    "height": 1,
+    "weight": 32,
+    "abilities": [
+      "limber",
+      "technician",
+      "unnerve"
+    ],
+    "stats": {
+      "hp": 65,
+      "attack": 70,
+      "defense": 60,
+      "spAttack": 65,
+      "spDefense": 65,
+      "speed": 115
+    },
+    "category": "Classy Cat Pokémon",
+    "description": "Although its fur has many admirers, it is tough to raise as a pet because of its fickle meanness.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/53.ogg"
+  },
+  {
+    "id": 54,
+    "name": "Psyduck",
+    "types": [
+      "water"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/54.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/54.gif",
+    "height": 0.8,
+    "weight": 19.6,
+    "abilities": [
+      "damp",
+      "cloud nine",
+      "swift swim"
+    ],
+    "stats": {
+      "hp": 50,
+      "attack": 52,
+      "defense": 48,
+      "spAttack": 65,
+      "spDefense": 50,
+      "speed": 55
+    },
+    "category": "Duck Pokémon",
+    "description": "While lulling its enemies with its vacant look, this wily POKéMON will use psychokinetic powers.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/54.ogg"
+  },
+  {
+    "id": 55,
+    "name": "Golduck",
+    "types": [
+      "water"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/55.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/55.gif",
+    "height": 1.7,
+    "weight": 76.6,
+    "abilities": [
+      "damp",
+      "cloud nine",
+      "swift swim"
+    ],
+    "stats": {
+      "hp": 80,
+      "attack": 82,
+      "defense": 78,
+      "spAttack": 95,
+      "spDefense": 80,
+      "speed": 85
+    },
+    "category": "Duck Pokémon",
+    "description": "Often seen swim­ ming elegantly by lake shores. It is often mistaken for the Japanese monster, Kappa.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/55.ogg"
+  },
+  {
+    "id": 56,
+    "name": "Mankey",
+    "types": [
+      "fighting"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/56.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/56.gif",
+    "height": 0.5,
+    "weight": 28,
+    "abilities": [
+      "vital spirit",
+      "anger point",
+      "defiant"
+    ],
+    "stats": {
+      "hp": 40,
+      "attack": 80,
+      "defense": 35,
+      "spAttack": 35,
+      "spDefense": 45,
+      "speed": 70
+    },
+    "category": "Pig Monkey Pokémon",
+    "description": "Extremely quick to anger. It could be docile one moment then thrashing away the next instant.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/56.ogg"
+  },
+  {
+    "id": 57,
+    "name": "Primeape",
+    "types": [
+      "fighting"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/57.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/57.gif",
+    "height": 1,
+    "weight": 32,
+    "abilities": [
+      "vital spirit",
+      "anger point",
+      "defiant"
+    ],
+    "stats": {
+      "hp": 65,
+      "attack": 105,
+      "defense": 60,
+      "spAttack": 60,
+      "spDefense": 70,
+      "speed": 95
+    },
+    "category": "Pig Monkey Pokémon",
+    "description": "Always furious and tenacious to boot. It will not abandon chasing its quarry until it is caught.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/57.ogg"
+  },
+  {
+    "id": 58,
+    "name": "Growlithe",
+    "types": [
+      "fire"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/58.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/58.gif",
+    "height": 0.7,
+    "weight": 19,
+    "abilities": [
+      "intimidate",
+      "flash fire",
+      "justified"
+    ],
+    "stats": {
+      "hp": 55,
+      "attack": 70,
+      "defense": 45,
+      "spAttack": 70,
+      "spDefense": 50,
+      "speed": 60
+    },
+    "category": "Puppy Pokémon",
+    "description": "Very protective of its territory. It will bark and bite to repel intruders from its space.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/58.ogg"
+  },
+  {
+    "id": 59,
+    "name": "Arcanine",
+    "types": [
+      "fire"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/59.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/59.gif",
+    "height": 1.9,
+    "weight": 155,
+    "abilities": [
+      "intimidate",
+      "flash fire",
+      "justified"
+    ],
+    "stats": {
+      "hp": 90,
+      "attack": 110,
+      "defense": 80,
+      "spAttack": 100,
+      "spDefense": 80,
+      "speed": 95
+    },
+    "category": "Legendary Pokémon",
+    "description": "A POKéMON that has been admired since the past for its beauty. It runs agilely as if on wings.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/59.ogg"
+  },
+  {
+    "id": 60,
+    "name": "Poliwag",
+    "types": [
+      "water"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/60.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/60.gif",
+    "height": 0.6,
+    "weight": 12.4,
+    "abilities": [
+      "water absorb",
+      "damp",
+      "swift swim"
+    ],
+    "stats": {
+      "hp": 40,
+      "attack": 50,
+      "defense": 40,
+      "spAttack": 40,
+      "spDefense": 40,
+      "speed": 90
+    },
+    "category": "Tadpole Pokémon",
+    "description": "Its newly grown legs prevent it from running. It appears to prefer swimming than trying to stand.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/60.ogg"
+  },
+  {
+    "id": 61,
+    "name": "Poliwhirl",
+    "types": [
+      "water"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/61.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/61.gif",
+    "height": 1,
+    "weight": 20,
+    "abilities": [
+      "water absorb",
+      "damp",
+      "swift swim"
+    ],
+    "stats": {
+      "hp": 65,
+      "attack": 65,
+      "defense": 65,
+      "spAttack": 50,
+      "spDefense": 50,
+      "speed": 90
+    },
+    "category": "Tadpole Pokémon",
+    "description": "Capable of living in or out of water. When out of water, it sweats to keep its body slimy.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/61.ogg"
+  },
+  {
+    "id": 62,
+    "name": "Poliwrath",
+    "types": [
+      "water",
+      "fighting"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/62.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/62.gif",
+    "height": 1.3,
+    "weight": 54,
+    "abilities": [
+      "water absorb",
+      "damp",
+      "swift swim"
+    ],
+    "stats": {
+      "hp": 90,
+      "attack": 95,
+      "defense": 95,
+      "spAttack": 70,
+      "spDefense": 90,
+      "speed": 70
+    },
+    "category": "Tadpole Pokémon",
+    "description": "An adept swimmer at both the front crawl and breast stroke. Easily overtakes the best human swimmers.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/62.ogg"
+  },
+  {
+    "id": 63,
+    "name": "Abra",
+    "types": [
+      "psychic"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/63.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/63.gif",
+    "height": 0.9,
+    "weight": 19.5,
+    "abilities": [
+      "synchronize",
+      "inner focus",
+      "magic guard"
+    ],
+    "stats": {
+      "hp": 25,
+      "attack": 20,
+      "defense": 15,
+      "spAttack": 105,
+      "spDefense": 55,
+      "speed": 90
+    },
+    "category": "Psi Pokémon",
+    "description": "Using its ability to read minds, it will identify impending danger and TELEPORT to safety.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/63.ogg"
+  },
+  {
+    "id": 64,
+    "name": "Kadabra",
+    "types": [
+      "psychic"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/64.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/64.gif",
+    "height": 1.3,
+    "weight": 56.5,
+    "abilities": [
+      "synchronize",
+      "inner focus",
+      "magic guard"
+    ],
+    "stats": {
+      "hp": 40,
+      "attack": 35,
+      "defense": 30,
+      "spAttack": 120,
+      "spDefense": 70,
+      "speed": 105
+    },
+    "category": "Psi Pokémon",
+    "description": "It emits special alpha waves from its body that induce headaches just by being close by.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/64.ogg"
+  },
+  {
+    "id": 65,
+    "name": "Alakazam",
+    "types": [
+      "psychic"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/65.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/65.gif",
+    "height": 1.5,
+    "weight": 48,
+    "abilities": [
+      "synchronize",
+      "inner focus",
+      "magic guard"
+    ],
+    "stats": {
+      "hp": 55,
+      "attack": 50,
+      "defense": 45,
+      "spAttack": 135,
+      "spDefense": 95,
+      "speed": 120
+    },
+    "category": "Psi Pokémon",
+    "description": "Its brain can out­ perform a super­ computer. Its intelligence quotient is said to be 5,000.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/65.ogg"
+  },
+  {
+    "id": 66,
+    "name": "Machop",
+    "types": [
+      "fighting"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/66.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/66.gif",
+    "height": 0.8,
+    "weight": 19.5,
+    "abilities": [
+      "guts",
+      "no guard",
+      "steadfast"
+    ],
+    "stats": {
+      "hp": 70,
+      "attack": 80,
+      "defense": 50,
+      "spAttack": 35,
+      "spDefense": 35,
+      "speed": 35
+    },
+    "category": "Superpower Pokémon",
+    "description": "Loves to build its muscles. It trains in all styles of martial arts to become even stronger.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/66.ogg"
+  },
+  {
+    "id": 67,
+    "name": "Machoke",
+    "types": [
+      "fighting"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/67.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/67.gif",
+    "height": 1.5,
+    "weight": 70.5,
+    "abilities": [
+      "guts",
+      "no guard",
+      "steadfast"
+    ],
+    "stats": {
+      "hp": 80,
+      "attack": 100,
+      "defense": 70,
+      "spAttack": 50,
+      "spDefense": 60,
+      "speed": 45
+    },
+    "category": "Superpower Pokémon",
+    "description": "Its muscular body is so powerful, it must wear a power save belt to be able to regulate its motions.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/67.ogg"
+  },
+  {
+    "id": 68,
+    "name": "Machamp",
+    "types": [
+      "fighting"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/68.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/68.gif",
+    "height": 1.6,
+    "weight": 130,
+    "abilities": [
+      "guts",
+      "no guard",
+      "steadfast"
+    ],
+    "stats": {
+      "hp": 90,
+      "attack": 130,
+      "defense": 80,
+      "spAttack": 65,
+      "spDefense": 85,
+      "speed": 55
+    },
+    "category": "Superpower Pokémon",
+    "description": "Using its heavy muscles, it throws powerful punches that can send the victim clear over the horizon.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/68.ogg"
+  },
+  {
+    "id": 69,
+    "name": "Bellsprout",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/69.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/69.gif",
+    "height": 0.7,
+    "weight": 4,
+    "abilities": [
+      "chlorophyll",
+      "gluttony"
+    ],
+    "stats": {
+      "hp": 50,
+      "attack": 75,
+      "defense": 35,
+      "spAttack": 70,
+      "spDefense": 30,
+      "speed": 40
+    },
+    "category": "Flower Pokémon",
+    "description": "A carnivorous POKéMON that traps and eats bugs. It uses its root feet to soak up needed moisture.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/69.ogg"
+  },
+  {
+    "id": 70,
+    "name": "Weepinbell",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/70.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/70.gif",
+    "height": 1,
+    "weight": 6.4,
+    "abilities": [
+      "chlorophyll",
+      "gluttony"
+    ],
+    "stats": {
+      "hp": 65,
+      "attack": 90,
+      "defense": 50,
+      "spAttack": 85,
+      "spDefense": 45,
+      "speed": 55
+    },
+    "category": "Flycatcher Pokémon",
+    "description": "It spits out POISONPOWDER to immobilize the enemy and then finishes it with a spray of ACID.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/70.ogg"
+  },
+  {
+    "id": 71,
+    "name": "Victreebel",
+    "types": [
+      "grass",
+      "poison"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/71.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/71.gif",
+    "height": 1.7,
+    "weight": 15.5,
+    "abilities": [
+      "chlorophyll",
+      "gluttony"
+    ],
+    "stats": {
+      "hp": 80,
+      "attack": 105,
+      "defense": 65,
+      "spAttack": 100,
+      "spDefense": 70,
+      "speed": 70
+    },
+    "category": "Flycatcher Pokémon",
+    "description": "Said to live in huge colonies deep in jungles, although no one has ever returned from there.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/71.ogg"
+  },
+  {
+    "id": 72,
+    "name": "Tentacool",
+    "types": [
+      "water",
+      "poison"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/72.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/72.gif",
+    "height": 0.9,
+    "weight": 45.5,
+    "abilities": [
+      "clear body",
+      "liquid ooze",
+      "rain dish"
+    ],
+    "stats": {
+      "hp": 40,
+      "attack": 40,
+      "defense": 35,
+      "spAttack": 50,
+      "spDefense": 100,
+      "speed": 70
+    },
+    "category": "Jellyfish Pokémon",
+    "description": "Drifts in shallow seas. Anglers who hook them by accident are often punished by its stinging acid.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/72.ogg"
+  },
+  {
+    "id": 73,
+    "name": "Tentacruel",
+    "types": [
+      "water",
+      "poison"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/73.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/73.gif",
+    "height": 1.6,
+    "weight": 55,
+    "abilities": [
+      "clear body",
+      "liquid ooze",
+      "rain dish"
+    ],
+    "stats": {
+      "hp": 80,
+      "attack": 70,
+      "defense": 65,
+      "spAttack": 80,
+      "spDefense": 120,
+      "speed": 100
+    },
+    "category": "Jellyfish Pokémon",
+    "description": "The tentacles are normally kept short. On hunts, they are extended to ensnare and immobilize prey.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/73.ogg"
+  },
+  {
+    "id": 74,
+    "name": "Geodude",
+    "types": [
+      "rock",
+      "ground"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/74.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/74.gif",
+    "height": 0.4,
+    "weight": 20,
+    "abilities": [
+      "rock head",
+      "sturdy",
+      "sand veil"
+    ],
+    "stats": {
+      "hp": 40,
+      "attack": 80,
+      "defense": 100,
+      "spAttack": 30,
+      "spDefense": 30,
+      "speed": 20
+    },
+    "category": "Rock Pokémon",
+    "description": "Found in fields and mountains. Mistaking them for boulders, people often step or trip on them.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/74.ogg"
+  },
+  {
+    "id": 75,
+    "name": "Graveler",
+    "types": [
+      "rock",
+      "ground"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/75.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/75.gif",
+    "height": 1,
+    "weight": 105,
+    "abilities": [
+      "rock head",
+      "sturdy",
+      "sand veil"
+    ],
+    "stats": {
+      "hp": 55,
+      "attack": 95,
+      "defense": 115,
+      "spAttack": 45,
+      "spDefense": 45,
+      "speed": 35
+    },
+    "category": "Rock Pokémon",
+    "description": "Rolls down slopes to move. It rolls over any obstacle without slowing or changing its direction.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/75.ogg"
+  },
+  {
+    "id": 76,
+    "name": "Golem",
+    "types": [
+      "rock",
+      "ground"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/76.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/76.gif",
+    "height": 1.4,
+    "weight": 300,
+    "abilities": [
+      "rock head",
+      "sturdy",
+      "sand veil"
+    ],
+    "stats": {
+      "hp": 80,
+      "attack": 120,
+      "defense": 130,
+      "spAttack": 55,
+      "spDefense": 65,
+      "speed": 45
+    },
+    "category": "Megaton Pokémon",
+    "description": "Its boulder-like body is extremely hard. It can easily withstand dynamite blasts without damage.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/76.ogg"
+  },
+  {
+    "id": 77,
+    "name": "Ponyta",
+    "types": [
+      "fire"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/77.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/77.gif",
+    "height": 1,
+    "weight": 30,
+    "abilities": [
+      "run away",
+      "flash fire",
+      "flame body"
+    ],
+    "stats": {
+      "hp": 50,
+      "attack": 85,
+      "defense": 55,
+      "spAttack": 65,
+      "spDefense": 65,
+      "speed": 90
+    },
+    "category": "Fire Horse Pokémon",
+    "description": "Its hooves are 10 times harder than diamonds. It can trample anything completely flat in little time.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/77.ogg"
+  },
+  {
+    "id": 78,
+    "name": "Rapidash",
+    "types": [
+      "fire"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/78.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/78.gif",
+    "height": 1.7,
+    "weight": 95,
+    "abilities": [
+      "run away",
+      "flash fire",
+      "flame body"
+    ],
+    "stats": {
+      "hp": 65,
+      "attack": 100,
+      "defense": 70,
+      "spAttack": 80,
+      "spDefense": 80,
+      "speed": 105
+    },
+    "category": "Fire Horse Pokémon",
+    "description": "Very competitive, this POKéMON will chase anything that moves fast in the hopes of racing it.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/78.ogg"
+  },
+  {
+    "id": 79,
+    "name": "Slowpoke",
+    "types": [
+      "water",
+      "psychic"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/79.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/79.gif",
+    "height": 1.2,
+    "weight": 36,
+    "abilities": [
+      "oblivious",
+      "own tempo",
+      "regenerator"
+    ],
+    "stats": {
+      "hp": 90,
+      "attack": 65,
+      "defense": 65,
+      "spAttack": 40,
+      "spDefense": 40,
+      "speed": 15
+    },
+    "category": "Dopey Pokémon",
+    "description": "Incredibly slow and dopey. It takes 5 seconds for it to feel pain when under attack.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/79.ogg"
+  },
+  {
+    "id": 80,
+    "name": "Slowbro",
+    "types": [
+      "water",
+      "psychic"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/80.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/80.gif",
+    "height": 1.6,
+    "weight": 78.5,
+    "abilities": [
+      "oblivious",
+      "own tempo",
+      "regenerator"
+    ],
+    "stats": {
+      "hp": 95,
+      "attack": 75,
+      "defense": 110,
+      "spAttack": 100,
+      "spDefense": 80,
+      "speed": 30
+    },
+    "category": "Hermit Crab Pokémon",
+    "description": "The SHELLDER that is latched onto SLOWPOKE's tail is said to feed on the host's left over scraps.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/80.ogg"
+  },
+  {
+    "id": 81,
+    "name": "Magnemite",
+    "types": [
+      "electric",
+      "steel"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/81.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/81.gif",
+    "height": 0.3,
+    "weight": 6,
+    "abilities": [
+      "magnet pull",
+      "sturdy",
+      "analytic"
+    ],
+    "stats": {
+      "hp": 25,
+      "attack": 35,
+      "defense": 70,
+      "spAttack": 95,
+      "spDefense": 55,
+      "speed": 45
+    },
+    "category": "Magnet Pokémon",
+    "description": "Uses anti-gravity to stay suspended. Appears without warning and uses THUNDER WAVE and similar moves.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/81.ogg"
+  },
+  {
+    "id": 82,
+    "name": "Magneton",
+    "types": [
+      "electric",
+      "steel"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/82.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/82.gif",
+    "height": 1,
+    "weight": 60,
+    "abilities": [
+      "magnet pull",
+      "sturdy",
+      "analytic"
+    ],
+    "stats": {
+      "hp": 50,
+      "attack": 60,
+      "defense": 95,
+      "spAttack": 120,
+      "spDefense": 70,
+      "speed": 70
+    },
+    "category": "Magnet Pokémon",
+    "description": "Formed by several MAGNEMITEs linked together. They frequently appear when sunspots flare up.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/82.ogg"
+  },
+  {
+    "id": 83,
+    "name": "Farfetchd",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/83.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/83.gif",
+    "height": 0.8,
+    "weight": 15,
+    "abilities": [
+      "keen eye",
+      "inner focus",
+      "defiant"
+    ],
+    "stats": {
+      "hp": 52,
+      "attack": 90,
+      "defense": 55,
+      "spAttack": 58,
+      "spDefense": 62,
+      "speed": 60
+    },
+    "category": "Wild Duck Pokémon",
+    "description": "The sprig of green onions it holds is its weapon. It is used much like a metal sword.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/83.ogg"
+  },
+  {
+    "id": 84,
+    "name": "Doduo",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/84.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/84.gif",
+    "height": 1.4,
+    "weight": 39.2,
+    "abilities": [
+      "run away",
+      "early bird",
+      "tangled feet"
+    ],
+    "stats": {
+      "hp": 35,
+      "attack": 85,
+      "defense": 45,
+      "spAttack": 35,
+      "spDefense": 35,
+      "speed": 75
+    },
+    "category": "Twin Bird Pokémon",
+    "description": "A bird that makes up for its poor flying with its fast foot speed. Leaves giant footprints.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/84.ogg"
+  },
+  {
+    "id": 85,
+    "name": "Dodrio",
+    "types": [
+      "normal",
+      "flying"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/85.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/85.gif",
+    "height": 1.8,
+    "weight": 85.2,
+    "abilities": [
+      "run away",
+      "early bird",
+      "tangled feet"
+    ],
+    "stats": {
+      "hp": 60,
+      "attack": 110,
+      "defense": 70,
+      "spAttack": 60,
+      "spDefense": 60,
+      "speed": 110
+    },
+    "category": "Triple Bird Pokémon",
+    "description": "Uses its three brains to execute complex plans. While two heads sleep, one head stays awake.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/85.ogg"
+  },
+  {
+    "id": 86,
+    "name": "Seel",
+    "types": [
+      "water"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/86.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/86.gif",
+    "height": 1.1,
+    "weight": 90,
+    "abilities": [
+      "thick fat",
+      "hydration",
+      "ice body"
+    ],
+    "stats": {
+      "hp": 65,
+      "attack": 45,
+      "defense": 55,
+      "spAttack": 45,
+      "spDefense": 70,
+      "speed": 45
+    },
+    "category": "Sea Lion Pokémon",
+    "description": "The protruding horn on its head is very hard. It is used for bashing through thick ice.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/86.ogg"
+  },
+  {
+    "id": 87,
+    "name": "Dewgong",
+    "types": [
+      "water",
+      "ice"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/87.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/87.gif",
+    "height": 1.7,
+    "weight": 120,
+    "abilities": [
+      "thick fat",
+      "hydration",
+      "ice body"
+    ],
+    "stats": {
+      "hp": 90,
+      "attack": 70,
+      "defense": 80,
+      "spAttack": 70,
+      "spDefense": 95,
+      "speed": 70
+    },
+    "category": "Sea Lion Pokémon",
+    "description": "Stores thermal energy in its body. Swims at a steady 8 knots even in intensely cold waters.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/87.ogg"
+  },
+  {
+    "id": 88,
+    "name": "Grimer",
+    "types": [
+      "poison"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/88.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/88.gif",
+    "height": 0.9,
+    "weight": 30,
+    "abilities": [
+      "stench",
+      "sticky hold",
+      "poison touch"
+    ],
+    "stats": {
+      "hp": 80,
+      "attack": 80,
+      "defense": 50,
+      "spAttack": 40,
+      "spDefense": 50,
+      "speed": 25
+    },
+    "category": "Sludge Pokémon",
+    "description": "Appears in filthy areas. Thrives by sucking up polluted sludge that is pumped out of factories.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/88.ogg"
+  },
+  {
+    "id": 89,
+    "name": "Muk",
+    "types": [
+      "poison"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/89.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/89.gif",
+    "height": 1.2,
+    "weight": 30,
+    "abilities": [
+      "stench",
+      "sticky hold",
+      "poison touch"
+    ],
+    "stats": {
+      "hp": 105,
+      "attack": 105,
+      "defense": 75,
+      "spAttack": 65,
+      "spDefense": 100,
+      "speed": 50
+    },
+    "category": "Sludge Pokémon",
+    "description": "Thickly covered with a filthy, vile sludge. It is so toxic, even its footprints contain poison.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/89.ogg"
+  },
+  {
+    "id": 90,
+    "name": "Shellder",
+    "types": [
+      "water"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/90.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/90.gif",
+    "height": 0.3,
+    "weight": 4,
+    "abilities": [
+      "shell armor",
+      "skill link",
+      "overcoat"
+    ],
+    "stats": {
+      "hp": 30,
+      "attack": 65,
+      "defense": 100,
+      "spAttack": 45,
+      "spDefense": 25,
+      "speed": 40
+    },
+    "category": "Bivalve Pokémon",
+    "description": "Its hard shell repels any kind of attack. It is vulnerable only when its shell is open.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/90.ogg"
+  },
+  {
+    "id": 91,
+    "name": "Cloyster",
+    "types": [
+      "water",
+      "ice"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/91.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/91.gif",
+    "height": 1.5,
+    "weight": 132.5,
+    "abilities": [
+      "shell armor",
+      "skill link",
+      "overcoat"
+    ],
+    "stats": {
+      "hp": 50,
+      "attack": 95,
+      "defense": 180,
+      "spAttack": 85,
+      "spDefense": 45,
+      "speed": 70
+    },
+    "category": "Bivalve Pokémon",
+    "description": "When attacked, it launches its horns in quick volleys. Its innards have never been seen.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/91.ogg"
+  },
+  {
+    "id": 92,
+    "name": "Gastly",
+    "types": [
+      "ghost",
+      "poison"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/92.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/92.gif",
+    "height": 1.3,
+    "weight": 0.1,
+    "abilities": [
+      "levitate"
+    ],
+    "stats": {
+      "hp": 30,
+      "attack": 35,
+      "defense": 30,
+      "spAttack": 100,
+      "spDefense": 35,
+      "speed": 80
+    },
+    "category": "Gas Pokémon",
+    "description": "Almost invisible, this gaseous POKéMON cloaks the target and puts it to sleep without notice.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/92.ogg"
+  },
+  {
+    "id": 93,
+    "name": "Haunter",
+    "types": [
+      "ghost",
+      "poison"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/93.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/93.gif",
+    "height": 1.6,
+    "weight": 0.1,
+    "abilities": [
+      "levitate"
+    ],
+    "stats": {
+      "hp": 45,
+      "attack": 50,
+      "defense": 45,
+      "spAttack": 115,
+      "spDefense": 55,
+      "speed": 95
+    },
+    "category": "Gas Pokémon",
+    "description": "Because of its ability to slip through block walls, it is said to be from an­ other dimension.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/93.ogg"
+  },
+  {
+    "id": 94,
+    "name": "Gengar",
+    "types": [
+      "ghost",
+      "poison"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/94.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/94.gif",
+    "height": 1.5,
+    "weight": 40.5,
+    "abilities": [
+      "cursed body"
+    ],
+    "stats": {
+      "hp": 60,
+      "attack": 65,
+      "defense": 60,
+      "spAttack": 130,
+      "spDefense": 75,
+      "speed": 110
+    },
+    "category": "Shadow Pokémon",
+    "description": "Under a full moon, this POKéMON likes to mimic the shadows of people and laugh at their fright.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/94.ogg"
+  },
+  {
+    "id": 95,
+    "name": "Onix",
+    "types": [
+      "rock",
+      "ground"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/95.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/95.gif",
+    "height": 8.8,
+    "weight": 210,
+    "abilities": [
+      "rock head",
+      "sturdy",
+      "weak armor"
+    ],
+    "stats": {
+      "hp": 35,
+      "attack": 45,
+      "defense": 160,
+      "spAttack": 30,
+      "spDefense": 45,
+      "speed": 70
+    },
+    "category": "Rock Snake Pokémon",
+    "description": "As it grows, the stone portions of its body harden to become similar to a diamond, but colored black.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/95.ogg"
+  },
+  {
+    "id": 96,
+    "name": "Drowzee",
+    "types": [
+      "psychic"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/96.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/96.gif",
+    "height": 1,
+    "weight": 32.4,
+    "abilities": [
+      "insomnia",
+      "forewarn",
+      "inner focus"
+    ],
+    "stats": {
+      "hp": 60,
+      "attack": 48,
+      "defense": 45,
+      "spAttack": 43,
+      "spDefense": 90,
+      "speed": 42
+    },
+    "category": "Hypnosis Pokémon",
+    "description": "Puts enemies to sleep then eats their dreams. Occasionally gets sick from eating bad dreams.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/96.ogg"
+  },
+  {
+    "id": 97,
+    "name": "Hypno",
+    "types": [
+      "psychic"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/97.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/97.gif",
+    "height": 1.6,
+    "weight": 75.6,
+    "abilities": [
+      "insomnia",
+      "forewarn",
+      "inner focus"
+    ],
+    "stats": {
+      "hp": 85,
+      "attack": 73,
+      "defense": 70,
+      "spAttack": 73,
+      "spDefense": 115,
+      "speed": 67
+    },
+    "category": "Hypnosis Pokémon",
+    "description": "When it locks eyes with an enemy, it will use a mix of PSI moves such as HYPNOSIS and CONFUSION.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/97.ogg"
+  },
+  {
+    "id": 98,
+    "name": "Krabby",
+    "types": [
+      "water"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/98.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/98.gif",
+    "height": 0.4,
+    "weight": 6.5,
+    "abilities": [
+      "hyper cutter",
+      "shell armor",
+      "sheer force"
+    ],
+    "stats": {
+      "hp": 30,
+      "attack": 105,
+      "defense": 90,
+      "spAttack": 25,
+      "spDefense": 25,
+      "speed": 50
+    },
+    "category": "River Crab Pokémon",
+    "description": "Its pincers are not only powerful weapons, they are used for balance when walking sideways.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/98.ogg"
+  },
+  {
+    "id": 99,
+    "name": "Kingler",
+    "types": [
+      "water"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/99.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/99.gif",
+    "height": 1.3,
+    "weight": 60,
+    "abilities": [
+      "hyper cutter",
+      "shell armor",
+      "sheer force"
+    ],
+    "stats": {
+      "hp": 55,
+      "attack": 130,
+      "defense": 115,
+      "spAttack": 50,
+      "spDefense": 50,
+      "speed": 75
+    },
+    "category": "Pincer Pokémon",
+    "description": "The large pincer has 10000 hp of crushing power. However, its huge size makes it unwieldy to use.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/99.ogg"
+  },
+  {
+    "id": 100,
+    "name": "Voltorb",
+    "types": [
+      "electric"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/100.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/100.gif",
+    "height": 0.5,
+    "weight": 10.4,
+    "abilities": [
+      "soundproof",
+      "static",
+      "aftermath"
+    ],
+    "stats": {
+      "hp": 40,
+      "attack": 30,
+      "defense": 50,
+      "spAttack": 55,
+      "spDefense": 55,
+      "speed": 100
+    },
+    "category": "Ball Pokémon",
+    "description": "Usually found in power plants. Easily mistaken for a POKé BALL, they have zapped many people.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/100.ogg"
+  },
+  {
+    "id": 101,
+    "name": "Electrode",
+    "types": [
+      "electric"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/101.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/101.gif",
+    "height": 1.2,
+    "weight": 66.6,
+    "abilities": [
+      "soundproof",
+      "static",
+      "aftermath"
+    ],
+    "stats": {
+      "hp": 60,
+      "attack": 50,
+      "defense": 70,
+      "spAttack": 80,
+      "spDefense": 80,
+      "speed": 150
+    },
+    "category": "Ball Pokémon",
+    "description": "It stores electric energy under very high pressure. It often explodes with little or no provocation.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/101.ogg"
+  },
+  {
+    "id": 102,
+    "name": "Exeggcute",
+    "types": [
+      "grass",
+      "psychic"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/102.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/102.gif",
+    "height": 0.4,
+    "weight": 2.5,
+    "abilities": [
+      "chlorophyll",
+      "harvest"
+    ],
+    "stats": {
+      "hp": 60,
+      "attack": 40,
+      "defense": 80,
+      "spAttack": 60,
+      "spDefense": 45,
+      "speed": 40
+    },
+    "category": "Egg Pokémon",
+    "description": "Often mistaken for eggs. When disturbed, they quickly gather and attack in swarms.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/102.ogg"
+  },
+  {
+    "id": 103,
+    "name": "Exeggutor",
+    "types": [
+      "grass",
+      "psychic"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/103.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/103.gif",
+    "height": 2,
+    "weight": 120,
+    "abilities": [
+      "chlorophyll",
+      "harvest"
+    ],
+    "stats": {
+      "hp": 95,
+      "attack": 95,
+      "defense": 85,
+      "spAttack": 125,
+      "spDefense": 75,
+      "speed": 55
+    },
+    "category": "Coconut Pokémon",
+    "description": "Legend has it that on rare occasions, one of its heads will drop off and continue on as an EXEGGCUTE.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/103.ogg"
+  },
+  {
+    "id": 104,
+    "name": "Cubone",
+    "types": [
+      "ground"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/104.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/104.gif",
+    "height": 0.4,
+    "weight": 6.5,
+    "abilities": [
+      "rock head",
+      "lightning rod",
+      "battle armor"
+    ],
+    "stats": {
+      "hp": 50,
+      "attack": 50,
+      "defense": 95,
+      "spAttack": 40,
+      "spDefense": 50,
+      "speed": 35
+    },
+    "category": "Lonely Pokémon",
+    "description": "Because it never removes its skull helmet, no one has ever seen this POKéMON's real face.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/104.ogg"
+  },
+  {
+    "id": 105,
+    "name": "Marowak",
+    "types": [
+      "ground"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/105.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/105.gif",
+    "height": 1,
+    "weight": 45,
+    "abilities": [
+      "rock head",
+      "lightning rod",
+      "battle armor"
+    ],
+    "stats": {
+      "hp": 60,
+      "attack": 80,
+      "defense": 110,
+      "spAttack": 50,
+      "spDefense": 80,
+      "speed": 45
+    },
+    "category": "Bone Keeper Pokémon",
+    "description": "The bone it holds is its key weapon. It throws the bone skillfully like a boomerang to KO targets.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/105.ogg"
+  },
+  {
+    "id": 106,
+    "name": "Hitmonlee",
+    "types": [
+      "fighting"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/106.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/106.gif",
+    "height": 1.5,
+    "weight": 49.8,
+    "abilities": [
+      "limber",
+      "reckless",
+      "unburden"
+    ],
+    "stats": {
+      "hp": 50,
+      "attack": 120,
+      "defense": 53,
+      "spAttack": 35,
+      "spDefense": 110,
+      "speed": 87
+    },
+    "category": "Kicking Pokémon",
+    "description": "When in a hurry, its legs lengthen progressively. It runs smoothly with extra long, loping strides.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/106.ogg"
+  },
+  {
+    "id": 107,
+    "name": "Hitmonchan",
+    "types": [
+      "fighting"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/107.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/107.gif",
+    "height": 1.4,
+    "weight": 50.2,
+    "abilities": [
+      "keen eye",
+      "iron fist",
+      "inner focus"
+    ],
+    "stats": {
+      "hp": 50,
+      "attack": 105,
+      "defense": 79,
+      "spAttack": 35,
+      "spDefense": 110,
+      "speed": 76
+    },
+    "category": "Punching Pokémon",
+    "description": "While apparently doing nothing, it fires punches in lightning fast volleys that are impossible to see.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/107.ogg"
+  },
+  {
+    "id": 108,
+    "name": "Lickitung",
+    "types": [
+      "normal"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/108.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/108.gif",
+    "height": 1.2,
+    "weight": 65.5,
+    "abilities": [
+      "own tempo",
+      "oblivious",
+      "cloud nine"
+    ],
+    "stats": {
+      "hp": 90,
+      "attack": 55,
+      "defense": 75,
+      "spAttack": 60,
+      "spDefense": 75,
+      "speed": 30
+    },
+    "category": "Licking Pokémon",
+    "description": "Its tongue can be extended like a chameleon's. It leaves a tingling sensation when it licks enemies.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/108.ogg"
+  },
+  {
+    "id": 109,
+    "name": "Koffing",
+    "types": [
+      "poison"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/109.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/109.gif",
+    "height": 0.6,
+    "weight": 1,
+    "abilities": [
+      "levitate",
+      "neutralizing gas",
+      "stench"
+    ],
+    "stats": {
+      "hp": 40,
+      "attack": 65,
+      "defense": 95,
+      "spAttack": 60,
+      "spDefense": 45,
+      "speed": 35
+    },
+    "category": "Poison Gas Pokémon",
+    "description": "Because it stores several kinds of toxic gases in its body, it is prone to exploding without warning.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/109.ogg"
+  },
+  {
+    "id": 110,
+    "name": "Weezing",
+    "types": [
+      "poison"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/110.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/110.gif",
+    "height": 1.2,
+    "weight": 9.5,
+    "abilities": [
+      "levitate",
+      "neutralizing gas",
+      "stench"
+    ],
+    "stats": {
+      "hp": 65,
+      "attack": 90,
+      "defense": 120,
+      "spAttack": 85,
+      "spDefense": 70,
+      "speed": 60
+    },
+    "category": "Poison Gas Pokémon",
+    "description": "Where two kinds of poison gases meet, 2 KOFFINGs can fuse into a WEEZING over many years.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/110.ogg"
+  },
+  {
+    "id": 111,
+    "name": "Rhyhorn",
+    "types": [
+      "ground",
+      "rock"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/111.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/111.gif",
+    "height": 1,
+    "weight": 115,
+    "abilities": [
+      "lightning rod",
+      "rock head",
+      "reckless"
+    ],
+    "stats": {
+      "hp": 80,
+      "attack": 85,
+      "defense": 95,
+      "spAttack": 30,
+      "spDefense": 30,
+      "speed": 25
+    },
+    "category": "Spikes Pokémon",
+    "description": "A POKéMON with a one-track mind. Once it charges,  it won't stop running until it falls asleep.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/111.ogg"
+  },
+  {
+    "id": 112,
+    "name": "Rhydon",
+    "types": [
+      "ground",
+      "rock"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/112.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/112.gif",
+    "height": 1.9,
+    "weight": 120,
+    "abilities": [
+      "lightning rod",
+      "rock head",
+      "reckless"
+    ],
+    "stats": {
+      "hp": 105,
+      "attack": 130,
+      "defense": 120,
+      "spAttack": 45,
+      "spDefense": 45,
+      "speed": 40
+    },
+    "category": "Drill Pokémon",
+    "description": "Protected by an armor-like hide, it is capable of living in molten lava of 3,600 degrees.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/112.ogg"
+  },
+  {
+    "id": 113,
+    "name": "Chansey",
+    "types": [
+      "normal"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/113.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/113.gif",
+    "height": 1.1,
+    "weight": 34.6,
+    "abilities": [
+      "natural cure",
+      "serene grace",
+      "healer"
+    ],
+    "stats": {
+      "hp": 250,
+      "attack": 5,
+      "defense": 5,
+      "spAttack": 35,
+      "spDefense": 105,
+      "speed": 50
+    },
+    "category": "Egg Pokémon",
+    "description": "A rare and elusive POKéMON that is said to bring happiness to those who manage to get it.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/113.ogg"
+  },
+  {
+    "id": 114,
+    "name": "Tangela",
+    "types": [
+      "grass"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/114.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/114.gif",
+    "height": 1,
+    "weight": 35,
+    "abilities": [
+      "chlorophyll",
+      "leaf guard",
+      "regenerator"
+    ],
+    "stats": {
+      "hp": 65,
+      "attack": 55,
+      "defense": 115,
+      "spAttack": 100,
+      "spDefense": 40,
+      "speed": 60
+    },
+    "category": "Vine Pokémon",
+    "description": "The whole body is swathed with wide vines that are similar to sea­ weed. Its vines shake as it walks.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/114.ogg"
+  },
+  {
+    "id": 115,
+    "name": "Kangaskhan",
+    "types": [
+      "normal"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/115.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/115.gif",
+    "height": 2.2,
+    "weight": 80,
+    "abilities": [
+      "early bird",
+      "scrappy",
+      "inner focus"
+    ],
+    "stats": {
+      "hp": 105,
+      "attack": 95,
+      "defense": 80,
+      "spAttack": 40,
+      "spDefense": 80,
+      "speed": 90
+    },
+    "category": "Parent Pokémon",
+    "description": "The infant rarely ventures out of its mother's protective pouch until it is 3 years old.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/115.ogg"
+  },
+  {
+    "id": 116,
+    "name": "Horsea",
+    "types": [
+      "water"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/116.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/116.gif",
+    "height": 0.4,
+    "weight": 8,
+    "abilities": [
+      "swift swim",
+      "sniper",
+      "damp"
+    ],
+    "stats": {
+      "hp": 30,
+      "attack": 40,
+      "defense": 70,
+      "spAttack": 70,
+      "spDefense": 25,
+      "speed": 60
+    },
+    "category": "Dragon Pokémon",
+    "description": "Known to shoot down flying bugs with precision blasts of ink from the surface of the water.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/116.ogg"
+  },
+  {
+    "id": 117,
+    "name": "Seadra",
+    "types": [
+      "water"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/117.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/117.gif",
+    "height": 1.2,
+    "weight": 25,
+    "abilities": [
+      "poison point",
+      "sniper",
+      "damp"
+    ],
+    "stats": {
+      "hp": 55,
+      "attack": 65,
+      "defense": 95,
+      "spAttack": 95,
+      "spDefense": 45,
+      "speed": 85
+    },
+    "category": "Dragon Pokémon",
+    "description": "Capable of swim­ ming backwards by rapidly flapping its wing-like pectoral fins and stout tail.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/117.ogg"
+  },
+  {
+    "id": 118,
+    "name": "Goldeen",
+    "types": [
+      "water"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/118.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/118.gif",
+    "height": 0.6,
+    "weight": 15,
+    "abilities": [
+      "swift swim",
+      "water veil",
+      "lightning rod"
+    ],
+    "stats": {
+      "hp": 45,
+      "attack": 67,
+      "defense": 60,
+      "spAttack": 35,
+      "spDefense": 50,
+      "speed": 63
+    },
+    "category": "Goldfish Pokémon",
+    "description": "Its tail fin billows like an elegant ballroom dress, giving it the nickname of the Water Queen.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/118.ogg"
+  },
+  {
+    "id": 119,
+    "name": "Seaking",
+    "types": [
+      "water"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/119.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/119.gif",
+    "height": 1.3,
+    "weight": 39,
+    "abilities": [
+      "swift swim",
+      "water veil",
+      "lightning rod"
+    ],
+    "stats": {
+      "hp": 80,
+      "attack": 92,
+      "defense": 65,
+      "spAttack": 65,
+      "spDefense": 80,
+      "speed": 68
+    },
+    "category": "Goldfish Pokémon",
+    "description": "In the autumn spawning season, they can be seen swimming powerfully up rivers and creeks.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/119.ogg"
+  },
+  {
+    "id": 120,
+    "name": "Staryu",
+    "types": [
+      "water"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/120.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/120.gif",
+    "height": 0.8,
+    "weight": 34.5,
+    "abilities": [
+      "illuminate",
+      "natural cure",
+      "analytic"
+    ],
+    "stats": {
+      "hp": 30,
+      "attack": 45,
+      "defense": 55,
+      "spAttack": 70,
+      "spDefense": 55,
+      "speed": 85
+    },
+    "category": "Star Shape Pokémon",
+    "description": "If its body is torn, it can grow back if the red core remains. The core flashes at midnight.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/120.ogg"
+  },
+  {
+    "id": 121,
+    "name": "Starmie",
+    "types": [
+      "water",
+      "psychic"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/121.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/121.gif",
+    "height": 1.1,
+    "weight": 80,
+    "abilities": [
+      "illuminate",
+      "natural cure",
+      "analytic"
+    ],
+    "stats": {
+      "hp": 60,
+      "attack": 75,
+      "defense": 85,
+      "spAttack": 100,
+      "spDefense": 85,
+      "speed": 115
+    },
+    "category": "Mysterious Pokémon",
+    "description": "Its central core glows with the seven colors of the rainbow. Some people value the core as a gem.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/121.ogg"
+  },
+  {
+    "id": 122,
+    "name": "Mr-mime",
+    "types": [
+      "psychic",
+      "fairy"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/122.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/122.gif",
+    "height": 1.3,
+    "weight": 54.5,
+    "abilities": [
+      "soundproof",
+      "filter",
+      "technician"
+    ],
+    "stats": {
+      "hp": 40,
+      "attack": 45,
+      "defense": 65,
+      "spAttack": 100,
+      "spDefense": 120,
+      "speed": 90
+    },
+    "category": "Barrier Pokémon",
+    "description": "If interrupted while it is miming, it will slap around the offender with its broad hands.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/122.ogg"
+  },
+  {
+    "id": 123,
+    "name": "Scyther",
+    "types": [
+      "bug",
+      "flying"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/123.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/123.gif",
+    "height": 1.5,
+    "weight": 56,
+    "abilities": [
+      "swarm",
+      "technician",
+      "steadfast"
+    ],
+    "stats": {
+      "hp": 70,
+      "attack": 110,
+      "defense": 80,
+      "spAttack": 55,
+      "spDefense": 80,
+      "speed": 105
+    },
+    "category": "Mantis Pokémon",
+    "description": "With ninja-like agility and speed, it can create the illusion that there is more than one.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/123.ogg"
+  },
+  {
+    "id": 124,
+    "name": "Jynx",
+    "types": [
+      "ice",
+      "psychic"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/124.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/124.gif",
+    "height": 1.4,
+    "weight": 40.6,
+    "abilities": [
+      "oblivious",
+      "forewarn",
+      "dry skin"
+    ],
+    "stats": {
+      "hp": 65,
+      "attack": 50,
+      "defense": 35,
+      "spAttack": 115,
+      "spDefense": 95,
+      "speed": 95
+    },
+    "category": "Human Shape Pokémon",
+    "description": "It seductively wiggles its hips as it walks. It can cause people to dance in unison with it.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/124.ogg"
+  },
+  {
+    "id": 125,
+    "name": "Electabuzz",
+    "types": [
+      "electric"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/125.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/125.gif",
+    "height": 1.1,
+    "weight": 30,
+    "abilities": [
+      "static",
+      "vital spirit"
+    ],
+    "stats": {
+      "hp": 65,
+      "attack": 83,
+      "defense": 57,
+      "spAttack": 95,
+      "spDefense": 85,
+      "speed": 105
+    },
+    "category": "Electric Pokémon",
+    "description": "Normally found near power plants, they can wander away and cause major blackouts in cities.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/125.ogg"
+  },
+  {
+    "id": 126,
+    "name": "Magmar",
+    "types": [
+      "fire"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/126.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/126.gif",
+    "height": 1.3,
+    "weight": 44.5,
+    "abilities": [
+      "flame body",
+      "vital spirit"
+    ],
+    "stats": {
+      "hp": 65,
+      "attack": 95,
+      "defense": 57,
+      "spAttack": 100,
+      "spDefense": 85,
+      "speed": 93
+    },
+    "category": "Spitfire Pokémon",
+    "description": "Its body always burns with an orange glow that enables it to hide perfectly among flames.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/126.ogg"
+  },
+  {
+    "id": 127,
+    "name": "Pinsir",
+    "types": [
+      "bug"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/127.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/127.gif",
+    "height": 1.5,
+    "weight": 55,
+    "abilities": [
+      "hyper cutter",
+      "mold breaker",
+      "moxie"
+    ],
+    "stats": {
+      "hp": 65,
+      "attack": 125,
+      "defense": 100,
+      "spAttack": 55,
+      "spDefense": 70,
+      "speed": 85
+    },
+    "category": "Stag Beetle Pokémon",
+    "description": "If it fails to crush the victim in its pincers, it will swing it around and toss it hard.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/127.ogg"
+  },
+  {
+    "id": 128,
+    "name": "Tauros",
+    "types": [
+      "normal"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/128.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/128.gif",
+    "height": 1.4,
+    "weight": 88.4,
+    "abilities": [
+      "intimidate",
+      "anger point",
+      "sheer force"
+    ],
+    "stats": {
+      "hp": 75,
+      "attack": 100,
+      "defense": 95,
+      "spAttack": 40,
+      "spDefense": 70,
+      "speed": 110
+    },
+    "category": "Wild Bull Pokémon",
+    "description": "When it targets an enemy, it charges furiously while whipping its body with its long tails.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/128.ogg"
+  },
+  {
+    "id": 129,
+    "name": "Magikarp",
+    "types": [
+      "water"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/129.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/129.gif",
+    "height": 0.9,
+    "weight": 10,
+    "abilities": [
+      "swift swim",
+      "rattled"
+    ],
+    "stats": {
+      "hp": 20,
+      "attack": 10,
+      "defense": 55,
+      "spAttack": 15,
+      "spDefense": 20,
+      "speed": 80
+    },
+    "category": "Fish Pokémon",
+    "description": "In the distant past, it was somewhat stronger than the horribly weak descendants that exist today.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/129.ogg"
+  },
+  {
+    "id": 130,
+    "name": "Gyarados",
+    "types": [
+      "water",
+      "flying"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/130.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/130.gif",
+    "height": 6.5,
+    "weight": 235,
+    "abilities": [
+      "intimidate",
+      "moxie"
+    ],
+    "stats": {
+      "hp": 95,
+      "attack": 125,
+      "defense": 79,
+      "spAttack": 60,
+      "spDefense": 100,
+      "speed": 81
+    },
+    "category": "Atrocious Pokémon",
+    "description": "Once it begins to rampage, a GYARADOS will burn everything down, even in a harsh storm.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/130.ogg"
+  },
+  {
+    "id": 131,
+    "name": "Lapras",
+    "types": [
+      "water",
+      "ice"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/131.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/131.gif",
+    "height": 2.5,
+    "weight": 220,
+    "abilities": [
+      "water absorb",
+      "shell armor",
+      "hydration"
+    ],
+    "stats": {
+      "hp": 130,
+      "attack": 85,
+      "defense": 80,
+      "spAttack": 85,
+      "spDefense": 95,
+      "speed": 60
+    },
+    "category": "Transport Pokémon",
+    "description": "A POKéMON that has been over­ hunted almost to extinction. It can ferry people across the water.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/131.ogg"
+  },
+  {
+    "id": 132,
+    "name": "Ditto",
+    "types": [
+      "normal"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/132.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/132.gif",
+    "height": 0.3,
+    "weight": 4,
+    "abilities": [
+      "limber",
+      "imposter"
+    ],
+    "stats": {
+      "hp": 48,
+      "attack": 48,
+      "defense": 48,
+      "spAttack": 48,
+      "spDefense": 48,
+      "speed": 48
+    },
+    "category": "Transform Pokémon",
+    "description": "Capable of copying an enemy's genetic code to instantly transform itself into a duplicate of the enemy.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/132.ogg"
+  },
+  {
+    "id": 133,
+    "name": "Eevee",
+    "types": [
+      "normal"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/133.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/133.gif",
+    "height": 0.3,
+    "weight": 6.5,
+    "abilities": [
+      "run away",
+      "adaptability",
+      "anticipation"
+    ],
+    "stats": {
+      "hp": 55,
+      "attack": 55,
+      "defense": 50,
+      "spAttack": 45,
+      "spDefense": 65,
+      "speed": 55
+    },
+    "category": "Evolution Pokémon",
+    "description": "Its genetic code is irregular. It may mutate if it is exposed to radiation from element STONEs.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/133.ogg"
+  },
+  {
+    "id": 134,
+    "name": "Vaporeon",
+    "types": [
+      "water"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/134.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/134.gif",
+    "height": 1,
+    "weight": 29,
+    "abilities": [
+      "water absorb",
+      "hydration"
+    ],
+    "stats": {
+      "hp": 130,
+      "attack": 65,
+      "defense": 60,
+      "spAttack": 110,
+      "spDefense": 95,
+      "speed": 65
+    },
+    "category": "Bubble Jet Pokémon",
+    "description": "Lives close to water. Its long tail is ridged with a fin which is often mistaken for a mermaid's.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/134.ogg"
+  },
+  {
+    "id": 135,
+    "name": "Jolteon",
+    "types": [
+      "electric"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/135.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/135.gif",
+    "height": 0.8,
+    "weight": 24.5,
+    "abilities": [
+      "volt absorb",
+      "quick feet"
+    ],
+    "stats": {
+      "hp": 65,
+      "attack": 65,
+      "defense": 60,
+      "spAttack": 110,
+      "spDefense": 95,
+      "speed": 130
+    },
+    "category": "Lightning Pokémon",
+    "description": "It accumulates negative ions in the atmosphere to blast out 10000- volt lightning bolts.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/135.ogg"
+  },
+  {
+    "id": 136,
+    "name": "Flareon",
+    "types": [
+      "fire"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/136.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/136.gif",
+    "height": 0.9,
+    "weight": 25,
+    "abilities": [
+      "flash fire",
+      "guts"
+    ],
+    "stats": {
+      "hp": 65,
+      "attack": 130,
+      "defense": 60,
+      "spAttack": 95,
+      "spDefense": 110,
+      "speed": 65
+    },
+    "category": "Flame Pokémon",
+    "description": "When storing thermal energy in its body, its temperature could soar to over 1600 degrees.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/136.ogg"
+  },
+  {
+    "id": 137,
+    "name": "Porygon",
+    "types": [
+      "normal"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/137.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/137.gif",
+    "height": 0.8,
+    "weight": 36.5,
+    "abilities": [
+      "trace",
+      "download",
+      "analytic"
+    ],
+    "stats": {
+      "hp": 65,
+      "attack": 60,
+      "defense": 70,
+      "spAttack": 85,
+      "spDefense": 75,
+      "speed": 40
+    },
+    "category": "Virtual Pokémon",
+    "description": "A POKéMON that consists entirely of programming code. Capable of moving freely in cyberspace.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/137.ogg"
+  },
+  {
+    "id": 138,
+    "name": "Omanyte",
+    "types": [
+      "rock",
+      "water"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/138.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/138.gif",
+    "height": 0.4,
+    "weight": 7.5,
+    "abilities": [
+      "swift swim",
+      "shell armor",
+      "weak armor"
+    ],
+    "stats": {
+      "hp": 35,
+      "attack": 40,
+      "defense": 100,
+      "spAttack": 90,
+      "spDefense": 55,
+      "speed": 35
+    },
+    "category": "Spiral Pokémon",
+    "description": "Although long extinct, in rare cases, it can be genetically resurrected from fossils.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/138.ogg"
+  },
+  {
+    "id": 139,
+    "name": "Omastar",
+    "types": [
+      "rock",
+      "water"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/139.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/139.gif",
+    "height": 1,
+    "weight": 35,
+    "abilities": [
+      "swift swim",
+      "shell armor",
+      "weak armor"
+    ],
+    "stats": {
+      "hp": 70,
+      "attack": 60,
+      "defense": 125,
+      "spAttack": 115,
+      "spDefense": 70,
+      "speed": 55
+    },
+    "category": "Spiral Pokémon",
+    "description": "A prehistoric POKéMON that died out when its heavy shell made it impossible to catch prey.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/139.ogg"
+  },
+  {
+    "id": 140,
+    "name": "Kabuto",
+    "types": [
+      "rock",
+      "water"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/140.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/140.gif",
+    "height": 0.5,
+    "weight": 11.5,
+    "abilities": [
+      "swift swim",
+      "battle armor",
+      "weak armor"
+    ],
+    "stats": {
+      "hp": 30,
+      "attack": 80,
+      "defense": 90,
+      "spAttack": 55,
+      "spDefense": 45,
+      "speed": 55
+    },
+    "category": "Shellfish Pokémon",
+    "description": "A POKéMON that was resurrected from a fossil found in what was once the ocean floor eons ago.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/140.ogg"
+  },
+  {
+    "id": 141,
+    "name": "Kabutops",
+    "types": [
+      "rock",
+      "water"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/141.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/141.gif",
+    "height": 1.3,
+    "weight": 40.5,
+    "abilities": [
+      "swift swim",
+      "battle armor",
+      "weak armor"
+    ],
+    "stats": {
+      "hp": 60,
+      "attack": 115,
+      "defense": 105,
+      "spAttack": 65,
+      "spDefense": 70,
+      "speed": 80
+    },
+    "category": "Shellfish Pokémon",
+    "description": "Its sleek shape is perfect for swim­ ming. It slashes prey with its claws and drains the body fluids.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/141.ogg"
+  },
+  {
+    "id": 142,
+    "name": "Aerodactyl",
+    "types": [
+      "rock",
+      "flying"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/142.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/142.gif",
+    "height": 1.8,
+    "weight": 59,
+    "abilities": [
+      "rock head",
+      "pressure",
+      "unnerve"
+    ],
+    "stats": {
+      "hp": 80,
+      "attack": 105,
+      "defense": 65,
+      "spAttack": 60,
+      "spDefense": 75,
+      "speed": 130
+    },
+    "category": "Fossil Pokémon",
+    "description": "A Pokémon that roamed the skies in the dinosaur era. Its teeth are like saw blades.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/142.ogg"
+  },
+  {
+    "id": 143,
+    "name": "Snorlax",
+    "types": [
+      "normal"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/143.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/143.gif",
+    "height": 2.1,
+    "weight": 460,
+    "abilities": [
+      "immunity",
+      "thick fat",
+      "gluttony"
+    ],
+    "stats": {
+      "hp": 160,
+      "attack": 110,
+      "defense": 65,
+      "spAttack": 65,
+      "spDefense": 110,
+      "speed": 30
+    },
+    "category": "Sleeping Pokémon",
+    "description": "Very lazy. Just eats and sleeps. As its rotund bulk builds, it becomes steadily more slothful.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/143.ogg"
+  },
+  {
+    "id": 144,
+    "name": "Articuno",
+    "types": [
+      "ice",
+      "flying"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/144.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/144.gif",
+    "height": 1.7,
+    "weight": 55.4,
+    "abilities": [
+      "pressure",
+      "snow cloak"
+    ],
+    "stats": {
+      "hp": 90,
+      "attack": 85,
+      "defense": 100,
+      "spAttack": 95,
+      "spDefense": 125,
+      "speed": 85
+    },
+    "category": "Freeze Pokémon",
+    "description": "A legendary bird POKéMON that is said to appear to doomed people who are lost in icy mountains.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/144.ogg"
+  },
+  {
+    "id": 145,
+    "name": "Zapdos",
+    "types": [
+      "electric",
+      "flying"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/145.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/145.gif",
+    "height": 1.6,
+    "weight": 52.6,
+    "abilities": [
+      "pressure",
+      "static"
+    ],
+    "stats": {
+      "hp": 90,
+      "attack": 90,
+      "defense": 85,
+      "spAttack": 125,
+      "spDefense": 90,
+      "speed": 100
+    },
+    "category": "Electric Pokémon",
+    "description": "A legendary bird POKéMON that is said to appear from clouds while dropping enormous lightning bolts.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/145.ogg"
+  },
+  {
+    "id": 146,
+    "name": "Moltres",
+    "types": [
+      "fire",
+      "flying"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/146.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/146.gif",
+    "height": 2,
+    "weight": 60,
+    "abilities": [
+      "pressure",
+      "flame body"
+    ],
+    "stats": {
+      "hp": 90,
+      "attack": 100,
+      "defense": 90,
+      "spAttack": 125,
+      "spDefense": 85,
+      "speed": 90
+    },
+    "category": "Flame Pokémon",
+    "description": "Known as the legendary bird of fire. Every flap of its wings creates a dazzling flash of flames.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/146.ogg"
+  },
+  {
+    "id": 147,
+    "name": "Dratini",
+    "types": [
+      "dragon"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/147.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/147.gif",
+    "height": 1.8,
+    "weight": 3.3,
+    "abilities": [
+      "shed skin",
+      "marvel scale"
+    ],
+    "stats": {
+      "hp": 41,
+      "attack": 64,
+      "defense": 45,
+      "spAttack": 50,
+      "spDefense": 50,
+      "speed": 50
+    },
+    "category": "Dragon Pokémon",
+    "description": "Long considered a mythical POKéMON until recently when a small colony was found living underwater.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/147.ogg"
+  },
+  {
+    "id": 148,
+    "name": "Dragonair",
+    "types": [
+      "dragon"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/148.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/148.gif",
+    "height": 4,
+    "weight": 16.5,
+    "abilities": [
+      "shed skin",
+      "marvel scale"
+    ],
+    "stats": {
+      "hp": 61,
+      "attack": 84,
+      "defense": 65,
+      "spAttack": 70,
+      "spDefense": 70,
+      "speed": 70
+    },
+    "category": "Dragon Pokémon",
+    "description": "A mystical POKéMON that exudes a gentle aura. Has the ability to change climate conditions.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/148.ogg"
+  },
+  {
+    "id": 149,
+    "name": "Dragonite",
+    "types": [
+      "dragon",
+      "flying"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/149.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/149.gif",
+    "height": 2.2,
+    "weight": 210,
+    "abilities": [
+      "inner focus",
+      "multiscale"
+    ],
+    "stats": {
+      "hp": 91,
+      "attack": 134,
+      "defense": 95,
+      "spAttack": 100,
+      "spDefense": 100,
+      "speed": 80
+    },
+    "category": "Dragon Pokémon",
+    "description": "An extremely rarely seen marine POKéMON. Its intelligence is said to match that of humans.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/149.ogg"
+  },
+  {
+    "id": 150,
+    "name": "Mewtwo",
+    "types": [
+      "psychic"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/150.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/150.gif",
+    "height": 2,
+    "weight": 122,
+    "abilities": [
+      "pressure",
+      "unnerve"
+    ],
+    "stats": {
+      "hp": 106,
+      "attack": 110,
+      "defense": 90,
+      "spAttack": 154,
+      "spDefense": 90,
+      "speed": 130
+    },
+    "category": "Genetic Pokémon",
+    "description": "It was created by a scientist after years of horrific gene splicing and DNA engineering experiments.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/150.ogg"
+  },
+  {
+    "id": 151,
+    "name": "Mew",
+    "types": [
+      "psychic"
+    ],
+    "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/151.png",
+    "spriteUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/151.gif",
+    "height": 0.4,
+    "weight": 4,
+    "abilities": [
+      "synchronize"
+    ],
+    "stats": {
+      "hp": 100,
+      "attack": 100,
+      "defense": 100,
+      "spAttack": 100,
+      "spDefense": 100,
+      "speed": 100
+    },
+    "category": "New Species Pokémon",
+    "description": "So rare that it is still said to be a mirage by many experts. Only a few people have seen it worldwide.",
+    "cryUrl": "https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/151.ogg"
+  }
+]
