@@ -1180,3 +1180,68 @@ body {
     height: 170px;
   }
 }
+
+/* ==========================================================================
+   AI SETTINGS MODAL STYLING
+   ========================================================================== */
+.pokedex-settings-modal {
+  position: absolute;
+  top: 60px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  background-color: rgba(10, 12, 18, 0.98);
+  border: 4px solid #ff1c46;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 0 25px rgba(255, 28, 70, 0.6), inset 0 0 15px rgba(0,0,0,0.8);
+  z-index: 105;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.settings-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.settings-input-group label {
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  color: var(--text-secondary);
+}
+
+.settings-input-group input {
+  background-color: #000;
+  border: 2px solid #3d0005;
+  border-radius: 6px;
+  padding: 8px 12px;
+  color: #fff;
+  font-family: var(--font-pixel);
+  font-size: 9px;
+  outline: none;
+}
+
+.settings-input-group input:focus {
+  border-color: #ff1c46;
+}
+
+.settings-button-row {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.settings-link {
+  color: var(--neon-cyan);
+  text-decoration: underline;
+  font-family: var(--font-pixel);
+  font-size: 7px;
+  margin-top: 10px;
+  display: inline-block;
+}

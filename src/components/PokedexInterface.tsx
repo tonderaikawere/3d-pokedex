@@ -65,10 +65,18 @@ export const PokedexInterface: React.FC<PokedexInterfaceProps> = ({
 }) => {
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [isListening, setIsListening] = useState(false);
-  const [chatHistory, setChatHistory] = useState<ChatMessage[]>([
+  
+  // --- LLM Gemini API Settings States ---
+  const [apiKey, setApiKey] = useState(() => localStorage.getItem('dexter_gemini_api_key') || '');
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+  const [apiKeyInput, setApiKeyInput] = useState(apiKey);
+
+  const [chatHistory, setChatHistory] = useState<ChatMessage[]>(() => [
     {
       sender: 'dexter',
-      text: "System active. Bulbasaur scanned.",
+      text: apiKey.trim() 
+        ? "Advanced Gemini AI Core online. Ask anything!" 
+        : "Dexter active. Offline database online. Tap ⚙️ to link Gemini LLM.",
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
     }
   ]);
@@ -207,16 +215,77 @@ export const PokedexInterface: React.FC<PokedexInterfaceProps> = ({
     );
   };
 
-  const processQuery = (queryText: string) => {
-    // Pass selectedPokemon context into parseCommand to support relative queries!
-    const result = DexterRecognition.parseCommand(queryText, pokemonList, selectedPokemon);
-    if (result.matchedPokemonId) {
-      onSelectPokemon(result.matchedPokemonId);
+  // --- Gemini API Query Helper ---
+  const callGemini = async (prompt: string, pokemonName: string, pokemonCategory: string, pokemonDesc: string) => {
+    try {
+      const response = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            contents: [
+              {
+                role: 'user',
+                parts: [
+                  {
+                    text: `System Directive: You are Dexter, the mechanical voice assistant in Ash's Pokedex. Keep answers under 3 sentences. Be analytical, slightly robotic, but very smart.
+                    Current Active Pokemon Context: ${pokemonName}, the ${pokemonCategory}. Description: ${pokemonDesc}.
+                    User Question: ${prompt}`
+                  }
+                ]
+              }
+            ],
+            generationConfig: {
+              maxOutputTokens: 120,
+              temperature: 0.7,
+            }
+          })
+        }
+      );
+      const data = await response.json();
+      if (data.error) {
+        throw new Error(data.error.message || "Gemini API error");
+      }
+      const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
+      return text ? text.trim() : "Error: AI Core returned empty data.";
+    } catch (err: any) {
+      console.error(err);
+      return `AI Connection failed: ${err.message || err}`;
     }
-    setTimeout(() => {
-      addChatMessage('dexter', result.answerText);
-      DexterSpeech.speak(result.speakText);
-    }, 400);
+  };
+
+  const processQuery = async (queryText: string) => {
+    // If API Key is set, call Gemini LLM!
+    if (apiKey.trim()) {
+      addChatMessage('dexter', "CONTACTING AI CORE SYSTEM...");
+      const pokemonName = selectedPokemon ? selectedPokemon.name : "Unknown";
+      const pokemonCategory = selectedPokemon ? selectedPokemon.category : "Unknown";
+      const pokemonDesc = selectedPokemon ? selectedPokemon.description : "No description available.";
+      
+      const answer = await callGemini(queryText, pokemonName, pokemonCategory, pokemonDesc);
+      
+      // Remove temporary loading state and add response
+      setChatHistory(prev => {
+        const filtered = prev.filter(m => m.text !== "CONTACTING AI CORE SYSTEM...");
+        const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        return [...filtered, { sender: 'dexter', text: answer, timestamp: time }];
+      });
+      
+      DexterSpeech.speak(answer);
+    } else {
+      // Fallback: Advanced offline command parsing
+      const result = DexterRecognition.parseCommand(queryText, pokemonList, selectedPokemon);
+      if (result.matchedPokemonId) {
+        onSelectPokemon(result.matchedPokemonId);
+      }
+      setTimeout(() => {
+        addChatMessage('dexter', result.answerText);
+        DexterSpeech.speak(result.speakText);
+      }, 400);
+    }
   };
 
   // --- GAME 1: "Who's That Pokémon?" Logic ---
@@ -485,6 +554,16 @@ export const PokedexInterface: React.FC<PokedexInterfaceProps> = ({
             >
               Index
             </button>
+
+            {/* Gear settings button for Gemini API Key */}
+            <button 
+              onClick={() => setIsSettingsOpen(true)}
+              className="query-submit-btn"
+              style={{ fontSize: '9px', padding: '6px 10px', background: 'linear-gradient(to bottom, #444, #222)', borderColor: '#111', color: '#ffdd00' }}
+              title="AI Settings"
+            >
+              ⚙️
+            </button>
           </div>
 
           {/* Grid Popup Overlay */}
@@ -513,6 +592,76 @@ export const PokedexInterface: React.FC<PokedexInterfaceProps> = ({
                     <span>{p.name}</span>
                   </button>
                 ))}
+              </div>
+            </div>
+          )}
+
+          {/* AI Settings Modal */}
+          {isSettingsOpen && (
+            <div className="pokedex-settings-modal">
+              <div className="database-modal-header">
+                <span style={{ color: 'var(--pokedex-red-light)', fontFamily: 'var(--font-pixel)', fontSize: '8px' }}>AI Core Settings</span>
+                <button 
+                  onClick={() => setIsSettingsOpen(false)} 
+                  style={{ color: '#ff2222', background: 'none', border: 'none', cursor: 'pointer', fontWeight: 'bold', fontFamily: 'var(--font-pixel)', fontSize: '9px' }}
+                >
+                  X
+                </button>
+              </div>
+              
+              <div style={{ color: 'var(--text-secondary)', fontSize: '7px', fontFamily: 'var(--font-pixel)', lineHeight: '1.6', margin: '8px 0' }}>
+                Activate Ash-like advanced intelligence. Input your Gemini API Key below. Your key stays in your local browser storage.
+                <br />
+                <a 
+                  href="https://aistudio.google.com/app/apikey" 
+                  target="_blank" 
+                  rel="noreferrer" 
+                  className="settings-link"
+                >
+                  Get free Gemini Key
+                </a>
+              </div>
+
+              <div className="settings-input-group">
+                <label>GEMINI API KEY:</label>
+                <input 
+                  type="password" 
+                  placeholder="Paste AI key here..." 
+                  value={apiKeyInput}
+                  onChange={(e) => setApiKeyInput(e.target.value)}
+                />
+              </div>
+
+              <div className="settings-button-row">
+                <button 
+                  className="query-submit-btn"
+                  style={{ fontSize: '7px', padding: '6px 12px', background: '#333', color: '#ccc', borderColor: '#222' }}
+                  onClick={() => {
+                    setApiKeyInput('');
+                    setApiKey('');
+                    localStorage.removeItem('dexter_gemini_api_key');
+                    addChatMessage('dexter', "AI Core disconnected. Offline mode activated.");
+                    setIsSettingsOpen(false);
+                  }}
+                >
+                  Clear
+                </button>
+                <button 
+                  className="query-submit-btn"
+                  style={{ fontSize: '7px', padding: '6px 12px', background: 'linear-gradient(to bottom, #ff1c46, #b30022)' }}
+                  onClick={() => {
+                    localStorage.setItem('dexter_gemini_api_key', apiKeyInput.trim());
+                    setApiKey(apiKeyInput.trim());
+                    if (apiKeyInput.trim()) {
+                      addChatMessage('dexter', "Advanced Gemini AI Core online. Ask anything!");
+                    } else {
+                      addChatMessage('dexter', "AI Core offline mode activated.");
+                    }
+                    setIsSettingsOpen(false);
+                  }}
+                >
+                  Save
+                </button>
               </div>
             </div>
           )}
