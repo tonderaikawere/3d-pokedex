@@ -331,35 +331,41 @@ const PokemonCard: React.FC<CardProps> = ({
         </mesh>
 
         {/* Volumetric Cross-mesh Plane 1 (Front/Back) */}
-        <mesh position={[0, 0, 0.01]}>
+        <mesh position={[0, 0, 0]}>
           <planeGeometry args={[width * 1.3, height * 1.3]} />
           {texture ? (
-            <meshBasicMaterial 
+            <meshPhongMaterial 
               map={texture} 
               transparent={true} 
               side={THREE.DoubleSide} 
               color={isSilhouette ? "#000000" : "#ffffff"}
-              depthWrite={true}
+              depthWrite={false}
+              emissive={isSilhouette ? "#000000" : "#00f3ff"}
+              emissiveIntensity={isSilhouette ? 0 : 0.22}
+              shininess={30}
             />
           ) : (
-            <meshBasicMaterial color="#00f3ff" transparent={true} opacity={0.3} />
+            <meshPhongMaterial color="#00f3ff" transparent={true} opacity={0.3} depthWrite={false} />
           )}
         </mesh>
 
         {/* Volumetric Cross-mesh Plane 2 (Left/Right) */}
-        <mesh position={[0, 0, 0.01]} rotation={[0, Math.PI / 2, 0]}>
+        <mesh position={[0, 0, 0]} rotation={[0, Math.PI / 2, 0]}>
           <planeGeometry args={[width * 1.3, height * 1.3]} />
           {texture ? (
-            <meshBasicMaterial 
+            <meshPhongMaterial 
               map={texture} 
               transparent={true} 
               side={THREE.DoubleSide} 
               color={isSilhouette ? "#000000" : "#ffffff"}
-              depthWrite={true}
-              opacity={0.5}
+              depthWrite={false}
+              emissive={isSilhouette ? "#000000" : "#00f3ff"}
+              emissiveIntensity={isSilhouette ? 0 : 0.15}
+              shininess={30}
+              opacity={0.65}
             />
           ) : (
-            <meshBasicMaterial color="#00f3ff" transparent={true} opacity={0.25} />
+            <meshPhongMaterial color="#00f3ff" transparent={true} opacity={0.2} depthWrite={false} />
           )}
         </mesh>
 
