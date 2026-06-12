@@ -337,7 +337,7 @@ export const Pokedex3D: React.FC<Pokedex3DProps> = ({
   onSelectPokemon,
   isSilhouette
 }) => {
-  const { camera } = useThree();
+
 
   // Find active index in currently filtered pokemon list
   const activeIndex = useMemo(() => {
