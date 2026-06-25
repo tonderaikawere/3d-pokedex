@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Pokedex3D } from './components/Pokedex3D';
 import { PokedexInterface } from './components/PokedexInterface';
 import { PokemonChat } from './components/PokemonChat';
+import { DexterSpeech } from './utils/speech';
 import pokemonDataRaw from './data/pokemon.json';
 
 interface Pokemon {
@@ -166,14 +167,11 @@ export const App: React.FC = () => {
             <button
               className="pokedex-btn-speak glassmorphic"
               onClick={() => {
-                // Use speech utility
-                import('../utils/speech').then(({ DexterSpeech }) => {
-                  DexterSpeech.speakPokemonEntry(
-                    selectedPokemon.name,
-                    selectedPokemon.category,
-                    selectedPokemon.description
-                  );
-                });
+                DexterSpeech.speakPokemonEntry(
+                  selectedPokemon.name,
+                  selectedPokemon.category,
+                  selectedPokemon.description
+                );
               }}
             >
               Speak Description
