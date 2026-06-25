@@ -226,8 +226,30 @@ const PokemonModel: React.FC<{ id: number; isSilhouette: boolean }> = ({ id, isS
   const clonedScene = useMemo(() => scene.clone(), [scene]);
 
   useEffect(() => {
-    // Center and scale the model automatically
-    const box = new THREE.Box3().setFromObject(clonedScene);
+    clonedScene.updateMatrixWorld(true);
+
+    // Compute bounding box of only actual visible meshes to avoid including huge cameras/helpers
+    let box = new THREE.Box3();
+    let hasMesh = false;
+    
+    clonedScene.traverse((child) => {
+      if ((child as THREE.Mesh).isMesh) {
+        const name = child.name.toLowerCase();
+        if (name.includes('helper') || name.includes('camera') || name.includes('light')) return;
+        
+        if (!hasMesh) {
+          box.setFromObject(child);
+          hasMesh = true;
+        } else {
+          box.expandByObject(child);
+        }
+      }
+    });
+
+    if (!hasMesh) {
+      box.setFromObject(clonedScene);
+    }
+
     const size = new THREE.Vector3();
     box.getSize(size);
     const center = new THREE.Vector3();
@@ -237,9 +259,9 @@ const PokemonModel: React.FC<{ id: number; isSilhouette: boolean }> = ({ id, isS
     clonedScene.position.sub(center);
     clonedScene.position.y += size.y / 2;
 
-    // Scale so the max dimension is ~2.5
+    // Scale so the max dimension is ~2.8 (makes the model look grand on the pedestal)
     const maxDim = Math.max(size.x, size.y, size.z);
-    const scaleFactor = 2.4 / (maxDim || 1);
+    const scaleFactor = 2.8 / (maxDim || 1);
     clonedScene.scale.setScalar(scaleFactor);
 
     // Enable shadows and make materials look extra sharp
@@ -290,6 +312,12 @@ const CardFallback: React.FC<{
           <meshStandardMaterial color="#00f3ff" transparent={true} opacity={0.3} depthWrite={true} />
         )}
       </mesh>
+      {/* Holographic frame only for card fallback */}
+      <CardFrame 
+        width={width * 1.3} 
+        height={height * 1.3} 
+        color="#00f3ff" 
+      />
     </group>
   );
 };
@@ -302,21 +330,22 @@ interface CardProps {
   onClick: () => void;
 }
 
-// Scanning horizontal laser sweep line
-const ScanningBeam: React.FC<{ width: number; height: number }> = ({ width, height }) => {
+// 3D sweeping laser ring
+const ScanningBeamRing: React.FC<{ radius: number; height: number }> = ({ radius, height }) => {
   const beamRef = useRef<THREE.Mesh>(null);
   
   useFrame(({ clock }) => {
     if (beamRef.current) {
-      const y = Math.sin(clock.getElapsedTime() * 2.2) * (height / 2);
+      // Sweep up and down centered around the pedestal/model height
+      const y = Math.sin(clock.getElapsedTime() * 2.2) * (height / 2) + 0.5;
       beamRef.current.position.y = y;
     }
   });
 
   return (
-    <mesh ref={beamRef} position={[0, 0, 0.03]}>
-      <planeGeometry args={[width * 1.15, 0.06]} />
-      <meshBasicMaterial color="#00f3ff" transparent={true} opacity={0.8} side={THREE.DoubleSide} />
+    <mesh ref={beamRef} rotation={[-Math.PI / 2, 0, 0]}>
+      <ringGeometry args={[radius - 0.04, radius + 0.04, 32]} />
+      <meshBasicMaterial color="#00f3ff" transparent={true} opacity={0.9} side={THREE.DoubleSide} />
     </mesh>
   );
 };
@@ -450,17 +479,8 @@ const PokemonCard: React.FC<CardProps> = ({
           </Suspense>
         </ModelErrorBoundary>
 
-        {/* Thick Holographic Outer Frame */}
-        <group position={[0, 0, 0]}>
-          <CardFrame 
-            width={width * 1.3} 
-            height={height * 1.3} 
-            color="#00f3ff" 
-          />
-        </group>
-
-        {/* Scanning laser beam sweep */}
-        <ScanningBeam width={width * 1.3} height={height * 1.3} />
+        {/* Scanning laser beam ring sweep */}
+        <ScanningBeamRing radius={1.5} height={3.0} />
       </group>
     );
   }
@@ -583,11 +603,11 @@ export const Pokedex3D: React.FC<Pokedex3DProps> = ({
   return (
     <div style={{ width: '100%', height: '100%', position: 'relative', overflow: 'hidden' }}>
       <Canvas
-        camera={{ position: [0, 1.5, 12], fov: 45 }}
+        camera={{ position: [0, 0.6, 6.5], fov: 45 }}
         gl={{ antialias: true, alpha: true }}
       >
         <color attach="background" args={['#0f1c24']} />
-        <fog attach="fog" args={['#0f1c24', 12, 28]} />
+        <fog attach="fog" args={['#0f1c24', 7, 18]} />
 
         {/* Lights */}
         <ambientLight intensity={0.65} />
@@ -618,34 +638,34 @@ export const Pokedex3D: React.FC<Pokedex3DProps> = ({
           ))}
         </group>
 
-        {/* Orbit controls with full inspection freedom */}
+        {/* Orbit controls centered directly on the floating model */}
         <OrbitControls 
+          target={[0, 0.5, 0]}
           enableDamping={true}
           dampingFactor={0.05}
           maxPolarAngle={Math.PI}
           minPolarAngle={0}
-          minDistance={2.5}
-          maxDistance={18}
+          minDistance={2.0}
+          maxDistance={12}
           enablePan={true}
         />
       </Canvas>
 
-      {/* Floating instructions overlay */}
+      {/* Floating instructions overlay as a clean cyber status banner at the bottom-left */}
       <div style={{
         position: 'absolute',
-        bottom: '4%',
-        left: '50%',
-        transform: 'translateX(-50%)',
+        bottom: '10px',
+        left: '14px',
         fontFamily: 'var(--font-cyber)',
-        fontSize: '9px',
+        fontSize: '7.5px',
         color: 'var(--text-secondary)',
-        letterSpacing: '2px',
+        letterSpacing: '1px',
         pointerEvents: 'none',
         textTransform: 'uppercase',
-        textShadow: '0 0 5px rgba(0,0,0,0.9)',
-        opacity: 0.65
+        opacity: 0.5,
+        textShadow: '1px 1px 2px rgba(0,0,0,0.8)'
       }}>
-        Drag to Orbit • Scroll to Zoom • Click Cards to Scan
+        SYSTEM: DRAG TO ORBIT // SCROLL TO ZOOM // KEYPAD TO SCAN
       </div>
     </div>
   );
