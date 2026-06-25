@@ -1,6 +1,6 @@
-import React, { useRef, useState, useEffect, useMemo } from 'react';
+import React, { useRef, useState, useEffect, useMemo, Suspense } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { OrbitControls, Stars } from '@react-three/drei';
+import { OrbitControls, Stars, useGLTF } from '@react-three/drei';
 import * as THREE from 'three';
 
 interface Pokemon {
@@ -197,6 +197,103 @@ const ScannerPlatform: React.FC = () => {
   );
 };
 
+class ModelErrorBoundary extends React.Component<{ children: React.ReactNode; fallback: React.ReactNode }, { hasError: boolean }> {
+  constructor(props: any) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(error: any) {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error: any, errorInfo: any) {
+    console.warn("Failed to load 3D model, falling back to 2D card:", error, errorInfo);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return this.props.fallback;
+    }
+    return this.props.children;
+  }
+}
+
+const PokemonModel: React.FC<{ id: number; isSilhouette: boolean }> = ({ id, isSilhouette }) => {
+  const url = `https://raw.githubusercontent.com/Pokemon-3D-api/assets/main/models/opt/regular/${id}.glb`;
+  const { scene } = useGLTF(url);
+  
+  const clonedScene = useMemo(() => scene.clone(), [scene]);
+
+  useEffect(() => {
+    // Center and scale the model automatically
+    const box = new THREE.Box3().setFromObject(clonedScene);
+    const size = new THREE.Vector3();
+    box.getSize(size);
+    const center = new THREE.Vector3();
+    box.getCenter(center);
+
+    // Shift model so its center is at [0, 0, 0] on X and Z, and bottom is at Y = 0
+    clonedScene.position.sub(center);
+    clonedScene.position.y += size.y / 2;
+
+    // Scale so the max dimension is ~2.5
+    const maxDim = Math.max(size.x, size.y, size.z);
+    const scaleFactor = 2.4 / (maxDim || 1);
+    clonedScene.scale.setScalar(scaleFactor);
+
+    // Enable shadows and make materials look extra sharp
+    clonedScene.traverse((child) => {
+      if ((child as THREE.Mesh).isMesh) {
+        child.castShadow = true;
+        child.receiveShadow = true;
+        
+        const mesh = child as THREE.Mesh;
+        if (mesh.material) {
+          if (isSilhouette) {
+            mesh.material = new THREE.MeshBasicMaterial({ color: '#000000' });
+          } else {
+            const mat = mesh.material as THREE.MeshStandardMaterial;
+            if (mat.map) {
+              mat.map.colorSpace = THREE.SRGBColorSpace;
+            }
+          }
+        }
+      }
+    });
+  }, [clonedScene, isSilhouette]);
+
+  return <primitive object={clonedScene} position={[0, -0.6, 0]} />;
+};
+
+const CardFallback: React.FC<{
+  pokemon: Pokemon;
+  isSilhouette: boolean;
+  width: number;
+  height: number;
+  texture: THREE.Texture | null;
+}> = ({ pokemon, isSilhouette, width, height, texture }) => {
+  return (
+    <group>
+      {/* Front Face (Artwork) */}
+      <mesh position={[0, 0, 0.01]}>
+        <planeGeometry args={[width * 1.3, height * 1.3]} />
+        {texture ? (
+          <meshStandardMaterial 
+            map={texture} 
+            transparent={true} 
+            side={THREE.DoubleSide} 
+            color={isSilhouette ? "#000000" : "#ffffff"}
+            depthWrite={true}
+          />
+        ) : (
+          <meshStandardMaterial color="#00f3ff" transparent={true} opacity={0.3} depthWrite={true} />
+        )}
+      </mesh>
+    </group>
+  );
+};
+
 interface CardProps {
   pokemon: Pokemon;
   isSelected: boolean;
@@ -330,33 +427,28 @@ const PokemonCard: React.FC<CardProps> = ({
           <meshBasicMaterial color="#00f3ff" side={THREE.DoubleSide} transparent={true} opacity={0.6} />
         </mesh>
 
-        {/* Front Face (Full Color, High Quality Artwork) */}
-        <mesh position={[0, 0, 0.01]}>
-          <planeGeometry args={[width * 1.3, height * 1.3]} />
-          {texture ? (
-            <meshStandardMaterial 
-              map={texture} 
-              transparent={true} 
-              side={THREE.DoubleSide} 
-              color={isSilhouette ? "#000000" : "#ffffff"}
-              depthWrite={true}
-              roughness={0.2}
-              metalness={0.1}
+        {/* 3D Model with Fallback to 2D Card */}
+        <ModelErrorBoundary fallback={
+          <CardFallback 
+            pokemon={pokemon} 
+            isSilhouette={isSilhouette} 
+            width={width} 
+            height={height} 
+            texture={texture} 
+          />
+        }>
+          <Suspense fallback={
+            <CardFallback 
+              pokemon={pokemon} 
+              isSilhouette={isSilhouette} 
+              width={width} 
+              height={height} 
+              texture={texture} 
             />
-          ) : (
-            <meshStandardMaterial color="#00f3ff" transparent={true} opacity={0.3} depthWrite={true} />
-          )}
-        </mesh>
-
-        {/* Back Face (Pokeball Back Face) */}
-        <mesh position={[0, 0, -0.01]} rotation={[0, Math.PI, 0]}>
-          <planeGeometry args={[width * 1.3, height * 1.3]} />
-          {backTexture ? (
-            <meshStandardMaterial map={backTexture} side={THREE.DoubleSide} roughness={0.3} metalness={0.1} />
-          ) : (
-            <meshStandardMaterial color="#ff1c46" side={THREE.DoubleSide} roughness={0.3} metalness={0.1} />
-          )}
-        </mesh>
+          }>
+            <PokemonModel id={pokemon.id} isSilhouette={isSilhouette} />
+          </Suspense>
+        </ModelErrorBoundary>
 
         {/* Thick Holographic Outer Frame */}
         <group position={[0, 0, 0]}>

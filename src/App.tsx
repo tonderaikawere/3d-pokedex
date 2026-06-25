@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { Pokedex3D } from './components/Pokedex3D';
 import { PokedexInterface } from './components/PokedexInterface';
-import { PokemonChat } from './components/PokemonChat';
 import { DexterSpeech } from './utils/speech';
 import pokemonDataRaw from './data/pokemon.json';
 
@@ -171,29 +170,6 @@ export const App: React.FC = () => {
         ) : (
           <div className="w-full h-full flex items-center justify-center font-cyber text-slate-500 tracking-widest uppercase text-[9px]">
             No matches found in database
-          </div>
-        )}
-        {/* Speech button */}
-        {selectedPokemon && (
-          <div className="absolute bottom-4 left-4">
-            <button
-              className="pokedex-btn-speak glassmorphic"
-              onClick={() => {
-                DexterSpeech.speakPokemonEntry(
-                  selectedPokemon.name,
-                  selectedPokemon.category,
-                  selectedPokemon.description
-                );
-              }}
-            >
-              Speak Description
-            </button>
-          </div>
-        )}
-        {/* Chat component */}
-        {selectedPokemon && (
-          <div className="absolute bottom-4 right-4 w-80">
-            <PokemonChat pokemon={selectedPokemon} />
           </div>
         )}
       </PokedexInterface>
