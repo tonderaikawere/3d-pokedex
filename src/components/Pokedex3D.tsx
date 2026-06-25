@@ -443,14 +443,18 @@ const PokemonCard: React.FC<CardProps> = ({
     if (!meshRef.current) return;
 
     const targetPos = new THREE.Vector3();
-    const targetRot = new THREE.Euler();
     const elapsed = clock.getElapsedTime();
 
     if (isSelected) {
       // Selected pokemon hovers above the rotating Pokeball on pedestal
       targetPos.set(0, 0.6 + Math.sin(elapsed * 1.5) * 0.12, 0);
-      // Slow rotation on Y axis for volumetric inspection
-      targetRot.set(0, elapsed * 0.45, 0);
+      
+      meshRef.current.position.lerp(targetPos, 0.1);
+      
+      // Rotate slowly and continuously to avoid quaternion wrapping and shaking
+      meshRef.current.rotation.y += 0.008;
+      meshRef.current.rotation.x = THREE.MathUtils.lerp(meshRef.current.rotation.x, 0, 0.1);
+      meshRef.current.rotation.z = THREE.MathUtils.lerp(meshRef.current.rotation.z, 0, 0.1);
     } else {
       // Spaced out in a curved holographic deck behind/below the scanner platform
       const radius = 9;
@@ -462,17 +466,18 @@ const PokemonCard: React.FC<CardProps> = ({
         -Math.cos(angle) * radius + 5
       );
       
-      targetRot.set(0, angle, 0);
-    }
+      meshRef.current.position.lerp(targetPos, 0.1);
 
-    // Smooth transition using linear interpolation
-    meshRef.current.position.lerp(targetPos, 0.1);
-    
-    // Quaternion slerp for rotation
-    const curQ = meshRef.current.quaternion.clone();
-    const targetQ = new THREE.Quaternion().setFromEuler(targetRot);
-    curQ.slerp(targetQ, 0.1);
-    meshRef.current.quaternion.copy(curQ);
+      // Wrap Y rotation to [-PI, PI] to make the return transition shortest-path
+      let currentY = meshRef.current.rotation.y % (Math.PI * 2);
+      if (currentY > Math.PI) currentY -= Math.PI * 2;
+      if (currentY < -Math.PI) currentY += Math.PI * 2;
+      meshRef.current.rotation.y = currentY;
+
+      meshRef.current.rotation.x = THREE.MathUtils.lerp(meshRef.current.rotation.x, 0, 0.1);
+      meshRef.current.rotation.y = THREE.MathUtils.lerp(meshRef.current.rotation.y, angle, 0.1);
+      meshRef.current.rotation.z = THREE.MathUtils.lerp(meshRef.current.rotation.z, 0, 0.1);
+    }
 
     // Scale card/cutout up if selected
     const targetScale = isSelected ? 1.4 : 0.85;
