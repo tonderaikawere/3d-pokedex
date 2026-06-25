@@ -231,11 +231,42 @@ const PokemonModel: React.FC<{ id: number; isSilhouette: boolean }> = ({ id, isS
     // Compute bounding box of only actual visible meshes to avoid including huge cameras/helpers
     let box = new THREE.Box3();
     let hasMesh = false;
+
+    // Rigged models (SkinnedMesh) can report massive bounding boxes in bind-pose.
+    // We compute a separate box of the bone hierarchy positions to verify the true scale.
+    let boneBox = new THREE.Box3();
+    let hasBones = false;
+    let isRigged = false;
     
     clonedScene.traverse((child) => {
+      // Check if it's a bone
+      if ((child as any).isBone || child.type === 'Bone') {
+        isRigged = true;
+        const worldPos = new THREE.Vector3();
+        child.getWorldPosition(worldPos);
+        if (!hasBones) {
+          boneBox.set(worldPos, worldPos);
+          hasBones = true;
+        } else {
+          boneBox.expandByPoint(worldPos);
+        }
+      }
+
       if ((child as THREE.Mesh).isMesh) {
         const name = child.name.toLowerCase();
-        if (name.includes('helper') || name.includes('camera') || name.includes('light')) return;
+        // Skip helper/camera/light objects, ground planes, or large shadows
+        if (
+          name.includes('helper') || 
+          name.includes('camera') || 
+          name.includes('light') ||
+          name.includes('plane') ||
+          name.includes('ground') ||
+          name.includes('shadow') ||
+          name.includes('collider') ||
+          name.includes('hitbox') ||
+          name.includes('collision') ||
+          name.includes('grid')
+        ) return;
         
         if (!hasMesh) {
           box.setFromObject(child);
@@ -248,6 +279,23 @@ const PokemonModel: React.FC<{ id: number; isSilhouette: boolean }> = ({ id, isS
 
     if (!hasMesh) {
       box.setFromObject(clonedScene);
+    }
+
+    // Apply self-correcting logic if the mesh bounding box is disproportionately huge compared to the bone armature
+    if (isRigged && hasBones) {
+      const meshSize = new THREE.Vector3();
+      box.getSize(meshSize);
+      const boneSize = new THREE.Vector3();
+      boneBox.getSize(boneSize);
+      
+      const maxMeshDim = Math.max(meshSize.x, meshSize.y, meshSize.z);
+      const maxBoneDim = Math.max(boneSize.x, boneSize.y, boneSize.z);
+      
+      if (maxMeshDim > maxBoneDim * 3.0) {
+        box = boneBox;
+        // Expand the bone box slightly to account for the skin thickness
+        box.expandByScalar(maxBoneDim * 0.15);
+      }
     }
 
     const size = new THREE.Vector3();
