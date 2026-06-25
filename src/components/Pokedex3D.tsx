@@ -116,31 +116,31 @@ const Pokeball3D: React.FC = () => {
       {/* Top half (Red) */}
       <mesh position={[0, 0, 0]}>
         <sphereGeometry args={[1.5, 32, 16, 0, Math.PI * 2, 0, Math.PI / 2]} />
-        <meshPhongMaterial color="#ff1c46" shininess={100} />
+        <meshStandardMaterial color="#ff1c46" roughness={0.3} metalness={0.1} emissive="#ff1c46" emissiveIntensity={0.25} />
       </mesh>
       
       {/* Bottom half (White) */}
       <mesh position={[0, 0, 0]}>
         <sphereGeometry args={[1.5, 32, 16, 0, Math.PI * 2, Math.PI / 2, Math.PI / 2]} />
-        <meshPhongMaterial color="#ffffff" shininess={100} />
+        <meshStandardMaterial color="#ffffff" roughness={0.3} metalness={0.1} emissive="#ffffff" emissiveIntensity={0.15} />
       </mesh>
       
       {/* Black middle divider ring */}
       <mesh position={[0, 0, 0]} rotation={[Math.PI / 2, 0, 0]}>
         <cylinderGeometry args={[1.52, 1.52, 0.1, 32]} />
-        <meshPhongMaterial color="#111111" shininess={50} />
+        <meshStandardMaterial color="#111111" roughness={0.5} metalness={0.1} />
       </mesh>
       
       {/* Center button outline (Black) */}
       <mesh position={[0, 0, 1.45]} rotation={[Math.PI / 2, 0, 0]}>
         <cylinderGeometry args={[0.32, 0.32, 0.12, 32]} />
-        <meshPhongMaterial color="#111111" shininess={50} />
+        <meshStandardMaterial color="#111111" roughness={0.5} metalness={0.1} />
       </mesh>
 
       {/* Center button (White/Light Cyan glow) */}
       <mesh position={[0, 0, 1.51]} rotation={[Math.PI / 2, 0, 0]}>
         <cylinderGeometry args={[0.18, 0.18, 0.08, 32]} />
-        <meshBasicMaterial color="#e0f7fa" />
+        <meshStandardMaterial color="#e0f7fa" roughness={0.1} metalness={0.1} emissive="#00f3ff" emissiveIntensity={0.8} />
       </mesh>
     </group>
   );
@@ -314,60 +314,58 @@ const PokemonCard: React.FC<CardProps> = ({
       }}>
         {/* Cylindrical scanning beam projection grid */}
         <mesh position={[0, -0.6, 0]}>
-          <cylinderGeometry args={[1.3, 1.5, 3.2, 16, 3, true]} />
+          <cylinderGeometry args={[1.4, 1.6, 3.4, 16, 3, true]} />
           <meshBasicMaterial 
             color="#00f3ff" 
             wireframe={true} 
             transparent={true} 
-            opacity={0.06} 
+            opacity={0.08} 
             side={THREE.DoubleSide} 
           />
         </mesh>
 
-        {/* Small floating ring at the base of the cutout */}
+        {/* Small floating ring at the base of the card */}
         <mesh position={[0, -height * 0.52, 0]} rotation={[-Math.PI / 2, 0, 0]}>
-          <ringGeometry args={[0.9, 1.0, 32]} />
-          <meshBasicMaterial color="#00f3ff" side={THREE.DoubleSide} transparent={true} opacity={0.5} />
+          <ringGeometry args={[1.0, 1.1, 32]} />
+          <meshBasicMaterial color="#00f3ff" side={THREE.DoubleSide} transparent={true} opacity={0.6} />
         </mesh>
 
-        {/* Volumetric Cross-mesh Plane 1 (Front/Back) */}
-        <mesh position={[0, 0, 0]}>
+        {/* Front Face (Full Color, High Quality Artwork) */}
+        <mesh position={[0, 0, 0.01]}>
           <planeGeometry args={[width * 1.3, height * 1.3]} />
           {texture ? (
-            <meshPhongMaterial 
+            <meshStandardMaterial 
               map={texture} 
               transparent={true} 
               side={THREE.DoubleSide} 
               color={isSilhouette ? "#000000" : "#ffffff"}
-              depthWrite={false}
-              emissive={isSilhouette ? "#000000" : "#00f3ff"}
-              emissiveIntensity={isSilhouette ? 0 : 0.22}
-              shininess={30}
+              depthWrite={true}
+              roughness={0.2}
+              metalness={0.1}
             />
           ) : (
-            <meshPhongMaterial color="#00f3ff" transparent={true} opacity={0.3} depthWrite={false} />
+            <meshStandardMaterial color="#00f3ff" transparent={true} opacity={0.3} depthWrite={true} />
           )}
         </mesh>
 
-        {/* Volumetric Cross-mesh Plane 2 (Left/Right) */}
-        <mesh position={[0, 0, 0]} rotation={[0, Math.PI / 2, 0]}>
+        {/* Back Face (Pokeball Back Face) */}
+        <mesh position={[0, 0, -0.01]} rotation={[0, Math.PI, 0]}>
           <planeGeometry args={[width * 1.3, height * 1.3]} />
-          {texture ? (
-            <meshPhongMaterial 
-              map={texture} 
-              transparent={true} 
-              side={THREE.DoubleSide} 
-              color={isSilhouette ? "#000000" : "#ffffff"}
-              depthWrite={false}
-              emissive={isSilhouette ? "#000000" : "#00f3ff"}
-              emissiveIntensity={isSilhouette ? 0 : 0.15}
-              shininess={30}
-              opacity={0.65}
-            />
+          {backTexture ? (
+            <meshStandardMaterial map={backTexture} side={THREE.DoubleSide} roughness={0.3} metalness={0.1} />
           ) : (
-            <meshPhongMaterial color="#00f3ff" transparent={true} opacity={0.2} depthWrite={false} />
+            <meshStandardMaterial color="#ff1c46" side={THREE.DoubleSide} roughness={0.3} metalness={0.1} />
           )}
         </mesh>
+
+        {/* Thick Holographic Outer Frame */}
+        <group position={[0, 0, 0]}>
+          <CardFrame 
+            width={width * 1.3} 
+            height={height * 1.3} 
+            color="#00f3ff" 
+          />
+        </group>
 
         {/* Scanning laser beam sweep */}
         <ScanningBeam width={width * 1.3} height={height * 1.3} />
@@ -543,16 +541,17 @@ export const Pokedex3D: React.FC<Pokedex3DProps> = ({
       {/* Floating instructions overlay */}
       <div style={{
         position: 'absolute',
-        bottom: '22%',
+        bottom: '4%',
         left: '50%',
         transform: 'translateX(-50%)',
         fontFamily: 'var(--font-cyber)',
-        fontSize: '11px',
+        fontSize: '9px',
         color: 'var(--text-secondary)',
         letterSpacing: '2px',
         pointerEvents: 'none',
         textTransform: 'uppercase',
-        textShadow: '0 0 5px rgba(0,0,0,0.9)'
+        textShadow: '0 0 5px rgba(0,0,0,0.9)',
+        opacity: 0.65
       }}>
         Drag to Orbit • Scroll to Zoom • Click Cards to Scan
       </div>
