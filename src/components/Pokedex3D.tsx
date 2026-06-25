@@ -442,18 +442,30 @@ export const Pokedex3D: React.FC<Pokedex3DProps> = ({
   const visibleCards = useMemo(() => {
     if (pokemonList.length === 0) return [];
     
+    // For small lists, render unique items spaced relative to the active card
+    if (pokemonList.length <= 5) {
+      return pokemonList.map((pokemon, idx) => ({
+        pokemon,
+        offsetIndex: idx - activeIndex
+      }));
+    }
+    
     const cards: { pokemon: Pokemon; offsetIndex: number }[] = [];
+    const addedIds = new Set<number>();
     
     for (let i = -halfWindow; i <= halfWindow; i++) {
       let idx = (activeIndex + i) % pokemonList.length;
       if (idx < 0) idx += pokemonList.length;
       
-      // Check for bounds if list is very small
       if (pokemonList[idx]) {
-        cards.push({
-          pokemon: pokemonList[idx],
-          offsetIndex: i
-        });
+        const id = pokemonList[idx].id;
+        if (!addedIds.has(id)) {
+          addedIds.add(id);
+          cards.push({
+            pokemon: pokemonList[idx],
+            offsetIndex: i
+          });
+        }
       }
     }
     

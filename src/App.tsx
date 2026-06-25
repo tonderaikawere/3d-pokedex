@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Pokedex3D } from './components/Pokedex3D';
 import { PokedexInterface } from './components/PokedexInterface';
 import { PokemonChat } from './components/PokemonChat';
@@ -85,14 +85,26 @@ export const App: React.FC = () => {
   };
 
   // Filter Pokemon based on search query and selected type
-  const filteredPokemon = pokemonData.filter((pokemon) => {
-    const matchesSearch = pokemon.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
-                          String(pokemon.id).includes(searchQuery);
-    
-    const matchesType = selectedType === 'all' || pokemon.types.includes(selectedType.toLowerCase());
+  const filteredPokemon = useMemo(() => {
+    return pokemonData.filter((pokemon) => {
+      const matchesSearch = pokemon.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                            String(pokemon.id).includes(searchQuery);
+      
+      const matchesType = selectedType === 'all' || pokemon.types.includes(selectedType.toLowerCase());
 
-    return matchesSearch && matchesType;
-  });
+      return matchesSearch && matchesType;
+    });
+  }, [pokemonData, searchQuery, selectedType]);
+
+  // Automatically select the first match if the current selected ID is filtered out
+  useEffect(() => {
+    if (filteredPokemon.length > 0) {
+      const isStillVisible = filteredPokemon.some(p => p.id === selectedId);
+      if (!isStillVisible) {
+        setSelectedId(filteredPokemon[0].id);
+      }
+    }
+  }, [filteredPokemon, selectedId]);
 
   const selectedPokemon = pokemonData.find(p => p.id === selectedId) || null;
 
