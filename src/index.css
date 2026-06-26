@@ -336,7 +336,9 @@ body {
 /* Red Metallic Shell base */
 .pokedex-left-wing, .pokedex-right-wing {
   flex: 1;
-  background: linear-gradient(145deg, #dd1c35 0%, #b80d22 40%, #8b0412 85%, #6a010a 100%);
+  background: 
+    repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.015) 0px, rgba(0, 0, 0, 0.015) 2px, transparent 2px, transparent 4px),
+    linear-gradient(145deg, #e6223d 0%, #b80d22 40%, #8b0412 85%, #6a010a 100%);
   border: 5px solid #3d0005;
   padding: 12px 12px 10px 12px;
   display: flex;
@@ -431,12 +433,24 @@ body {
   box-shadow: inset 0 1.5px 3px rgba(255,255,255,0.6);
 }
 
-.led-red { background: #ff2233; box-shadow: 0 0 8px #ff2233; }
-.led-yellow { background: #ffcc00; box-shadow: 0 0 8px #ffcc00; }
-.led-green { background: #11ff33; box-shadow: 0 0 8px #11ff33; }
+.led-red { 
+  background: #ff2233; 
+  box-shadow: 0 0 6px #ff2233, inset 0 1px 2px rgba(255,255,255,0.6); 
+  animation: red-blink-glowing 2s infinite ease-in-out;
+}
+.led-yellow { 
+  background: #ffcc00; 
+  box-shadow: 0 0 6px #ffcc00, inset 0 1px 2px rgba(255,255,255,0.6); 
+  animation: yellow-blink-glowing 2.5s infinite ease-in-out;
+}
+.led-green { 
+  background: #11ff33; 
+  box-shadow: 0 0 6px #11ff33, inset 0 1px 2px rgba(255,255,255,0.6); 
+  animation: green-blink-glowing 1.8s infinite ease-in-out;
+}
 
 .led-red.pulsing {
-  animation: led-blink 0.8s infinite alternate;
+  animation: red-blink-glowing 0.5s infinite alternate;
 }
 
 @keyframes led-blink {
@@ -446,12 +460,14 @@ body {
 
 /* Screen Bezel & Screen Area */
 .left-wing-screen-bezel {
-  background: linear-gradient(135deg, #cfcfcf 0%, #aeaeae 100%);
-  border: 4px solid #3d0005;
+  background: 
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.01) 0px, rgba(255,255,255,0.01) 1px, transparent 1px, transparent 2px),
+    linear-gradient(135deg, #e6e6e6 0%, #b2b2b2 100%);
+  border: 4px solid #2a0003;
   border-radius: 12px;
   padding: 10px 10px 8px 10px;
   position: relative;
-  box-shadow: inset 2px 2px 8px rgba(0,0,0,0.4), 0 6px 12px rgba(0,0,0,0.4);
+  box-shadow: inset 1px 1px 3px rgba(255,255,255,0.8), inset -1px -1px 3px rgba(0,0,0,0.4), 0 6px 12px rgba(0,0,0,0.4);
   display: flex;
   flex-direction: column;
   flex: 1 1 215px;
@@ -474,11 +490,19 @@ body {
   border-radius: 50%;
   border: 2px solid #333;
 }
-.red-led { background: #ff2222; box-shadow: 0 0 4px #ff2222; }
-.green-led { background: #00ff22; box-shadow: 0 0 4px #00ff22; }
+.red-led { 
+  background: #ff2222; 
+  box-shadow: 0 0 4px #ff2222, inset 0 1px 2px rgba(255,255,255,0.6); 
+  animation: red-blink-glowing 1.5s infinite ease-in-out;
+}
+.green-led { 
+  background: #00ff22; 
+  box-shadow: 0 0 4px #00ff22, inset 0 1px 2px rgba(255,255,255,0.6); 
+  animation: green-blink-glowing 2s infinite ease-in-out;
+}
 
 .red-led.blinking {
-  animation: led-blink-fast 0.5s infinite alternate;
+  animation: red-blink-glowing 0.4s infinite alternate;
 }
 
 @keyframes led-blink-fast {
@@ -626,11 +650,17 @@ body {
   width: 52px;
   height: 10px;
   border-radius: 5px;
-  border: 2px solid #222;
-  box-shadow: inset 0 1.5px 2px rgba(255,255,255,0.5);
+  border: 2px solid #111;
+  box-shadow: inset 0 1.5px 3px rgba(255,255,255,0.4), 0 2px 4px rgba(0,0,0,0.4);
 }
-.bar-red { background: #ff2222; }
-.bar-blue { background: #0088ff; }
+.bar-red { 
+  background: linear-gradient(to right, #ff2222, #ff6666); 
+  box-shadow: 0 0 8px rgba(255, 34, 34, 0.7), inset 0 1px 2px rgba(255,255,255,0.6);
+}
+.bar-blue { 
+  background: linear-gradient(to right, #0055ff, #00ddff); 
+  box-shadow: 0 0 8px rgba(0, 85, 255, 0.7), inset 0 1px 2px rgba(255,255,255,0.6);
+}
 
 /* RIGHT WING - Secondary display */
 .right-wing-screen-bezel {
@@ -679,21 +709,41 @@ body {
 
 .keypad-blue-key {
   height: 26px;
-  background: linear-gradient(to bottom, #4da6ff, #005ce6);
-  border: 3px solid #111;
+  background: linear-gradient(135deg, #1c75ff 0%, #004ecc 100%);
+  border: 2.5px solid #111;
   border-radius: 6px;
-  box-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  box-shadow: 
+    inset 0 1.5px 3px rgba(255,255,255,0.45), 
+    inset 0 -1.5px 3px rgba(0,0,0,0.4), 
+    0 3px 5px rgba(0,0,0,0.5);
   cursor: pointer;
-  transition: transform 0.1s, filter 0.1s;
+  transition: all 0.15s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.keypad-blue-key::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 50%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.25), transparent);
+  pointer-events: none;
 }
 
 .keypad-blue-key:hover {
-  filter: brightness(1.15);
+  filter: brightness(1.2);
+  box-shadow: 
+    inset 0 1.5px 3px rgba(255,255,255,0.6), 
+    0 0 10px rgba(28, 117, 255, 0.8),
+    0 3px 5px rgba(0,0,0,0.5);
 }
 
 .keypad-blue-key:active {
-  background: #0047b3;
-  transform: translateY(1px);
+  background: #003aa6;
+  transform: scale(0.95);
+  box-shadow: 
+    inset 0 2px 4px rgba(0,0,0,0.6),
+    0 1px 2px rgba(0,0,0,0.5);
 }
 
 /* Right Wing Bottom Controls */
@@ -736,6 +786,12 @@ body {
   transform: scale(1.03);
 }
 
+.speaker-grill.speaking-active .speaker-hole {
+  background: #ffcc00;
+  box-shadow: 0 0 4px #ffcc00;
+  animation: speaker-hole-glow 0.3s infinite alternate;
+}
+
 .speaker-hole {
   width: 5px;
   height: 5px;
@@ -758,24 +814,41 @@ body {
   font-weight: bold;
   letter-spacing: 1.5px;
   color: #fff;
-  background: linear-gradient(180deg, #ff3355, #cc0029);
-  border: 3px solid #111;
+  background: linear-gradient(180deg, #ff3c5f 0%, #cc0029 100%);
+  border: 2.5px solid #111;
   border-radius: 6px;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+  box-shadow: 
+    inset 0 1.5px 3px rgba(255,255,255,0.4), 
+    0 3px 5px rgba(0,0,0,0.4);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  transition: transform 0.1s;
+  transition: all 0.15s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.pokedex-btn-voice::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 50%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), transparent);
+  pointer-events: none;
 }
 
 .pokedex-btn-voice:hover {
-  background: linear-gradient(180deg, #ff4d6d, #e6002e);
+  background: linear-gradient(180deg, #ff5577 0%, #e6002f 100%);
+  box-shadow: 
+    inset 0 1.5px 3px rgba(255,255,255,0.5), 
+    0 0 8px rgba(255, 60, 95, 0.6),
+    0 3px 5px rgba(0,0,0,0.4);
 }
 
 .pokedex-btn-voice:active {
   transform: scale(0.96);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.6);
 }
 
 .pokedex-btn-voice.active-listening {
@@ -794,13 +867,29 @@ body {
   font-family: var(--font-cyber);
   font-size: 8px;
   font-weight: bold;
-  color: #fff;
-  background: linear-gradient(to bottom, #444, #2a2a2a);
-  border: 3px solid #111;
+  color: #8f9bb3;
+  background: linear-gradient(to bottom, #333 0%, #1c1c1c 100%);
+  border: 2.5px solid #111;
   border-radius: 6px;
   cursor: pointer;
-  transition: all 0.1s;
-  box-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+  transition: all 0.15s ease-in-out;
+  box-shadow: 
+    inset 0 1px 2px rgba(255,255,255,0.15), 
+    0 2px 4px rgba(0,0,0,0.4);
+  text-shadow: 0 -1px 0 rgba(0,0,0,0.8);
+}
+
+.pokedex-btn-mode:hover {
+  color: #fff;
+  background: linear-gradient(to bottom, #444 0%, #252525 100%);
+}
+
+.pokedex-btn-mode.active {
+  background: linear-gradient(to bottom, #00ff66 0%, #009933 100%);
+  border-color: #00ff66;
+  color: #000;
+  box-shadow: 0 0 10px rgba(0, 255, 102, 0.8), inset 0 1px 2px rgba(255,255,255,0.5);
+  text-shadow: none;
 }
 
 .pokedex-btn-mode:hover {
@@ -1247,3 +1336,82 @@ body {
   margin-top: 10px;
   display: inline-block;
 }
+
+/* ==========================================================================
+   AESTHETIC POLISH & DYNAMIC UPGRADES
+   ========================================================================== */
+
+/* Glowing LED blink keyframes */
+@keyframes red-blink-glowing {
+  0%, 100% { background: #5a0004; box-shadow: 0 0 0px transparent; }
+  50% { background: #ff2233; box-shadow: 0 0 8px #ff2233, 0 0 15px rgba(255, 34, 51, 0.5); }
+}
+
+@keyframes green-blink-glowing {
+  0%, 100% { background: #003a08; box-shadow: 0 0 0px transparent; }
+  50% { background: #00ff22; box-shadow: 0 0 8px #00ff22, 0 0 15px rgba(0, 255, 34, 0.5); }
+}
+
+@keyframes yellow-blink-glowing {
+  0%, 100% { background: #4d3a00; box-shadow: 0 0 0px transparent; }
+  50% { background: #ffcc00; box-shadow: 0 0 8px #ffcc00, 0 0 15px rgba(255, 204, 0, 0.5); }
+}
+
+@keyframes speaker-hole-glow {
+  0% { background: #111; box-shadow: none; }
+  100% { background: #ffbe0f; box-shadow: 0 0 6px #ffbe0f; }
+}
+
+/* D-pad direction indicators (Arrows) */
+.dpad-up::after {
+  content: '';
+  position: absolute;
+  top: 40%; left: 50%;
+  transform: translate(-50%, -50%);
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 6px solid #888;
+  transition: border-bottom-color 0.1s;
+}
+
+.dpad-down::after {
+  content: '';
+  position: absolute;
+  top: 60%; left: 50%;
+  transform: translate(-50%, -50%);
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid #888;
+  transition: border-top-color 0.1s;
+}
+
+.dpad-left::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 40%;
+  transform: translate(-50%, -50%);
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-right: 6px solid #888;
+  transition: border-right-color 0.1s;
+}
+
+.dpad-right::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 60%;
+  transform: translate(-50%, -50%);
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 6px solid #888;
+  transition: border-left-color 0.1s;
+}
+
+.dpad-btn:active::after {
+  border-bottom-color: var(--neon-cyan);
+  border-top-color: var(--neon-cyan);
+  border-left-color: var(--neon-cyan);
+  border-right-color: var(--neon-cyan);
+  filter: drop-shadow(0 0 3px var(--neon-cyan));
+}
+
