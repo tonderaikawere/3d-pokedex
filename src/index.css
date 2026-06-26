@@ -59,8 +59,8 @@ body {
   color: var(--text-primary);
   font-family: var(--font-ui);
   overflow: hidden;
-  height: 100vh;
-  width: 100vw;
+  height: 100dvh;
+  width: 100dvw;
   user-select: none;
   position: relative;
 }
@@ -312,8 +312,8 @@ body {
    AUTHENTIC KANTO POKEDEX PHYSICAL LAYOUT & STYLING
    ========================================================================== */
 .pokedex-container-wrapper {
-  width: 100vw;
-  height: 100vh;
+  width: 100dvw;
+  height: 100dvh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -907,8 +907,8 @@ body {
    VANILLA CSS LAYOUT DEFINITIONS (Replacing Tailwind Utilities)
    ========================================================================== */
 .pokedex-loading-screen {
-  width: 100vw;
-  height: 100vh;
+  width: 100dvw;
+  height: 100dvh;
   background-color: #08080f;
   display: flex;
   flex-direction: column;
@@ -985,8 +985,8 @@ body {
 }
 
 .pokedex-app-container {
-  width: 100vw;
-  height: 100vh;
+  width: 100dvw;
+  height: 100dvh;
   background-color: #0d0f14;
   overflow: hidden;
   position: relative;
@@ -1230,7 +1230,7 @@ body {
 @media (max-width: 1024px) {
   .pokedex-container-wrapper {
     padding: 12px;
-    height: 100vh;
+    height: 100dvh;
     align-items: flex-start;
     overflow-y: auto;
   }
