@@ -656,7 +656,7 @@ export const Pokedex3D: React.FC<Pokedex3DProps> = ({
   return (
     <div style={{ width: '100%', height: '100%', position: 'relative', overflow: 'hidden' }}>
       <Canvas
-        camera={{ position: [0, 0.6, 6.5], fov: 45 }}
+        camera={{ position: [0, 0.6, 4.5], fov: 45 }}
         gl={{ antialias: true, alpha: true }}
       >
         <color attach="background" args={['#0f1c24']} />
